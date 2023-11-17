@@ -21,5 +21,10 @@ const config = defineNuxtConfig({
         }
       }
     }
-  }
+  },
+  modules: [
+    '@pinia/nuxt'
+  ]
 });
+
+export default config;
