@@ -1,0 +1,21 @@
+//colors
+@import './colorVariables';
+// font-family
+@import './fonts';
+//externalVariables
+@import './externalVariables';
+// fontFamily
+@import './fonts';
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: $font;
+}
+
+
+p, h2, h3, h4, h5, h6, a{
+  color: $black;
+  font-family: $font;
+}
+
