@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import TheHeader from '@/layouts/web/TheHeader.vue';
-
+import TheFooter from '@/layouts/web/TheFooter.vue';
 </script>
 
 
@@ -10,6 +10,7 @@ import TheHeader from '@/layouts/web/TheHeader.vue';
     <div class="app-container-view">
       <slot />
     </div>
+    <TheFooter/>
   </div>
 </template>
 
