@@ -27,11 +27,8 @@ const changeImageAutomatically = () => {
   nextImage();
 };
 
-const currentImage = computed(() => images.value[currentImageIndex.value]);
-
-
 onMounted(() => {
-  intervalId = setInterval(changeImageAutomatically, 2000);
+  intervalId = setInterval(changeImageAutomatically, 3000);
 });
 
 
@@ -42,7 +39,15 @@ onUnmounted(() => {
 
 <template>
   <div class="carousel-container">
-    <div class="carousel-slide" :style="{ backgroundImage: `url(${currentImage})` }"></div>
+    <div class="carousel-slide">
+      <div
+        class="image"
+        v-for="(image, index) in images"
+        :key="index"
+        :style="{ backgroundImage: `url(${image})` }"
+        :class="{ active: currentImageIndex === index }"
+      ></div>
+    </div>
     <button class="carousel-control left" @click="prevImage">&#60;</button>
     <button class="carousel-control right" @click="nextImage">&#62;</button>
     <div class="carousel-indicators">
@@ -61,13 +66,26 @@ onUnmounted(() => {
 .carousel-container {
   position: relative;
   width: 100%;
-  height: 300px; // Ajusta la altura según tus necesidades
+  height: 300px;
 
   .carousel-slide {
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
+    .image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      transition: opacity 1s ease-in-out;
+      opacity: 0;
+
+      &.active {
+        opacity: 1;
+      }
+    }
   }
 
   .carousel-control {
