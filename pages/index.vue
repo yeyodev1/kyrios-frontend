@@ -52,7 +52,7 @@ const diagnosticSteps = [
       imageUrl="https://i.pinimg.com/236x/de/fc/f9/defcf9f27f764817f946415e87c19e67.jpg"
       buttonText="Agendar capacitación" 
       link="/" />
-    <Contact />
+    <ContactCard />
   </div>
 </template>
 

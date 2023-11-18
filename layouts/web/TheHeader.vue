@@ -16,7 +16,7 @@ const menuItems = [
     name: 'Boletines'
   },
   {
-    link: '/',
+    link: '/contact',
     name: 'Contacto'
   },
   {
