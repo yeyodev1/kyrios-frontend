@@ -41,5 +41,7 @@
   display: flex;
   flex-direction: column;
   gap: 80px;
+  justify-content: center;
+  align-items: center;
 }
 </style>
