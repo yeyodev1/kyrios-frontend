@@ -41,9 +41,16 @@ const diagnosticSteps = [
       buttonText="Agendar consultoría" 
       link="/" 
       :inverted="true"/>
-      <DiagnosticSteps
-        :steps="diagnosticSteps"
-        buttonText="Empezar diagnóstico"/>
+    <DiagnosticSteps
+      :steps="diagnosticSteps"
+      buttonText="Empezar diagnóstico"/>
+    <CallToAction
+      title="Capacitación"
+      subtitle=""
+      content="Formamos a las personas en cualquier tema. Somos conscientes de que la organización requiere colaboradores competentes para desempeñar las responsabilidades diarias y cumplir con sus funciones de manera integral, con el fin de respaldar la consecución de los objetivos de la organización. De esta manera, logramos la mejora continua."
+      imageUrl="https://i.pinimg.com/236x/de/fc/f9/defcf9f27f764817f946415e87c19e67.jpg"
+      buttonText="Agendar capacitación" 
+      link="/" />
   </div>
 </template>
 
@@ -51,6 +58,7 @@ const diagnosticSteps = [
 .container {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 80px;
+  padding: 24px;
 }
 </style>
