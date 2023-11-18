@@ -35,7 +35,6 @@ const props = defineProps({
 <style lang="scss" scoped>
 .diagnostic-container {
   text-align: center;
-  padding: 20px;
 
   .diagnostic-title {
     margin: 20px 0;

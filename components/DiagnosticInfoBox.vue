@@ -27,7 +27,6 @@ const props = defineProps({
 .info-box {
   padding: 20px;
   border-radius: 8px;
-  margin: 20px;
   overflow: hidden;
 
   .content {
