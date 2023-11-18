@@ -62,7 +62,7 @@ const props = defineProps({
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: $tablet-upper-breakpoint) {
   .info-box {
     .content {
       .title {

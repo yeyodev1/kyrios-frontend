@@ -10,13 +10,16 @@ const props = defineProps({
   link: {
     type: String,
     required: true
-  }
+  },
+  inverted: Boolean
 })
 </script>
 
 
 <template>
-  <div class="component-container">
+  <div
+    :class="{ inverted: inverted }" 
+    class="component-container">
     <div class="text-content">
       <h2 class="title">{{ title }}</h2>
       <p class="subtitle">{{ subtitle }}</p>
@@ -40,8 +43,13 @@ const props = defineProps({
   border-radius: 8px;
   overflow: hidden;
   justify-content: center;
+  &.inverted { 
+    @media (min-width: $tablet-upper-breakpoint) {
+      flex-direction: row-reverse;
+    }
+  }
 
-  @media (min-width: 768px) {
+  @media (min-width: $tablet-upper-breakpoint) {
     flex-direction: row;
   }
 
@@ -55,13 +63,13 @@ const props = defineProps({
 
     .title {
       color: #333;
-      font-size: 24px;
+      font-size: $h2-font-size;
       font-weight: bold;
     }
 
     .subtitle {
       color: #666;
-      font-size: 18px;
+      font-size: $body-font-size;
       margin: 10px 0;
     }
 
