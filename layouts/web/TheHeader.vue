@@ -8,7 +8,7 @@ const menuItems = [
     name: 'inicio'
   },
   {
-    link: '/',
+    link: '/services',
     name: 'Servicios'
   },
   {
