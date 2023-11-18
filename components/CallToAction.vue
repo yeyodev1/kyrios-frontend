@@ -80,6 +80,7 @@ const props = defineProps({
       cursor: pointer;
       margin-top: 20px;
       transition: background-color 0.3s;
+      text-decoration: none;
 
       &:hover {
         background-color: darken($blue, 10%);
