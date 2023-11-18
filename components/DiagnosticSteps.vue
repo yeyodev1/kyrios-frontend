@@ -1,3 +1,19 @@
+<script setup>
+import { defineProps } from 'vue';
+
+const props = defineProps({
+  steps: {
+    type: Array,
+    required: true,
+    default: () => [],
+  },
+  buttonText: {
+    type: String,
+    required: true
+  }
+});
+</script>
+
 <template>
   <div class="diagnostic-container">
     <h2 class="diagnostic-title">Obtén tu diagnóstico en 3 pasos:</h2>
@@ -16,25 +32,12 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { defineProps } from 'vue';
-
-const props = defineProps({
-  steps: {
-    type: Array,
-    required: true,
-    default: () => [],
-  },
-  buttonText: {
-    type: String,
-    required: true
-  }
-});
-</script>
 
 <style lang="scss" scoped>
 .diagnostic-container {
   text-align: center;
+  align-items: center;
+  padding: 24px;
 
   .diagnostic-title {
     margin: 20px 0;
@@ -48,6 +51,7 @@ const props = defineProps({
     justify-content: center;
     gap: 20px;
     margin-bottom: 20px;
+    width: 100%;
 
     .step-box {
       background-color: $green; 

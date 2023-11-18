@@ -71,6 +71,9 @@ const submitForm = () => {
   padding: 20px;
   background-color: $green;
   border-radius: 8px;
+  margin: 24px;
+  max-width: $desktop-lower-breakpoint;
+  margin: 0 auto;
 
   @media (min-width: 768px) {
     flex-direction: row;

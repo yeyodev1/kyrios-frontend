@@ -42,7 +42,9 @@ const props = defineProps({
   align-items: center;
   border-radius: 8px;
   overflow: hidden;
-  justify-content: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: $desktop-lower-breakpoint;
   &.inverted { 
     @media (min-width: $tablet-upper-breakpoint) {
       flex-direction: row-reverse;
@@ -76,6 +78,7 @@ const props = defineProps({
     .content {
       color: #333;
       margin: 10px 0;
+      font-size: $body-font-size;
     }
 
     .action-button {

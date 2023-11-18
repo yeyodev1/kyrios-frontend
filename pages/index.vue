@@ -21,6 +21,7 @@ const diagnosticSteps = [
 </script>
 <template>
   <div class="container">
+    <TheHero />
     <CallToAction
       title="Evaluación y  Desarrollo de Proveedores y Auditorías"
       subtitle="Frame 1130 (Audiconfian S.A.)"
@@ -60,6 +61,7 @@ const diagnosticSteps = [
   display: flex;
   flex-direction: column;
   gap: 80px;
-  padding: 24px;
+  justify-content: center;
+  align-items: center;
 }
 </style>
