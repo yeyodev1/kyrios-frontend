@@ -15,6 +15,7 @@
   display: flex;
   flex-direction: column;
   background-color: $white;
+  overflow-x: hidden;
   &-view{
     flex: 1;
   }

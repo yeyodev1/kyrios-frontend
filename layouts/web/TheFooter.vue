@@ -20,13 +20,13 @@ const services = [
 const socialIcons = [
   {
     link: 'https://t.me/+tovWKux6aU85NDlh',
-    iconClass: '<i class="fa-regular fa-envelope" />',
+    iconClass:"fa-regular fa-envelope" ,
   }, {
     link: 'https://t.me/+tovWKux6aU85NDlh',
-    iconClass: '<i class="fa-brands fa-whatsapp" />'
+    iconClass:"fa-brands fa-whatsapp" 
   }, {
     link: 'https://t.me/+tovWKux6aU85NDlh',
-    iconClass: '<i class="fa-brands fa-facebook" />'
+    iconClass:"fa-brands fa-facebook"
   }
 ]
 </script>
@@ -41,7 +41,7 @@ const socialIcons = [
             v-for="(icon, index) in socialIcons" :key="index" :href="icon.link" target="_blank">
             <span
               :style="{ color: 'white' }"
-              v-html="icon.iconClass" />      
+              :class="icon.iconClass" />      
           </a>
         </template>
         <template #footer-links>
