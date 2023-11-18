@@ -12,7 +12,7 @@ const menuItems = [
     name: 'Servicios'
   },
   {
-    link: '/',
+    link: '/boletines',
     name: 'Boletines'
   },
   {
