@@ -37,10 +37,9 @@ const props = defineProps({
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #f5f5f5;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
+  justify-content: center;
 
   @media (min-width: 768px) {
     flex-direction: row;

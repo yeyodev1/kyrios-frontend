@@ -11,12 +11,6 @@ const props = defineProps({
     required: true,
   }
 })
-
-const emits = defineEmits(['start'])
-
-const startDiagnostic = () => {
-  emits('start')
-}
 </script>
 
 <template>
@@ -24,7 +18,7 @@ const startDiagnostic = () => {
     <div class="content">
       <h2 class="title">{{ title }}</h2>
       <p class="description">{{ description }}</p>
-      <RouterLink :to="link" class="diagnostic-button" @click="startDiagnostic">{{ buttonText }}</RouterLink>
+      <RouterLink :to="link" class="diagnostic-button">{{ buttonText }}</RouterLink>
     </div>
   </div>
 </template>
@@ -33,7 +27,6 @@ const startDiagnostic = () => {
 .info-box {
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: 20px;
   overflow: hidden;
 
