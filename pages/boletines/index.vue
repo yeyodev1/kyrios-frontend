@@ -6,16 +6,15 @@ const boletinesStore = useBoletinesStore();
 const route = useRoute()
 
 onMounted(async() => {
-  console.log('todos los boletines')
   await boletinesStore.getAllBoletines();
-  console.log(boletinesStore.allBoletines)
 })
-
 </script>
 
 <template>
   <div class="container">
-    <p class="container-title">Boletines</p>
+    <p class="container-title">
+      Boletines
+    </p>
     <p class="container-text">
       Mantente al tanto de la información sobre estándares, regulaciones y mejores prácticas internacionales para alcanzar tus objetivos de certificación y mejora de procesos
     </p>
@@ -25,7 +24,7 @@ onMounted(async() => {
         :key="index"
         :imageUrl="empresarios"
         :title="boletin.content.title"
-        :date="boletin.content.date"
+        :date="boletin.content.date.split(' ')[0]"
         :link="`${route.path}/${boletin.id.toString()}`" />
     </div>
   </div>
