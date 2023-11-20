@@ -1,15 +1,37 @@
+<script setup>
+import { useRoute } from 'vue-router';
+
+import useBoletinesStore from '@/store/BoletinesStore'
+
+const boletinesStore = useBoletinesStore();
+
+const route = useRoute();
+
+
+onMounted(async() => {
+  
+  console.log('parametros:', route.params)
+  const id = route.params.boletin
+
+  const boletine = await boletinesStore.getBoletineById(id);
+  console.log('este es el boletin', boletine);
+})
+
+
+</script>
+
 <template>
-  <div class="container">
+  <div class="container" v-if="boletinesStore.boletin">
     <div class="blog-post">
     <header class="blog-post-header">
-      <h1>Esto es un boletín #1</h1>
-      <p class="blog-post-date">24/05/45</p>
+      <h1>{{ boletinesStore.boletin.content.title }}</h1>
+      <p class="blog-post-date">
+        {{ boletinesStore.boletin.content.date}}
+      </p>
     </header>
     <article class="blog-post-content">
       <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae obcaecati expedita nam veritatis a voluptates rem ea eligendi qui illum impedit, dolore assumenda aliquid id, officiis ullam earum sit amet.
-        Voluptate, at enim? Nulla est quis pariatur soluta, nostrum eveniet autem accusantium magnam laboriosam quia? Velit, ea perferendis explicabo fugiat quo, sed maxime saepe nisi iusto beatae quis placeat doloremque?
-        Corporis saepe necessitatibus pariatur, eaque atque voluptatibus minus iste tempora id rem nobis at aspernatur maxime impedit, culpa et. Obcaecati quasi ipsum doloremque dolorem dolorum iusto, dicta repudiandae optio accusantium.
+        {{ boletinesStore.boletin.content.content }}
       </p>
     </article>
   </div>

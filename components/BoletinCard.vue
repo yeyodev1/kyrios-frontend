@@ -7,7 +7,10 @@ const props = defineProps({
     type: String,
     required: false,
   },
-  title: String,
+  title: {
+    type: String,
+    required: true,
+  },
   date: String,
   link: {
     type: String,

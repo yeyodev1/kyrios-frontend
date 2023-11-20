@@ -1,38 +1,15 @@
 <script setup>
-import empresarios from '@/assets/hero/empresarios.jpg'
+import empresarios from '@/assets/hero/empresarios.jpg';
+import useBoletinesStore from '@/store/BoletinesStore';
 
-const boletines = [
-  {
-    imageUrl: empresarios,
-    title: 'Nombre o título del boletín',
-    date: 'Noviembre 01, 2023',
-    link: '/boletines/boletin-1' 
-  },
-  {
-    imageUrl: empresarios,
-    title: 'Nombre o título del boletín',
-    date: 'Noviembre 01, 2023',
-    link: '/boletines/boletin-1' 
-  },
-  {
-    imageUrl: empresarios,
-    title: 'Nombre o título del boletín',
-    date: 'Noviembre 01, 2023',
-    link: '/boletines/boletin-1' 
-  },
-  {
-    imageUrl: empresarios,
-    title: 'Nombre o título del boletín',
-    date: 'Noviembre 01, 2023',
-    link: '/boletines/boletin-1' 
-  },
-  {
-    imageUrl: empresarios,
-    title: 'Nombre o título del boletín',
-    date: 'Noviembre 01, 2023',
-    link: '/boletines/boletin-1' 
-  },
-];
+const boletinesStore = useBoletinesStore();
+const route = useRoute()
+
+onMounted(async() => {
+  console.log('todos los boletines')
+  await boletinesStore.getAllBoletines();
+  console.log(boletinesStore.allBoletines)
+})
 
 </script>
 
@@ -44,12 +21,12 @@ const boletines = [
     </p>
     <div class="container-tickets">
       <BoletinCard
-        v-for="(boletin, index) in boletines"
+        v-for="(boletin, index) in boletinesStore.allBoletines"
         :key="index"
-        :imageUrl="boletin.imageUrl"
-        :title="boletin.title"
-        :date="boletin.date"
-        :link="boletin.link" />
+        :imageUrl="empresarios"
+        :title="boletin.content.title"
+        :date="boletin.content.date"
+        :link="`${route.path}/${boletin.id.toString()}`" />
     </div>
   </div>
 </template>

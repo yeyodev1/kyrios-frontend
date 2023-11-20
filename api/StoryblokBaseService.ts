@@ -1,6 +1,6 @@
 import StoryblokClient from 'storyblok-js-client';
 
-const baseURL = 'https://api-us.storyblok.com/v2'
+const baseURL = 'https://api.storyblok.com/v2'
 
 const Storyblok = new StoryblokClient({
   accessToken: 'FNjolXe0RQeP3EWIGPqocAtt',
