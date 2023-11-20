@@ -6,31 +6,31 @@ const boletines = [
     imageUrl: empresarios,
     title: 'Nombre o título del boletín',
     date: 'Noviembre 01, 2023',
-    link: '/' 
+    link: '/boletines/boletin-1' 
   },
   {
     imageUrl: empresarios,
     title: 'Nombre o título del boletín',
     date: 'Noviembre 01, 2023',
-    link: '/' 
+    link: '/boletines/boletin-1' 
   },
   {
     imageUrl: empresarios,
     title: 'Nombre o título del boletín',
     date: 'Noviembre 01, 2023',
-    link: '/' 
+    link: '/boletines/boletin-1' 
   },
   {
     imageUrl: empresarios,
     title: 'Nombre o título del boletín',
     date: 'Noviembre 01, 2023',
-    link: '/' 
+    link: '/boletines/boletin-1' 
   },
   {
     imageUrl: empresarios,
     title: 'Nombre o título del boletín',
     date: 'Noviembre 01, 2023',
-    link: '/' 
+    link: '/boletines/boletin-1' 
   },
 ];
 
@@ -44,12 +44,12 @@ const boletines = [
     </p>
     <div class="container-tickets">
       <BoletinCard
-      v-for="(boletin, index) in boletines"
-      :key="index"
-      :imageUrl="boletin.imageUrl"
-      :title="boletin.title"
-      :date="boletin.date"
-      :link="boletin.link" />
+        v-for="(boletin, index) in boletines"
+        :key="index"
+        :imageUrl="boletin.imageUrl"
+        :title="boletin.title"
+        :date="boletin.date"
+        :link="boletin.link" />
     </div>
   </div>
 </template>
