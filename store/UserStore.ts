@@ -42,10 +42,10 @@ export const useUserStore = defineStore('UserStore', {
       }
     },
 
-    async register(email: string, password: string, birthdate: string): Promise<void> {
+    async register(name: string, lastname: string, email: string, password: string, birthdate: string): Promise<void> {
       this.isLoading = true;
       try {
-        await userService.register(email, password, birthdate);
+        await userService.register(name, lastname, email, password, birthdate);
       } catch (error: any) {
         this.errorMessage = 'Ups, hay un problema con el correo, inténtalo más tarde :D';
         throw error;  

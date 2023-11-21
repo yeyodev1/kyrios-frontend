@@ -24,7 +24,7 @@ const menuItems = [
     name: 'Registrarte'
   },
   {
-    link: '/hoola',
+    link: '/userRegister',
     name: 'Empezar diagnóstico'
   },
 ]

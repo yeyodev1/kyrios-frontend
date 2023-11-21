@@ -1,4 +1,4 @@
-import { AxiosResponse } from 'axios';
+import type { AxiosResponse } from 'axios';
 
 import APIBase from '../Base';
 import type { User } from '@/typings/UserTypes';
@@ -9,8 +9,14 @@ class APIUsers extends APIBase {
     return this.post('auth/login', { email: email, password: password })
   }
 
-  async register(email: string, password: string, birthdate: string): Promise<AxiosResponse> {
-    return this.post('auth/register', { email, password, birthdate })
+  async register(name: string, lastname: string, email: string, password: string, birthdate: string): Promise<AxiosResponse> {
+    return this.post("auth/register", {
+		name,
+		lastname,
+		email,
+		password,
+		birthdate,
+	});
   }
   
 }

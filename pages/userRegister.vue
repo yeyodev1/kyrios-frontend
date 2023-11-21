@@ -17,6 +17,8 @@ const isPasswordVisible = ref(false);
 const isRepeatedPasswordVisible = ref(false);
 const isMinor = ref(false);
 const userData = reactive({
+  name: '',
+  lastname: '',
   email: '',
   phone: '',
   password: '',
@@ -34,16 +36,22 @@ const userRules = {
       message: 'Ingresa un correo'
     }
   ],
-  phoneValidation: [
-    {
-      validate: (value: string) => /^\d{9,}$/.test(value),
-      message: 'El número de celular debe tener al menos 9 dígitos y solo contener números'
-    }
-  ],
   passwordValidation: [
     {
       validate: (value: string) => value.length > 5,
-      message: 'El password debe tener al menos 6 caracteres' 
+      message: 'El password debe tener de 1 dígito' 
+    }
+  ],
+  nameValidation: [
+    {
+      validate: (value: string) => value.length > 1,
+      message: 'El nombre debe tener mas de 1 dígito' 
+    }
+  ],
+  lastnameValidation: [
+    {
+      validate: (value: string) => value.length > 1,
+      message: 'El nombre debe tener mas de 1 dígito' 
     }
   ],
   passwordRepeatedValidation: [
@@ -94,6 +102,8 @@ function handleInput(event: string): void {
 }
 
 function resetValue(): void {
+  userData.name = '';
+  userData.lastname = '';
   userData.email = '';
   userData.password = '';
   userData.passwordRepeated = '';
@@ -106,6 +116,8 @@ function resetValue(): void {
 async function handleRegister(): Promise<void> {
   try {
     await userStore.register(
+      userData.name.trim().toLocaleLowerCase(),
+      userData.lastname.trim().toLocaleLowerCase(),
       userData.email.trim().toLocaleLowerCase(), 
       userData.password.trim(), 
       userData.birthdate.trim()
@@ -128,7 +140,7 @@ async function handleRegister(): Promise<void> {
       Debes tener al menos 16 años
     </span>
     <p class="register-wrapper-title">
-      ¿Primera vez en VideoBox? 🌟 <br> Únete ya
+      Registrate
     </p>
     <span 
       v-if="userStore.errorMessage"
@@ -138,14 +150,19 @@ async function handleRegister(): Promise<void> {
     <div class="register-wrapper-card">
       <CrushTextField
         :key="textKey"
+        v-model="userData.name"
+        label="Nombre"
+        :validRules="userRules.nameValidation" />
+      <CrushTextField
+        :key="textKey"
+        v-model="userData.lastname"
+        label="Apellido"
+        :validRules="userRules.lastnameValidation" />
+      <CrushTextField
+        :key="textKey"
         v-model="userData.email"
         label="Correo"
         :validRules="userRules.emailValidation" />
-      <CrushTextField
-        :key="textKey"
-        v-model="userData.phone"
-        label="Teléfono"
-        :validRules="userRules.phoneValidation" />
       <CrushTextField
         :key="textKey"
         v-model.trim="userData.password"
@@ -210,6 +227,7 @@ async function handleRegister(): Promise<void> {
   min-height: 100vh;
   padding: 24px;
   max-width: $desktop-lower-breakpoint;
+  background-color: $green;
   &-warning {
     color: $red;
   }
@@ -217,7 +235,7 @@ async function handleRegister(): Promise<void> {
     color: $red;
   }
   &-title {
-    color: $white;
+    color: $black;
     font-size: $body-font-size;
     text-align: center;
     @media (min-width: $tablet-lower-breakpoint) {
@@ -225,7 +243,7 @@ async function handleRegister(): Promise<void> {
     }
   }
   &-card {
-    border: 1px solid $grey;
+    border: 1px solid $green;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -233,9 +251,18 @@ async function handleRegister(): Promise<void> {
     max-width: 520px;
     border-radius: 8px;
     padding: 32px;
-    background: rgba(141, 141, 157, 0.08);
+    background: $white;
     @media(max-width: $tablet-lower-breakpoint) {
       border: none;
+    }
+    :deep(.crush-text-field .crush-text-field-label-text) {
+      color: $black;
+    }
+    :deep(.date-input-label) {
+      color: $black;
+    }
+    :deep(.crush-text-field .input-container .crush-text-field-input) {
+      color: $black;
     }
     .hoot-text-field {
       :first-child {
@@ -244,7 +271,7 @@ async function handleRegister(): Promise<void> {
     }
     .icon-button {
       background-color: transparent;
-      color: $white;
+      color: $black;
       border: none;
     }
     :deep(.crush-text-field .input-container.active) {
@@ -256,9 +283,9 @@ async function handleRegister(): Promise<void> {
     }
   }
   &-span {
-    color: $white;
+    color: $black;
     &-link {
-      color: $white;
+      color: rgb(59, 59, 255);
       text-decoration: underline;
     }
   }
