@@ -25,6 +25,7 @@
     "@nabux-crush/crush-text-field": "^0.5.1",
     "@pinia/nuxt": "^0.5.1",
     "@storyblok/nuxt": "^5.7.7",
+    "axios": "^1.6.2",
     "pinia": "^2.1.7",
     "storyblok-js-client": "^6.2.0"
   }

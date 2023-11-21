@@ -20,11 +20,11 @@ const menuItems = [
     name: 'Contacto'
   },
   {
-    link: '/',
+    link: '/userRegister',
     name: 'Registrarte'
   },
   {
-    link: '/',
+    link: '/hoola',
     name: 'Empezar diagnóstico'
   },
 ]
@@ -46,7 +46,6 @@ const menuItems = [
           {{item.name}}
         </RouterLink>
       </template>
-
     </CrushHeader>
   </header>
 </template>
