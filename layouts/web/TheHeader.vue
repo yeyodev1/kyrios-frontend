@@ -1,8 +1,15 @@
 <script setup lang="ts">
+import { useUserStore } from '@/store/UserStore';
+
 import CrushHeader from '@nabux-crush/crush-header';
 import KyriosLogo from '@/assets/kyrios.png'
 
-const menuItems = [
+
+const userStore = useUserStore();
+
+const isUserLoggedIn = computed(() => userStore.user !== null);
+
+const allMenuItems = [
   {
     link: '/',
     name: 'inicio'
@@ -28,6 +35,13 @@ const menuItems = [
     name: 'Empezar diagnóstico'
   },
 ]
+
+const menuItems = computed(() => {
+  if (isUserLoggedIn.value) {
+    return allMenuItems.filter((item, index) => index !== 4);
+  }
+  return allMenuItems;
+});
 </script>
 
 <template>
