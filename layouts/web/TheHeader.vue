@@ -31,7 +31,7 @@ const allMenuItems = [
     name: 'Registrarte'
   },
   {
-    link: '/userRegister',
+    link: '/userlogin',
     name: 'Empezar diagnóstico'
   },
 ]
