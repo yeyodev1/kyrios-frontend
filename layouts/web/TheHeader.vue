@@ -37,10 +37,19 @@ const allMenuItems = [
 ]
 
 const menuItems = computed(() => {
-  if (isUserLoggedIn.value) {
-    return allMenuItems.filter((item, index) => index !== 4);
+  const items = [ ...allMenuItems];
+  if(isUserLoggedIn.value) {
+    const diagnosticIndex = items.findIndex(item => item.name === 'Empezar diagnóstico');
+    if(diagnosticIndex !== -1) {
+      items[diagnosticIndex] = {
+        ...items[diagnosticIndex],
+        link: '/tests', 
+        name: 'Realizar diagnóstico' 
+      };
+    }
+    return items.filter((item, index) => item.name !== 'Registrarte');
   }
-  return allMenuItems;
+  return items;
 });
 </script>
 
