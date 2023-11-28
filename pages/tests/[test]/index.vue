@@ -1,9 +1,9 @@
 <script setup>
 import { useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 
 import FormIndication from '@/components/FormIndication';
 import useTestStore from '@/store/TestStore';
-import { useRoute } from 'vue-router';
 
 const route = useRoute();
 const router = useRouter();
@@ -43,8 +43,9 @@ function finishTest() {
     question: question.question,
     response: question.response?.value,
   }));
+  const test = route.params.test
   testStore.setTestResults(testResults);
-  console.log('respuestas seleccionados', testResults);
+  router.push(`${test}/testFinished`)
 };
 </script>
 
