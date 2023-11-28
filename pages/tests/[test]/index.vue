@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue';
 
+import FormIndication from '@/components/FormIndication';
 import useTestStore from '@/store/TestStore';
 import { useRoute } from 'vue-router';
 
@@ -46,7 +47,7 @@ function isOptionSelected(value) {
       class="container-test">
       <h2 class="container-test-title">{{ selectedTest.name }}</h2>
       <p class="container-test-description">{{ selectedTest.description }}</p>
-
+      <FormIndication />
       <div 
         v-if="currentQuestion" 
         class="container-test-question-container">
