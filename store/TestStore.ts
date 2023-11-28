@@ -31,8 +31,10 @@ const useTestStore = defineStore("testStore", {
 				name: "ISO 27001",
 				description:
 					"Seguridad de la información y la gestión de riesgos.",
-				satisfactionQuestions: [
+				questions: [
           {
+            process: "TIC",
+            control: "8.34",
             question: "Pregunta 1",
             response: null,
           },
@@ -71,7 +73,7 @@ const useTestStore = defineStore("testStore", {
 				name: "ISO 22301",
 				description:
 					"Continuidad de negocios y la gestión de la resiliencia.",
-				satisfactionQuestions: [
+				questions: [
           {
             question: "Pregunta 1",
             response: null,
@@ -111,7 +113,7 @@ const useTestStore = defineStore("testStore", {
 				name: "ISO 20000",
 				description:
 					"Gestión de servicios de tecnologías de la información.",
-				satisfactionQuestions: [
+				questions: [
           {
             question: "Pregunta 1",
             response: null,
@@ -149,6 +151,7 @@ const useTestStore = defineStore("testStore", {
 		],
 		responseOptions,
     selectedTest: null as Test | null,
+    testResults: [],
 	}),
   actions: {
     selectTest(testId: string) {
@@ -162,11 +165,20 @@ const useTestStore = defineStore("testStore", {
 		setResponse(testId: string, questionIndex: number, responseValue: number) {
       const test = this.tests.find(t => t.id === testId);
       const responseOption = this.responseOptions.find(option => option.value === responseValue) || null;
-      if (test && typeof test.satisfactionQuestions[questionIndex] !== 'undefined') {
-        test.satisfactionQuestions[questionIndex].response = responseOption;
+      if (test && typeof test.questions[questionIndex] !== 'undefined') {
+        test.questions[questionIndex].response = responseOption;
       }
     },
+    setTestResults(results: any) {
+      this.testResults = results;
+    }
   }
 });
 
 export default useTestStore;
+
+
+
+
+
+
