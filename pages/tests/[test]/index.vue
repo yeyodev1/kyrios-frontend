@@ -32,11 +32,18 @@ function nextQuestion() {
   if (currentQuestionIndex.value < selectedTest.value.satisfactionQuestions.length - 1) {
     currentQuestionIndex.value++;
   } else {
-    console.log('holi')
+    finishTest();
   }
 }
 function isOptionSelected(value) {
   return currentQuestion.value?.response?.value === value;
+}
+function finishTest() {
+  const testResults = selectedTest.value.satisfactionQuestions.map(question => ({
+    question: question.question,
+    response: question.response?.value,
+  }))
+  console.log('test resultados:', testResults)
 }
 </script>
 
