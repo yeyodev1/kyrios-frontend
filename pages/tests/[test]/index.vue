@@ -1,12 +1,12 @@
 <script setup>
-import { computed, ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 import FormIndication from '@/components/FormIndication';
 import useTestStore from '@/store/TestStore';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
-
+const router = useRouter();
 
 const testId = route.params.test; 
 
@@ -16,20 +16,20 @@ const currentQuestionIndex = ref(0);
 const selectedTest = computed(() => testStore.tests.find(test => test.id === testId));
 const responseOptions = computed(() => testStore.responseOptions);
 const currentQuestion = computed(() => {
-  return selectedTest.value?.satisfactionQuestions[currentQuestionIndex.value];
+  return selectedTest.value?.questions[currentQuestionIndex.value];
 });
 const isCurrentQuestionAnswered = computed(() => {
   return currentQuestion.value?.response !== null;
 });
 const isLastQuestion = computed(() => {
-  return currentQuestionIndex.value === selectedTest.value.satisfactionQuestions.length - 1;
+  return currentQuestionIndex.value === selectedTest.value.questions.length - 1;
 });
 
 function setResponse(testId, questionIndex, value) {
   testStore.setResponse(testId, questionIndex, value);
 };
 function nextQuestion() {
-  if (currentQuestionIndex.value < selectedTest.value.satisfactionQuestions.length - 1) {
+  if (currentQuestionIndex.value < selectedTest.value.questions.length - 1) {
     currentQuestionIndex.value++;
   } else {
     finishTest();
@@ -39,11 +39,12 @@ function isOptionSelected(value) {
   return currentQuestion.value?.response?.value === value;
 };
 function finishTest() {
-  const testResults = selectedTest.value.satisfactionQuestions.map(question => ({
+  const testResults = selectedTest.value.questions.map(question => ({
     question: question.question,
     response: question.response?.value,
   }));
-  console.log('test resultados:', testResults);
+  testStore.setTestResults(testResults);
+  console.log('respuestas seleccionados', testResults);
 };
 </script>
 
@@ -57,7 +58,7 @@ function finishTest() {
       <FormIndication />
       <ProgressBar
         :currentQuestionIndex="currentQuestionIndex"
-        :totalQuestions="selectedTest.satisfactionQuestions.length"/>
+        :totalQuestions="selectedTest.questions.length"/>
       <div 
         v-if="currentQuestion" 
         class="container-test-question-container">
@@ -76,7 +77,7 @@ function finishTest() {
         </div>
       </div>
       <button 
-        v-if="currentQuestionIndex < selectedTest.satisfactionQuestions.length" 
+        v-if="currentQuestionIndex < selectedTest.questions.length" 
         @click="nextQuestion" 
         :disabled="!isCurrentQuestionAnswered"
         class="container-test-next-button">
