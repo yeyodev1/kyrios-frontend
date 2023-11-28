@@ -7,9 +7,10 @@ import { useRoute } from 'vue-router';
 
 const route = useRoute();
 
-const testStore = useTestStore();
 
 const testId = route.params.test; 
+
+const testStore = useTestStore();
 
 const currentQuestionIndex = ref(0);
 const selectedTest = computed(() => testStore.tests.find(test => test.id === testId));
@@ -26,25 +27,24 @@ const isLastQuestion = computed(() => {
 
 function setResponse(testId, questionIndex, value) {
   testStore.setResponse(testId, questionIndex, value);
-}
-
+};
 function nextQuestion() {
   if (currentQuestionIndex.value < selectedTest.value.satisfactionQuestions.length - 1) {
     currentQuestionIndex.value++;
   } else {
     finishTest();
-  }
-}
+  };
+};
 function isOptionSelected(value) {
   return currentQuestion.value?.response?.value === value;
-}
+};
 function finishTest() {
   const testResults = selectedTest.value.satisfactionQuestions.map(question => ({
     question: question.question,
     response: question.response?.value,
-  }))
-  console.log('test resultados:', testResults)
-}
+  }));
+  console.log('test resultados:', testResults);
+};
 </script>
 
 <template>
