@@ -55,6 +55,9 @@ function finishTest() {
       <h2 class="container-test-title">{{ selectedTest.name }}</h2>
       <p class="container-test-description">{{ selectedTest.description }}</p>
       <FormIndication />
+      <ProgressBar
+        :currentQuestionIndex="currentQuestionIndex"
+        :totalQuestions="selectedTest.satisfactionQuestions.length"/>
       <div 
         v-if="currentQuestion" 
         class="container-test-question-container">
@@ -72,7 +75,6 @@ function finishTest() {
           </button>
         </div>
       </div>
-
       <button 
         v-if="currentQuestionIndex < selectedTest.satisfactionQuestions.length" 
         @click="nextQuestion" 
