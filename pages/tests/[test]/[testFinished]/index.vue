@@ -14,7 +14,7 @@ function updateResponse(index, newValue) {
   if (value !== undefined) {
     const numericValue = Number(value);
     testResults.value[index].response = numericValue;
-    testStore.setResponse(testStore.selectedTest.id, index, numericValue);
+    testStore.setResponse(testStore.selectedTest?.id, index, numericValue);
   }
 }
 function submitResults() {
@@ -35,7 +35,7 @@ function submitResults() {
       <CrushSelect
         label="edita tu respuesta"
         :options="responseOptions.map(option => option.description)"
-        :value="Number(result.response)"
+        :value="result.response.toString()"
         @update:value="newValue => updateResponse(index, newValue)"
         />
     </div>
