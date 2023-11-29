@@ -18,6 +18,7 @@ function updateResponse(index, newValue) {
   }
 }
 function submitResults() {
+  console.log('Respuestas finales:', testStore.testResults);
   testStore.setTestResults(testResults.value);
 }
 </script>
