@@ -3,6 +3,8 @@ import { useRoute } from 'vue-router';
 import CrushSelect from '@nabux-crush/crush-select';
 
 import useTestStore from '@/store/TestStore';
+import { routerKey } from 'vue-router';
+import { RouterLink } from 'vue-router';
 
 const route = useRoute();
 const testStore = useTestStore();
@@ -42,9 +44,10 @@ function submitResults() {
         @update:value="newValue => updateResponse(index, newValue)"
         />
     </div>
-    <button 
+    <RouterLink
+      :to="`${route.params.testFinished}/testgrade`" 
       @click="submitResults"
-      class="container-result-button">Finalizar</button>
+      class="container-result-button">Finalizar</RouterLink>
   </div>
 </template>
 
