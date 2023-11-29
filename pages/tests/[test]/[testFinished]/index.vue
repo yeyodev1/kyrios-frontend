@@ -1,11 +1,13 @@
 <script setup>
+import { useRoute } from 'vue-router';
 import CrushSelect from '@nabux-crush/crush-select';
 
 import useTestStore from '@/store/TestStore';
 
+const route = useRoute();
 const testStore = useTestStore();
 
-const testName = computed(() => testStore.selectedTest?.name);
+const testName = computed(() => route.params.test);
 const testResults = computed(() => testStore.getTestResults());
 const responseOptions = computed(() => testStore.responseOptions);
 
@@ -60,6 +62,7 @@ $background-color: #F7F7F7;
     color: $blue;
     text-align: center;
     margin-bottom: 20px;
+    font-size: $body-font-size * 2;
   }
   &-subtitle {
     color: $black;
