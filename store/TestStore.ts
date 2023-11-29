@@ -171,7 +171,10 @@ const useTestStore = defineStore("testStore", {
     },
     setTestResults(results: any) {
       this.testResults = results;
-    }
+    },
+    getTestResults() {
+      return this.testResults;
+    },
   }
 });
 
