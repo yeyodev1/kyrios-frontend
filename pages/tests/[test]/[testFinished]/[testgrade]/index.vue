@@ -52,30 +52,23 @@ function getChartData () {
 };
 async function downloadPDF() {
   const resultsContainer = document.querySelector('.results-container');
-
-  // Opciones adicionales para html2canvas
   const canvasOptions = {
-    scale: 2, // Aumenta la calidad de la imagen
-    useCORS: true, // Intenta cargar imágenes externas
-    // Puedes ajustar aquí otras opciones si es necesario
+    scale: 2, 
+    useCORS: true,
   };
-
-  // Captura el contenedor después de un breve retraso
   setTimeout(async () => {
     const canvas = await html2canvas(resultsContainer, canvasOptions);
-    
     const imgData = canvas.toDataURL('image/png');
     const pdf = new jsPDF({
       orientation: 'landscape',
-      unit: 'px', // Puedes ajustar la unidad según sea necesario
-      format: [canvas.width, canvas.height] // Ajusta el formato del PDF al tamaño del canvas
+      unit: 'px',
+      format: [canvas.width, canvas.height] 
     });
 
     pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
     pdf.save('resultados.pdf');
-  }, 1000); // Ajusta el tiempo de retraso según sea necesario
+  }, 1000); 
 };
-
 
 onMounted(() => {
   const chartData = getChartData();
