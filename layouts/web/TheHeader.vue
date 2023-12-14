@@ -75,7 +75,7 @@ const menuItems = computed(() => {
 
 <style lang="scss" scoped>
 :deep(.header) {
-  background-color: $white;
+  background-color: $white !important;
   gap: 12px;
 }
 :deep(.header-icon) {
