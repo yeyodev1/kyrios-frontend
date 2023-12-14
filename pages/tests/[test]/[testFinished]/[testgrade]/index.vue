@@ -1,7 +1,9 @@
 <script setup>
-import { ref, onMounted, computed } from 'vue';
 import useTestStore from '@/store/TestStore';
+
+import html2canvas from 'html2canvas';
 import Chart from 'chart.js/auto';
+import { jsPDF } from 'jspdf';
 
 const testStore = useTestStore();
 
@@ -9,6 +11,7 @@ const testId = 'iso20000';
 const barChart = ref(null);
 const pieChart = ref(null);
 const testResults = computed(() => testStore.selectedTest);
+console.log('test results:', testResults.value.questions)
 
 testStore.selectTest(testId);
 
@@ -46,6 +49,23 @@ function getChartData () {
       borderWidth: 1
     }]
   };
+};
+async function downloadPDF() {
+  const resultsContainer = document.querySelector('.results-container');
+
+  const canvas = await html2canvas(resultsContainer);
+
+  const pdf = new jsPDF({
+    orientation: 'landscape',
+  });
+
+  const imgData = canvas.toDataURL('image/png');
+  const imgProps= pdf.getImageProperties(imgData);
+  const pdfWidth = pdf.internal.pageSize.getWidth();
+  const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+  pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+
+  pdf.save('resultados.pdf');
 };
 
 onMounted(() => {
@@ -102,7 +122,7 @@ onMounted(() => {
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(result, index) in testResults" :key="index">
+        <tr v-for="(result, index) in testResults.questions" :key="index">
           <td>{{ result.question }}</td>
           <td>{{ result.response?.description === 'Implementado listo para auditar' ? '✓' : '' }}</td>
           <td>{{ result.response?.description === 'Implementado, documentado pero requiere mejorar' ? '✓' : '' }}</td>
@@ -119,6 +139,12 @@ onMounted(() => {
         <canvas id="pieChart"></canvas>
       </div>
     </div>
+  </div>
+  <div class="container">
+    <button
+      class="container-button"
+      @click="downloadPDF">Descargar Resultados
+    </button>
   </div>
 </template>
 
@@ -155,5 +181,25 @@ onMounted(() => {
   canvas {
     max-width: 100%;
   }
+}
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+  &-button {
+  padding: 12px;
+  margin: 0 auto;
+  background-color: $blue;
+  font-size: $body-font-size;
+  color: $white;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    background-color: darken($blue, 10%);
+  }
+}
 }
 </style>
