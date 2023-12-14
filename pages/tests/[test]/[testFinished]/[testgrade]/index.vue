@@ -53,20 +53,29 @@ function getChartData () {
 async function downloadPDF() {
   const resultsContainer = document.querySelector('.results-container');
 
-  const canvas = await html2canvas(resultsContainer);
+  // Opciones adicionales para html2canvas
+  const canvasOptions = {
+    scale: 2, // Aumenta la calidad de la imagen
+    useCORS: true, // Intenta cargar imágenes externas
+    // Puedes ajustar aquí otras opciones si es necesario
+  };
 
-  const pdf = new jsPDF({
-    orientation: 'landscape',
-  });
+  // Captura el contenedor después de un breve retraso
+  setTimeout(async () => {
+    const canvas = await html2canvas(resultsContainer, canvasOptions);
+    
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF({
+      orientation: 'landscape',
+      unit: 'px', // Puedes ajustar la unidad según sea necesario
+      format: [canvas.width, canvas.height] // Ajusta el formato del PDF al tamaño del canvas
+    });
 
-  const imgData = canvas.toDataURL('image/png');
-  const imgProps= pdf.getImageProperties(imgData);
-  const pdfWidth = pdf.internal.pageSize.getWidth();
-  const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-  pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-
-  pdf.save('resultados.pdf');
+    pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+    pdf.save('resultados.pdf');
+  }, 1000); // Ajusta el tiempo de retraso según sea necesario
 };
+
 
 onMounted(() => {
   const chartData = getChartData();
