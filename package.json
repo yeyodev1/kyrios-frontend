@@ -28,6 +28,8 @@
     "@storyblok/nuxt": "^5.7.7",
     "axios": "^1.6.2",
     "chart.js": "^4.4.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
     "pinia": "^2.1.7",
     "storyblok-js-client": "^6.2.0"
   }
