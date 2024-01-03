@@ -191,17 +191,17 @@ onMounted(() => {
   align-items: center;
   margin-bottom: 24px;
   &-button {
-  padding: 12px;
-  margin: 0 auto;
-  background-color: $blue;
-  font-size: $body-font-size;
-  color: $white;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  &:hover {
-    background-color: darken($blue, 10%);
+    padding: 12px;
+    margin: 0 auto;
+    background-color: $blue;
+    font-size: $body-font-size;
+    color: $white;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      background-color: darken($blue, 10%);
+    }
   }
-}
 }
 </style>

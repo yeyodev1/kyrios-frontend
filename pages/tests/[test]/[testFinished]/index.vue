@@ -45,7 +45,7 @@ function submitResults() {
         />
     </div>
     <RouterLink
-      :to="`${route.params.testFinished}/testgrade`" 
+      :to="`${route.params.testFinished}/testOptions`" 
       @click="submitResults"
       class="container-result-button">Finalizar</RouterLink>
   </div>
