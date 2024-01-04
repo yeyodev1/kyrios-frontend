@@ -1,7 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { fileURLToPath } from "url";
+import { fileURLToPath } from 'url';
 
 const config = defineNuxtConfig({
+  ssr: false,
 	devtools: { enabled: true },
 	alias: {
 		"@": fileURLToPath(new URL("./", import.meta.url)),
@@ -24,7 +25,7 @@ const config = defineNuxtConfig({
           `
         }
       }
-    }
+    },
   },
   modules: [
     '@pinia/nuxt'
