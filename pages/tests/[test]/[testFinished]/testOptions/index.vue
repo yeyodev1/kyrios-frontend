@@ -2,13 +2,14 @@
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
+const price = ref(0)
 
 function viewResults() {
-  initiatePayment('Ver resultados');
+  price.value = 5000;
 }
 
 function viewAndDownloadResults() {
-  initiatePayment('Ver resultados');
+  price.value = 7000;
 }
 
 function cancel() {
@@ -18,13 +19,16 @@ function cancel() {
 
 <template>
   <div class="test-options-container">
-    <h1 class="title">Opciones de Compra</h1>
-    <button @click="viewResults" class="option-button">Ver Resultados ($10)</button>
-    <button @click="viewAndDownloadResults" class="option-button">Ver Resultados y Descargar ($10)</button>
+    <h1 class="title">Elige una opción</h1>
+    <button @click="viewResults" class="option-button">Ver Resultados ($50)</button>
+    <button @click="viewAndDownloadResults" class="option-button">Ver Resultados y Descargar ($70)</button>
     <button @click="cancel" class="option-button cancel-button">Cancelar</button>
   </div>
-  <PaymentButton
-    :price="1000" />
+  <div class="container">
+    <p class="container-indication">Después de haber escogido cancela aquí abajo</p>
+    <PaymentButton
+      :price="price" />
+  </div>
 </template>
 
 <style scoped lang="scss">
@@ -33,6 +37,18 @@ function cancel() {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  &-indication {
+    font-size: $body-font-size;
+  }
 }
 
 .title {

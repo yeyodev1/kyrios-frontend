@@ -72,14 +72,7 @@ onMounted(() => {
 
 
 <template>
-  <div class="payment-button-wrapper">
+  <div>
     <div id="pp-button" />
   </div>
 </template>
-
-<style lang="scss" scoped>
-.payment-button-wrapper {
-  width: 100%;
-  margin: 0 auto;
-}
-</style>
