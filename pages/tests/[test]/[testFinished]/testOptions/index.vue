@@ -1,6 +1,5 @@
 <script setup>
 import { useRouter } from 'vue-router';
-import axios from 'axios'
 
 const router = useRouter();
 
@@ -24,6 +23,8 @@ function cancel() {
     <button @click="viewAndDownloadResults" class="option-button">Ver Resultados y Descargar ($10)</button>
     <button @click="cancel" class="option-button cancel-button">Cancelar</button>
   </div>
+  <PaymentButton
+    :price="10" />
 </template>
 
 <style scoped lang="scss">

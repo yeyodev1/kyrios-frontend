@@ -4,6 +4,12 @@ import { fileURLToPath } from 'url';
 const config = defineNuxtConfig({
   ssr: false,
 	devtools: { enabled: true },
+  runtimeConfig: {
+    public: {
+      payphoneAppId: process.env.PAYPHONE_APP_ID,
+      payphoneToken: process.env.PAYPHONE_TOKEN, 
+    }
+  },
 	alias: {
 		"@": fileURLToPath(new URL("./", import.meta.url)),
     "@nabux-crush/crush-header": require.resolve('@nabux-crush/crush-header'),
