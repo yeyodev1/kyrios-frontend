@@ -59,6 +59,11 @@ onMounted(async () => {
       <p class="message">
         {{ resultText }}
       </p>
+      <RouterLink 
+        to="/tests/[test]/[testFinished]/testOptions/[testgrade]"
+        class="button">
+        Mira tus resultados aquí
+      </RouterLink>
     </div>
   </div>
 </template>
@@ -74,8 +79,17 @@ onMounted(async () => {
     flex-direction: column;
     align-items: center;
     .message {
-      font-size: $h3-font-size;
+      font-size: $body-font-size;
       margin: 64px;
+    }
+    .button {
+      padding: 12px;
+      border-radius: 8px;
+      background-color: $green;
+      text-decoration: none;
+      &:hover{
+        background-color: darken($green, 10%);
+      }
     }
   }
 }
