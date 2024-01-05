@@ -24,7 +24,7 @@ function cancel() {
     <button @click="cancel" class="option-button cancel-button">Cancelar</button>
   </div>
   <PaymentButton
-    :price="10" />
+    :price="1000" />
 </template>
 
 <style scoped lang="scss">
