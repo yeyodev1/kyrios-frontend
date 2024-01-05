@@ -2,17 +2,27 @@
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
-const price = ref(0)
+const selectedOption = ref(null);
+
+const prices = reactive({
+  viewResults: 50000,
+  viewAndDownloadResults: 70000,
+})
+const price = computed (() => {
+  return prices[selectedOption.value] || 0;
+});
+
 
 function viewResults() {
-  price.value = 5000;
+  selectedOption.value = 'viewResults'
 }
 
 function viewAndDownloadResults() {
-  price.value = 7000;
+  selectedOption.value = 'viewAndDownloadResults';
 }
 
 function cancel() {
+  selectedOption.value = null; 
   router.push('/');
 }
 </script>
@@ -27,6 +37,7 @@ function cancel() {
   <div class="container">
     <p class="container-indication">Después de haber escogido cancela aquí abajo</p>
     <PaymentButton
+      v-if="price > 0"
       :price="price" />
   </div>
 </template>
