@@ -5,8 +5,8 @@ const router = useRouter();
 const selectedOption = ref(null);
 
 const prices = reactive({
-  viewResults: 50000,
-  viewAndDownloadResults: 70000,
+  viewResults: 1000,
+  viewAndDownloadResults: 1000,
 })
 const price = computed (() => {
   return prices[selectedOption.value] || 0;
@@ -30,9 +30,21 @@ function cancel() {
 <template>
   <div class="test-options-container">
     <h1 class="title">Elige una opción</h1>
-    <button @click="viewResults" class="option-button">Ver Resultados ($50)</button>
-    <button @click="viewAndDownloadResults" class="option-button">Ver Resultados y Descargar ($70)</button>
-    <button @click="cancel" class="option-button cancel-button">Cancelar</button>
+    <button 
+      @click="viewResults" 
+      class="option-button">
+      Ver Resultados ($10)
+    </button>
+    <button 
+      @click="viewAndDownloadResults" 
+      class="option-button">
+      Ver Resultados y Descargar ($10)
+    </button>
+    <button 
+      @click="cancel" 
+      class="option-button cancel-button">
+      Cancelar
+    </button>
   </div>
   <div class="container">
     <p class="container-indication">Después de haber escogido cancela aquí abajo</p>
