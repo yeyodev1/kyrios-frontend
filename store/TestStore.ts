@@ -152,6 +152,7 @@ const useTestStore = defineStore("testStore", {
 		responseOptions,
     selectedTest: null as Test | null,
     testResults: [],
+    currentPath: '',
 	}),
   actions: {
     selectTest(testId: string) {
@@ -175,6 +176,9 @@ const useTestStore = defineStore("testStore", {
     getTestResults() {
       return this.testResults;
     },
+    setCurrentPath(path: any) {
+      this.currentPath = path;
+    }
   }
 });
 

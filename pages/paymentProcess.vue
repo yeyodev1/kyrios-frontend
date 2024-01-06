@@ -2,9 +2,13 @@
 import { ref, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
 
+import useTestStore from '~/store/TestStore';
+
 const config = useRuntimeConfig()
 
 const route = useRoute()
+
+const testStore = useTestStore();
 
 const isLoading = ref(true);
 const resultText = ref('');
@@ -16,6 +20,11 @@ const data = JSON.stringify({
   id: transaccion.value,
   clientTxId: client.value,
 });
+
+function redirectLink () {
+  const pathSaved = testStore.currentPath
+  return pathSaved
+}
 
 onMounted(async () => {
   try {
@@ -60,7 +69,7 @@ onMounted(async () => {
         {{ resultText }}
       </p>
       <RouterLink 
-        to="/tests/[test]/[testFinished]/testOptions/[testgrade]"
+        :to="redirectLink"
         class="button">
         Mira tus resultados aquí
       </RouterLink>

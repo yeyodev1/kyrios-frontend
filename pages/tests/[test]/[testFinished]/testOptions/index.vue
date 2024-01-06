@@ -1,7 +1,11 @@
 <script setup>
 import { useRouter } from 'vue-router';
+import useTestStore from '~/store/TestStore';
 
 const router = useRouter();
+
+const testStore = useTestStore();
+
 const selectedOption = ref(null);
 
 const prices = reactive({
@@ -14,11 +18,13 @@ const price = computed (() => {
 
 
 function viewResults() {
-  selectedOption.value = 'viewResults'
+  selectedOption.value = 'viewResults';
+  testStore.setCurrentPath(router.currentRoute.value.fullPath)
 }
 
 function viewAndDownloadResults() {
   selectedOption.value = 'viewAndDownloadResults';
+  testStore.setCurrentPath(router.currentRoute.value.fullPath);
 }
 
 function cancel() {
