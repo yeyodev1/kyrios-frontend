@@ -1,8 +1,9 @@
 <script setup>
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 import useTestStore from '~/store/TestStore';
 
 const router = useRouter();
+const route = useRoute();
 
 const testStore = useTestStore();
 
@@ -19,12 +20,12 @@ const price = computed (() => {
 
 function viewResults() {
   selectedOption.value = 'viewResults';
-  testStore.setCurrentPath(router.currentRoute.value.fullPath)
+  testStore.setCurrentPath(route.fullPath)
 }
 
 function viewAndDownloadResults() {
   selectedOption.value = 'viewAndDownloadResults';
-  testStore.setCurrentPath(router.currentRoute.value.fullPath);
+  testStore.setCurrentPath(route.fullPath);
 }
 
 function cancel() {
