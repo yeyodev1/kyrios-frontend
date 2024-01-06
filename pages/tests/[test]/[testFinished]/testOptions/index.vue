@@ -20,12 +20,14 @@ const price = computed (() => {
 
 function viewResults() {
   selectedOption.value = 'viewResults';
+  alert('esto se guardo: ', route.fullPath)
   testStore.setCurrentPath(route.fullPath)
 }
 
 function viewAndDownloadResults() {
   selectedOption.value = 'viewAndDownloadResults';
   testStore.setCurrentPath(route.fullPath);
+  alert('esto se guardo: ', route.fullPath)
 }
 
 function cancel() {
