@@ -11,12 +11,16 @@ class APIUsers extends APIBase {
 
   async register(name: string, lastname: string, email: string, password: string, birthdate: string): Promise<AxiosResponse> {
     return this.post("auth/register", {
-		name,
-		lastname,
-		email,
-		password,
-		birthdate,
-	});
+      name,
+      lastname,
+      email,
+      password,
+      birthdate,
+    });
+  }
+
+  async getSession(): Promise<AxiosResponse<User>> {
+    return this.get('users/profile')
   }
   
 }

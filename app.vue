@@ -1,3 +1,35 @@
+<script setup lang="ts">
+import useUserStore from './store/UserStore';
+
+const config = useRuntimeConfig();
+
+const router = useRouter();
+const route = useRoute();
+
+const userStore = useUserStore();
+
+onMounted(async() => {
+  try {
+    userStore.getSession();
+  } catch (error) {
+    console.error('Error during login: ', error)
+  }
+})
+
+watch(
+  () => userStore.user,
+  (newValue, oldValue) => {
+    if (!newValue) {
+      router.push('/');
+      return;
+    }
+    if (localStorage.getItem('paymentprocess')) {
+      router.push( {path: '/pages/tests/[test]/[testFinished]/testOptions/[testgrade]'})
+    }
+  }
+)
+</script>
+
 <template>
   <div class="app-container">
     <NuxtLayout>

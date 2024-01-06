@@ -53,6 +53,18 @@ export const useUserStore = defineStore('UserStore', {
         this.isLoading = false;
       }
     },
+
+    async getSession(): Promise<void> {
+      this.isLoading = false;
+      try {
+        const response = await userService.getSession();
+        this.user = response.data;
+      } catch (error: any) {
+        console.error(error)
+      } finally {
+        this.isLoading = false;
+      }
+    },
     
     async logout(): Promise<void> {
       this.isLoading = true;
