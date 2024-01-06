@@ -22,8 +22,9 @@ const data = JSON.stringify({
 });
 
 function redirectLink () {
-  const pathSaved = testStore.currentPath
-  return pathSaved
+  const pathSaved = testStore.currentPath;
+  console.log("Ruta guardada:", pathSaved);
+  return pathSaved;
 }
 
 onMounted(async () => {
