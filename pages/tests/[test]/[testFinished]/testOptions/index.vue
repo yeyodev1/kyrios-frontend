@@ -8,6 +8,7 @@ const route = useRoute();
 const testStore = useTestStore();
 
 const selectedOption = ref(null);
+const path = ref(route.fullPath);
 
 const prices = reactive({
   viewResults: 1000,
@@ -17,17 +18,16 @@ const price = computed (() => {
   return prices[selectedOption.value] || 0;
 });
 
-
 function viewResults() {
   selectedOption.value = 'viewResults';
-  alert('esto se guardo: ', route.fullPath)
-  testStore.setCurrentPath(route.fullPath)
+  alert('esto se guardo: ', path)
+  testStore.setCurrentPath(path)
 }
 
 function viewAndDownloadResults() {
   selectedOption.value = 'viewAndDownloadResults';
-  testStore.setCurrentPath(route.fullPath);
-  alert('esto se guardo: ', route.fullPath)
+  testStore.setCurrentPath(path);
+  alert('esto se guardo: ', path)
 }
 
 function cancel() {
