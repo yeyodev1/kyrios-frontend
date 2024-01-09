@@ -70,7 +70,7 @@ onMounted(async () => {
         {{ resultText }}
       </p>
       <RouterLink 
-        to="../../"
+        to="./tests/[test]/[testFinished]/testOptions/[testgrade]"
         class="button">
         Mira tus resultados aquí
       </RouterLink>
