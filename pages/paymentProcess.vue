@@ -70,7 +70,7 @@ onMounted(async () => {
         {{ resultText }}
       </p>
       <RouterLink 
-        :to="redirectLink()"
+        to="../../"
         class="button">
         Mira tus resultados aquí
       </RouterLink>
