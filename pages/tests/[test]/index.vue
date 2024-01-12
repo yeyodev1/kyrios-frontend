@@ -1,6 +1,5 @@
 <script setup>
-import { useRouter } from 'vue-router';
-import { useRoute } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 
 import FormIndication from '@/components/FormIndication';
 import useTestStore from '@/store/TestStore';
@@ -8,16 +7,15 @@ import useTestStore from '@/store/TestStore';
 const route = useRoute();
 const router = useRouter();
 
-const testId = route.params.test; 
-
 const testStore = useTestStore();
 
+const testIsoType = route.params.test;
 const currentQuestionIndex = ref(0);
-const selectedTest = computed(() => testStore.tests.find(test => test.id === testId));
+
+
+const selectedTest = computed(() => testStore.tests.find(test => test.isoType === testIsoType));
+const currentQuestion = computed(() => selectedTest.value?.questions[currentQuestionIndex.value]);
 const responseOptions = computed(() => testStore.responseOptions);
-const currentQuestion = computed(() => {
-  return selectedTest.value?.questions[currentQuestionIndex.value];
-});
 const isCurrentQuestionAnswered = computed(() => {
   return currentQuestion.value?.response !== null;
 });
@@ -25,9 +23,11 @@ const isLastQuestion = computed(() => {
   return currentQuestionIndex.value === selectedTest.value.questions.length - 1;
 });
 
-function setResponse(testId, questionIndex, value) {
-  testStore.setResponse(testId, questionIndex, value);
-};
+function setResponse(questionIndex, responseValue) {
+  if(selectedTest.value) {
+    testStore.setResponse(selectedTest.value.isoType, questionIndex, responseValue);
+  }
+}
 function nextQuestion() {
   if (currentQuestionIndex.value < selectedTest.value.questions.length - 1) {
     currentQuestionIndex.value++;
@@ -35,17 +35,20 @@ function nextQuestion() {
     finishTest();
   };
 };
-function isOptionSelected(value) {
-  return currentQuestion.value?.response?.value === value;
-};
+function isOptionSelected(optionIndex) {
+  return currentQuestion.value?.userResponse === optionIndex;
+}
 function finishTest() {
-  const testResults = selectedTest.value.questions.map(question => ({
-    question: question.question,
-    response: question.response?.value,
-  }));
-  const test = route.params.test
-  testStore.setTestResults(testResults);
-  router.push(`${test}/testFinished`)
+  if (selectedTest.value){
+    const testResults = selectedTest.value.questions.map(question => ({
+      questionText: question.questionText,
+      userResponse: question.userResponse
+    }))
+    const testIsoType = selectedTest.value.isoType;
+    testStore.setTestResults(testIsoType, testResults);
+    console.log('aaaa', testStore.testResults)
+    router.push(`${testIsoType}/testFinished`)
+  }
 };
 </script>
 
@@ -64,16 +67,16 @@ function finishTest() {
         v-if="currentQuestion" 
         class="container-test-question-container">
         <p class="container-test-question-container-question">
-          {{ currentQuestion.question }}
+          {{ currentQuestion.questionText }}
         </p>
         <div class="container-test-question-container-response-options">
           <button
-            v-for="option in responseOptions"
-            :key="option.value"
-            @click="setResponse(selectedTest.id, currentQuestionIndex, option.value)"
-            :class="{ 'selected': isOptionSelected(option.value) }"
+            v-for="(option, index) in currentQuestion.answerOptions"
+            :key="index"
+            @click="setResponse(currentQuestionIndex, index)"
+            :class="{ 'selected': isOptionSelected(index) }"
             class="container-test-question-container-response-options-option-button" >
-            {{ option.value }}
+            {{ option }}
           </button>
         </div>
       </div>

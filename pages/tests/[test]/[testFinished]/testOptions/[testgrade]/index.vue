@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import useTestStore from '@/store/TestStore';
 
 import html2canvas from 'html2canvas';
@@ -204,4 +204,10 @@ onMounted(() => {
     }
   }
 }
-</style>
+</style> -->
+
+<template>
+  <div>
+    holaaa
+  </div>
+</template>

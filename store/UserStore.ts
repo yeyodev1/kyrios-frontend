@@ -78,6 +78,10 @@ export const useUserStore = defineStore('UserStore', {
         this.isLoading = false;
       }
     },
+  },
+
+  getters: {
+    userId: (state) => state.user?._id,
   }
 });
 

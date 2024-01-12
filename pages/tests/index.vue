@@ -4,15 +4,15 @@ import { RouterLink } from 'vue-router';
 
 const testStore = useTestStore();
 
-const selectedTestId = computed(() => {
-  return testStore.selectedTest?.id || '';
+const selectedTestIsoType = computed(() => {
+  return testStore.selectedTest?.isoType || '';
 });
 
-function selectTest(testId) {
-  testStore.selectTest(testId);
+async function selectTest(isoType) {
+  testStore.selectTest(isoType);
 }
-function isSelected(testId) {
-  return testStore.selectedTest?.id === testId;
+function isSelected(isoType) {
+  return testStore.selectedTest?.isoType === isoType;
 }
 </script>
 
@@ -24,16 +24,16 @@ function isSelected(testId) {
       <div
         v-for="test in testStore.tests"
         :key="test.id"
-        :class="{ 'test-card-selected': isSelected(test.id) }"
-        @click="selectTest(test.id)"
+        :class="{ 'test-card-selected': isSelected(test.isoType) }"
+        @click="selectTest(test.isoType)"
         class="test-card"
         >
-        <h2>{{ test.name }}</h2>
-        <p>{{ test.description }}</p>
+        <h2>{{ test.isoType }}</h2>
       </div>
     </div>
     <RouterLink 
-      :to="`tests/${selectedTestId}`" 
+      v-if="selectedTestIsoType"
+      :to="`tests/${selectedTestIsoType}`" 
       class="test-selection-next-button">
       Siguiente
     </RouterLink>
@@ -56,6 +56,7 @@ function isSelected(testId) {
   &-subtitle {
     margin-bottom: 32px;
     font-size: $body-font-size;
+    text-align: center;
   }
   &-test-cards {
     display: flex;
@@ -76,9 +77,6 @@ function isSelected(testId) {
       }
       &:hover:not(.test-card-selected) {
         background-color: darken($green, 10%);
-      }
-      @media (min-width: $tablet-lower-breakpoint) {
-        width: 40%;
       }
     }
   }

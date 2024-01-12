@@ -24,6 +24,24 @@ function updateResponse(index, newValue) {
 function submitResults() {
   console.log('Respuestas finales:', testStore.testResults);
   testStore.setTestResults(testResults.value);
+  const testResultsToSend = testResults.value.map(result => ({
+    question: result.question,
+    response: result.response,
+  }))
+  console.log(route.params)
+  const selectedTestType = testStore.selectedTest.id
+  if(selectedTestType) {
+    console.log('entramos en el if')
+    testStore.submitTestResults(route.params.test, testResultsToSend)
+      .then(() => {
+        console.log('prueba enviada con exito')
+      })
+      .catch(error => {
+        console.error('Error al enviar la prueba', error)
+      })
+  } else {
+    console.error('no se ha seleccionado una prueba maldita sea')
+  }
 }
 </script>
 
