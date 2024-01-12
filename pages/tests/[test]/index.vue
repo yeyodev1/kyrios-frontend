@@ -15,9 +15,8 @@ const currentQuestionIndex = ref(0);
 
 const selectedTest = computed(() => testStore.tests.find(test => test.isoType === testIsoType));
 const currentQuestion = computed(() => selectedTest.value?.questions[currentQuestionIndex.value]);
-const responseOptions = computed(() => testStore.responseOptions);
 const isCurrentQuestionAnswered = computed(() => {
-  return currentQuestion.value?.response !== null;
+  return currentQuestion.value?.userResponse !== undefined;
 });
 const isLastQuestion = computed(() => {
   return currentQuestionIndex.value === selectedTest.value.questions.length - 1;
@@ -40,14 +39,18 @@ function isOptionSelected(optionIndex) {
 }
 function finishTest() {
   if (selectedTest.value){
+    console.log('entramos aqui')
     const testResults = selectedTest.value.questions.map(question => ({
+      clause: question.clause,
       questionText: question.questionText,
-      userResponse: question.userResponse
-    }))
+      answerOptions: question.answerOptions,
+      correctAnswer: question.correctAnswer,
+      userResponse: question.userResponse,
+    }));
+    console.log('test resul;ts', testResults)
     const testIsoType = selectedTest.value.isoType;
     testStore.setTestResults(testIsoType, testResults);
-    console.log('aaaa', testStore.testResults)
-    router.push(`${testIsoType}/testFinished`)
+    router.push('testFinished')
   }
 };
 </script>

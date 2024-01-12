@@ -10,7 +10,7 @@ const route = useRoute();
 const testStore = useTestStore();
 
 const testName = computed(() => route.params.test);
-const testResults = computed(() => testStore.getTestResults());
+const testResults = computed(() => testStore.testResults);
 const responseOptions = computed(() => testStore.responseOptions);
 
 function updateResponse(index, newValue) {

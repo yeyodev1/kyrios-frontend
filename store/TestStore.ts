@@ -123,13 +123,26 @@ const useTestStore = defineStore("testStore", {
       }
     },
 
-    setTestResults(isoType: any, results: any){
+    setTestResults(isoType: any, results: any) {
       const testIndex = this.tests.findIndex(test => test.isoType === isoType);
       if (testIndex !== -1) {
-        this.testResults = results
+        this.testResults = results;
       }
-    }
-  }
+    },
+
+    actions: {
+      async submitTestResults(isoType: any, results: any) {
+        try {
+          const response = await testService.createTest({ isoType, results });
+          console.log('test enviado con exito', response.data);
+          return response; 
+        } catch (error) {
+          console.error('error al enviar el test: ', error);
+          throw error; 
+        }
+      },
+    },
+  },
 });
 
 export default useTestStore;
