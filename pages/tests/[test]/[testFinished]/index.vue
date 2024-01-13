@@ -1,46 +1,30 @@
 <script setup>
-import { useRoute } from 'vue-router';
+import { useRoute, RouterLink } from 'vue-router';
 import CrushSelect from '@nabux-crush/crush-select';
-
 import useTestStore from '@/store/TestStore';
-import { routerKey } from 'vue-router';
-import { RouterLink } from 'vue-router';
 
 const route = useRoute();
+const router = useRouter();
 const testStore = useTestStore();
 
 const testName = computed(() => route.params.test);
-const testResults = computed(() => testStore.testResults);
-const responseOptions = computed(() => testStore.responseOptions);
+const testIsoType = computed(() => testStore.selectedTest?.isoType || '');
+const testResults = ref(testStore.testResults);
+const responseOptions = computed(() => testStore.responseOptions.map(option => option.description));
 
-function updateResponse(index, newValue) {
-  const value = responseOptions.value.find(option => option.description === newValue)?.value;
-  if (value !== undefined) {
-    const numericValue = Number(value);
-    testResults.value[index].response = numericValue;
-    testStore.setResponse(testStore.selectedTest?.id, index, numericValue);
+function updateResponse(questionIndex, newValue) {
+  const responseIndex = responseOptions.value.findIndex(option => option === newValue);
+  if (responseIndex !== -1) {
+    testResults.value[questionIndex].userResponse = responseIndex; 
   }
 }
-function submitResults() {
-  console.log('Respuestas finales:', testStore.testResults);
-  testStore.setTestResults(testResults.value);
-  const testResultsToSend = testResults.value.map(result => ({
-    question: result.question,
-    response: result.response,
-  }))
-  console.log(route.params)
-  const selectedTestType = testStore.selectedTest.id
-  if(selectedTestType) {
-    console.log('entramos en el if')
-    testStore.submitTestResults(route.params.test, testResultsToSend)
-      .then(() => {
-        console.log('prueba enviada con exito')
-      })
-      .catch(error => {
-        console.error('Error al enviar la prueba', error)
-      })
-  } else {
-    console.error('no se ha seleccionado una prueba maldita sea')
+
+async function submitResults() {
+  try {
+    await testStore.submitTestResults(testIsoType.value, testResults.value);
+    router.push(`/${testIsoType.value}/testFinished`);
+  } catch (error) {
+    console.error('Error al enviar la prueba', error);
   }
 }
 </script>
@@ -53,19 +37,17 @@ function submitResults() {
       v-for="(result, index) in testResults" 
       :key="index" 
       class="container-result">
-      <p class="container-result-item">{{ result.question }}</p>
-      <p class="container-result-item">Respuesta: {{ result.response }}</p>
+      <p class="container-result-item">{{ result.questionText }}</p>
+      <p class="container-result-item">Respuesta: {{ responseOptions[result.userResponse] }}</p>
       <CrushSelect
-        label="edita tu respuesta"
-        :options="responseOptions.map(option => option.description)"
-        :value="result.response.toString()"
-        @update:value="newValue => updateResponse(index, newValue)"
-        />
+        label="Edita tu respuesta"
+        :options="responseOptions"
+        :value="responseOptions[result.userResponse]"
+        @update:value="newValue => updateResponse(index, newValue)" />
     </div>
-    <RouterLink
-      :to="`${route.params.testFinished}/testOptions`" 
+    <button
       @click="submitResults"
-      class="container-result-button">Finalizar</RouterLink>
+      class="container-result-button">Finalizar</button>
   </div>
 </template>
 

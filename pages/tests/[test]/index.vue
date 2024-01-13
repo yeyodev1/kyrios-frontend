@@ -50,7 +50,7 @@ function finishTest() {
     console.log('test resul;ts', testResults)
     const testIsoType = selectedTest.value.isoType;
     testStore.setTestResults(testIsoType, testResults);
-    router.push('testFinished')
+    router.push(`${route.params.test}/testFinished`)
   }
 };
 </script>
