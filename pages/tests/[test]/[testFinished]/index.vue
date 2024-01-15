@@ -36,7 +36,7 @@ async function submitResults() {
     };
 
     await testStore.submitTestResults(payload);
-    router.push(`/${testIsoType.value}/testFinished`);
+    router.push(`testFinished/testOptions`);
   } catch (error) {
     console.error('Error al enviar la prueba', error);
   }
