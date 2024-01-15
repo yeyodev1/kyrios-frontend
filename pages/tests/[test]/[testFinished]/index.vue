@@ -20,13 +20,29 @@ function updateResponse(questionIndex, newValue) {
 }
 
 async function submitResults() {
+  const preparedResults = testResults.value.map(result => ({
+    clause: result.clause, 
+    questionText: result.questionText,
+    answerOptions: result.answerOptions,
+    correctAnswer: result.correctAnswer,
+    userResponse: responseOptions.value[result.userResponse],
+  }));
+  console.log('prepared results: ', preparedResults)
+
   try {
-    await testStore.submitTestResults(testIsoType.value, testResults.value);
+    const payload = {
+      isoType: testIsoType.value,
+      questions: preparedResults,
+    };
+
+    await testStore.submitTestResults(payload);
     router.push(`/${testIsoType.value}/testFinished`);
   } catch (error) {
     console.error('Error al enviar la prueba', error);
   }
 }
+
+
 </script>
 
 <template>

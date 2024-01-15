@@ -53,6 +53,7 @@ function finishTest() {
     router.push(`${route.params.test}/testFinished`)
   }
 };
+
 </script>
 
 <template>

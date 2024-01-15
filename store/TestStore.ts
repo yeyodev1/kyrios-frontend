@@ -11,7 +11,7 @@ interface TestQuestion {
   questionText: string;
   answerOptions: string[];
   correctAnswer: string;
-  userResponse?: number; 
+  userResponse?: string; 
 }
 
 interface Test {
@@ -46,26 +46,26 @@ const useTestStore = defineStore("testStore", {
         questions: [
           {
             clause: '',
-            questionText: 'Pregunta 1',
-            answerOptions: responseOptions.map(option => option.value),
+            questionText: 'Pregunta de la muerte',
+            answerOptions: responseOptions.map(option => option.description),
             correctAnswer: ''
           },
           {
             clause: '',
             questionText: 'Pregunta 2',
-            answerOptions: responseOptions.map(option => option.value),
+            answerOptions: responseOptions.map(option => option.description),
             correctAnswer: ''
           },
           {
             clause: '',
             questionText: 'Pregunta 3',
-            answerOptions: responseOptions.map(option => option.value),
+            answerOptions: responseOptions.map(option => option.description),
             correctAnswer: ''
           },
           {
             clause: '',
             questionText: 'Pregunta 4',
-            answerOptions: responseOptions.map(option => option.value),
+            answerOptions: responseOptions.map(option => option.description),
             correctAnswer: ''
           },
         ]
@@ -79,25 +79,25 @@ const useTestStore = defineStore("testStore", {
           {
             clause: '',
             questionText: 'Pregunta 1',
-            answerOptions: responseOptions.map(option => option.value),
+            answerOptions: responseOptions.map(option => option.description),
             correctAnswer: ''
           },
           {
             clause: '',
             questionText: 'Pregunta 2',
-            answerOptions: responseOptions.map(option => option.value),
+            answerOptions: responseOptions.map(option => option.description),
             correctAnswer: ''
           },
           {
             clause: '',
             questionText: 'Pregunta 3',
-            answerOptions: responseOptions.map(option => option.value),
+            answerOptions: responseOptions.map(option => option.description),
             correctAnswer: ''
           },
           {
             clause: '',
             questionText: 'Pregunta 4',
-            answerOptions: responseOptions.map(option => option.value),
+            answerOptions: responseOptions.map(option => option.description),
             correctAnswer: ''
           },
         ]
@@ -106,7 +106,6 @@ const useTestStore = defineStore("testStore", {
 		responseOptions,
     selectedTest: null as Test | null,
     testResults: [],
-    currentPath: '',
 	}),
   actions: {
     selectTest(isoType: any) {
@@ -119,7 +118,7 @@ const useTestStore = defineStore("testStore", {
     setResponse(isoType: any, questionIndex: any, responseValue: any) {
       const testIndex = this.tests.findIndex(test => test.isoType === isoType);
       if(testIndex !== -1) {
-        this.tests[testIndex].questions[questionIndex].userResponse = responseValue;
+        this.tests[testIndex].questions[questionIndex].userResponse = responseOptions[responseValue].description; 
       }
     },
 
@@ -129,18 +128,16 @@ const useTestStore = defineStore("testStore", {
         this.testResults = results;
       }
     },
-
-    actions: {
-      async submitTestResults(isoType: any, results: any) {
-        try {
-          const response = await testService.createTest({ isoType, results });
-          console.log('test enviado con exito', response.data);
-          return response; 
-        } catch (error) {
-          console.error('error al enviar el test: ', error);
-          throw error; 
-        }
-      },
+    
+    async submitTestResults(payload: any) {
+      try {
+        const response = await testService.createTest(payload);
+        console.log('Test enviado con éxito', response.data);
+        return response; 
+      } catch (error) {
+        console.error('Error al enviar el test:', error);
+        throw error; 
+      }
     },
   },
 });
