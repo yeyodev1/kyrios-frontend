@@ -47,23 +47,27 @@ onMounted(async () => {
     console.error(error);
     resultText.value = 'ooppp Algo ocurrio con el pago, contacta con Terranet Soporte';
   }
-
-  try {
-    const testAccessLevel = await userStore.getUserTestAccessLevel();
-    console.log('test access', testAccessLevel)
-
-    if (['viewResults', 'viewAndDownloadResults'].includes(testAccessLevel!)) {
-      message.value = 'mira tus resultados aquí';
-      router.push('/tests/test/testFinished/testOptions/testgrade');
-    } else if (testAccessLevel! === 'downloadTemplate') {
-      message.value = 'descarga aquí'
-      window.location.href = 'https://servicities.com/blog/wp-content/uploads/2015/03/CONTRATO-DE-DESAROLLO-DE-P%C3%81GINA-WEB.pdf';
-    }
-  } catch (error) {
-    console.error('Error obteniendo el nivel de acceso de prueba del usuario:', error);
-  }
-
 });
+
+watch(() => userStore.user, async (newUser, oldUser) => {
+  if (newUser) {
+    await nextTick();
+    try {
+      const testAccessLevel = await userStore.getUserTestAccessLevel();
+      console.log('test access', testAccessLevel)
+
+      if (['viewResults', 'viewAndDownloadResults'].includes(testAccessLevel!)) {
+        message.value = 'mira tus resultados aquí';
+        router.push('/tests/test/testFinished/testOptions/testgrade');
+      } else if (testAccessLevel! === 'downloadTemplate') {
+        message.value = 'descarga aquí'
+        window.location.href = 'https://servicities.com/blog/wp-content/uploads/2015/03/CONTRATO-DE-DESAROLLO-DE-P%C3%81GINA-WEB.pdf';
+      }
+    } catch (error) {
+      console.error('Error obteniendo el nivel de acceso de prueba del usuario:', error);
+    }
+  }
+}, { immediate: true });
 
 </script>
 
