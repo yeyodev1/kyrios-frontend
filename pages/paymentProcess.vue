@@ -53,7 +53,7 @@ watch(() => userStore.user, async (newUser, oldUser) => {
   if (newUser) {
     await nextTick();
     try {
-      const testAccessLevel = await userStore.getUserTestAccessLevel();
+      const testAccessLevel = await userStore.getUserTestAccessLevel(newUser._id!);
       console.log('test access', testAccessLevel)
 
       if (['viewResults', 'viewAndDownloadResults'].includes(testAccessLevel!)) {
