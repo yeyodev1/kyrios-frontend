@@ -21,8 +21,8 @@ const responseOptions = testStore.responseOptions;
           <div class="table-cell">Niveles</div>
           <div class="table-cell">Criterio</div>
         </div>
-        <div class="table-row" v-for="option in responseOptions" :key="option.value">
-          <div class="table-cell">{{ option.value }}</div>
+        <div class="table-row" v-for="(option, index) in responseOptions" :key="index">
+          <div class="table-cell">{{ index + 1 }}</div>
           <div class="table-cell">{{ option.description }}</div>
         </div>
       </div>

@@ -118,7 +118,7 @@ const useTestStore = defineStore("testStore", {
     setResponse(isoType: any, questionIndex: any, responseValue: any) {
       const testIndex = this.tests.findIndex(test => test.isoType === isoType);
       if(testIndex !== -1) {
-        this.tests[testIndex].questions[questionIndex].userResponse = responseOptions[responseValue].description; 
+        this.tests[testIndex].questions[questionIndex].userResponse = responseValue; 
       }
     },
 
@@ -131,7 +131,7 @@ const useTestStore = defineStore("testStore", {
     
     async submitTestResults(payload: any) {
       try {
-        const response = await testService.createTest(payload);
+        const response = await testService.createTest({ ...payload, userResponses: this.tests.map(test => test.questions.map(question => question.userResponse)) });
         console.log('Test enviado con éxito', response.data);
         return response; 
       } catch (error) {

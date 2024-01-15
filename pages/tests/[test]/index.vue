@@ -22,11 +22,11 @@ const isLastQuestion = computed(() => {
   return currentQuestionIndex.value === selectedTest.value.questions.length - 1;
 });
 
-function setResponse(questionIndex, responseValue) {
+function setResponse(questionIndex, responseIndex) {
   if(selectedTest.value) {
-    testStore.setResponse(selectedTest.value.isoType, questionIndex, responseValue);
+    testStore.setResponse(selectedTest.value.isoType, questionIndex, responseIndex);
   }
-}
+};
 function nextQuestion() {
   if (currentQuestionIndex.value < selectedTest.value.questions.length - 1) {
     currentQuestionIndex.value++;
@@ -36,7 +36,7 @@ function nextQuestion() {
 };
 function isOptionSelected(optionIndex) {
   return currentQuestion.value?.userResponse === optionIndex;
-}
+};
 function finishTest() {
   if (selectedTest.value){
     console.log('entramos aqui')
@@ -80,7 +80,7 @@ function finishTest() {
             @click="setResponse(currentQuestionIndex, index)"
             :class="{ 'selected': isOptionSelected(index) }"
             class="container-test-question-container-response-options-option-button" >
-            {{ option }}
+            {{ index + 1 }}
           </button>
         </div>
       </div>
