@@ -17,18 +17,14 @@ const prices = reactive({
 const price = computed (() => {
   return prices[selectedOption.value] || 0;
 });
-console.log('path', path.value)
 function viewResults() {
   testStore.setCurrentPath(path.value)
   console.log(path.value)
   selectedOption.value = 'viewResults';
-  alert('esto se guardo: ', path.value)
 }
 
 function viewAndDownloadResults() {
   selectedOption.value = 'viewAndDownloadResults';
-  testStore.setCurrentPath(path.value);
-  alert('esto se guardo: ', path.value)
 }
 
 function cancel() {

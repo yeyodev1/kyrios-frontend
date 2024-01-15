@@ -21,12 +21,6 @@ const data = JSON.stringify({
   clientTxId: client.value,
 });
 
-function redirectLink () {
-  const pathSaved = testStore.currentPath;
-  console.log("Ruta guardada:", pathSaved);
-  return pathSaved;
-}
-
 onMounted(async () => {
   try {
     const result = await fetch('https://pay.payphonetodoesposible.com/api/button/V2/Confirm', {
