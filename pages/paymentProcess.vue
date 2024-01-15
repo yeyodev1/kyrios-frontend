@@ -1,14 +1,10 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
 
-import useTestStore from '~/store/TestStore';
 
 const config = useRuntimeConfig()
 
 const route = useRoute()
-
-const testStore = useTestStore();
 
 const isLoading = ref(true);
 const resultText = ref('');

@@ -18,7 +18,6 @@ const price = computed (() => {
   return prices[selectedOption.value] || 0;
 });
 function viewResults() {
-  testStore.setCurrentPath(path.value)
   console.log(path.value)
   selectedOption.value = 'viewResults';
 }
