@@ -4,6 +4,8 @@ import { isoTestTypes } from "~/enums/isoTestTypes";
 import APITest from "~/services/Test/Test";
 import useUserStore from "./UserStore";
 
+const userStore = useUserStore();
+
 const testService = new APITest(); 
 
 interface TestQuestion {
@@ -137,6 +139,18 @@ const useTestStore = defineStore("testStore", {
       } catch (error) {
         console.error('Error al enviar el test:', error);
         throw error; 
+      }
+    },
+
+    async setUserTestAccessLevel(testAccessLevel: string) {
+      const userId = userStore.userId;
+
+      try {
+        const response = await testService.setUserTestAccessLevel(userId!, testAccessLevel);
+        this.user = response.data;
+      } catch (error) {
+        console.error('error al actualizar la eleccion')
+        throw error;
       }
     },
   },
