@@ -50,6 +50,7 @@ onMounted(async () => {
 
   try {
     const testAccessLevel = await userStore.getUserTestAccessLevel();
+    console.log('test access', testAccessLevel)
 
     if (['viewResults', 'viewAndDownloadResults'].includes(testAccessLevel!)) {
       message.value = 'mira tus resultados aquí';
