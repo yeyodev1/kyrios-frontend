@@ -89,11 +89,11 @@ export const useUserStore = defineStore('UserStore', {
       }
     },
     
-     async getUserTestAccessLevel(): Promise<string> {
+    async getUserTestAccessLevel(userId: string): Promise<string> {
       this.isLoading = true;
       try {
-        console.log('id del usuario', this.user)
-        const response = await userService.getUserTestAccessLevel(this?.user?._id!);
+        console.log('id del usuario', userId)
+        const response = await userService.getUserTestAccessLevel(userId);
         console.log('response', response)
         return response.data.testAccessLevel;
       } catch (error: any) {
