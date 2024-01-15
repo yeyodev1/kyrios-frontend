@@ -22,6 +22,14 @@ class APIUsers extends APIBase {
   async getSession(): Promise<AxiosResponse<User>> {
     return this.get('users/profile')
   }
+
+  async setUserTestAccessLevel(userId: string, testAccessLevel: string): Promise<AxiosResponse<any>> {
+    return this.put('isotest/testAccessLevel', { id: userId, testAccessLevel });
+  }
+
+  async getUserTestAccessLevel(userId: string): Promise<AxiosResponse<any>> {
+    return this.get(`isotest/testAccessLevel/${userId}`)
+  }
   
 }
 

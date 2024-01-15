@@ -78,6 +78,16 @@ export const useUserStore = defineStore('UserStore', {
         this.isLoading = false;
       }
     },
+
+    async setUserTestAccessLevel(testAccessLevel: string): Promise<void> {
+      this.isLoading = true;
+      try {
+        const response = await userService.setUserTestAccessLevel(this.user?._id, testAccessLevel);
+        this.user.testAccessLevel = response.data.testAccessLevel;
+      } catch (error: any) {
+        this.isLoading = false;
+      }
+    }
   },
 
   getters: {

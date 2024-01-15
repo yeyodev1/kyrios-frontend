@@ -1,29 +1,33 @@
 <script setup>
-import { useRouter, useRoute } from 'vue-router';
-import useTestStore from '~/store/TestStore';
+import { useRouter } from 'vue-router';
+import useUserStore from '~/store/UserStore';
 
 const router = useRouter();
-const route = useRoute();
-
-const testStore = useTestStore();
+const userStore = useUserStore();
 
 const selectedOption = ref(null);
-const path = ref(route.fullPath);
 
 const prices = reactive({
   viewResults: 1000,
   viewAndDownloadResults: 1000,
+  downloadTemplate: 1000,
 })
 const price = computed (() => {
   return prices[selectedOption.value] || 0;
 });
 function viewResults() {
-  console.log(path.value)
   selectedOption.value = 'viewResults';
+  userStore.setUserTestAccessLevel('viewTest');
 }
 
 function viewAndDownloadResults() {
   selectedOption.value = 'viewAndDownloadResults';
+  userStore.setUserTestAccessLevel('downloadAndViewTest');
+}
+
+function improveWithFile() {
+  selectedOption.value = 'downloadTemplate';
+  userStore.setUserTestAccessLevel('downloadTemplate');
 }
 
 function cancel() {
@@ -34,16 +38,24 @@ function cancel() {
 
 <template>
   <div class="test-options-container">
-    <h1 class="title">Elige una opción</h1>
+    <h3 class="title">Elige una opción</h3>
     <button 
       @click="viewResults" 
+      :class="{ selected: selectedOption === 'viewResults' }"
       class="option-button">
       Ver Resultados ($10)
     </button>
     <button 
       @click="viewAndDownloadResults" 
+      :class="{ selected: selectedOption === 'viewAndDownloadResults' }"
       class="option-button">
       Ver Resultados y Descargar ($10)
+    </button>
+    <button 
+      @click="improveWithFile" 
+      :class="{ selected: selectedOption === 'downloadTemplate' }"
+      class="option-button">
+      Archivo para mejorar ($10)
     </button>
     <button 
       @click="cancel" 
@@ -100,5 +112,10 @@ function cancel() {
   &:hover {
     background-color: #ffaaaa;
   }
+}
+
+.option-button.selected {
+  background-color: $light-blue; 
+  color: $white; 
 }
 </style>

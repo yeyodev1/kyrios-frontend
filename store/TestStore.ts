@@ -141,18 +141,6 @@ const useTestStore = defineStore("testStore", {
         throw error; 
       }
     },
-
-    async setUserTestAccessLevel(testAccessLevel: string) {
-      const userId = userStore.userId;
-
-      try {
-        const response = await testService.setUserTestAccessLevel(userId!, testAccessLevel);
-        this.user = response.data;
-      } catch (error) {
-        console.error('error al actualizar la eleccion')
-        throw error;
-      }
-    },
   },
 });
 
