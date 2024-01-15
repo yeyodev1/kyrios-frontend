@@ -87,6 +87,19 @@ export const useUserStore = defineStore('UserStore', {
       } catch (error: any) {
         this.isLoading = false;
       }
+    },
+
+    async getUserTestAccessLevel(): Promise<void> {
+      this.isLoading = true;
+      try {
+        const response = await userService.getUserTestAccessLevel(this.user?._id);
+        return response.data.testAccessLevel;
+      } catch (error) {
+        this.errorMessage = error.message;
+        throw error;
+      } finally {
+        this.isLoading = false;
+      }
     }
   },
 
