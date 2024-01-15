@@ -19,9 +19,8 @@ const price = computed (() => {
   return prices[selectedOption.value] || 0;
 });
 console.log('path', path.value)
+
 async function viewResults() {
-  testStore.setCurrentPath(path.value)
-  console.log(path.value)
   selectedOption.value = 'viewResults';
   alert('esto se guardo: ', path.value)
   await testStore.setUserTestAccessLevel('viewTest'); 
@@ -30,7 +29,6 @@ async function viewResults() {
 
 async function viewAndDownloadResults() {
   selectedOption.value = 'viewAndDownloadResults';
-  testStore.setCurrentPath(path.value);
   alert('esto se guardo: ', path.value)
   await testStore.setUserTestAccessLevel('downloadAndViewTest'); 
   router.push('/select-test-type');
@@ -38,12 +36,10 @@ async function viewAndDownloadResults() {
 
 async function downloadForImprovement() {
   selectedOption.value = 'downloadForImprovement';
-  testStore.setCurrentPath(path.value);
   alert('esto se guardo: ', path.value)
   await testStore.setUserTestAccessLevel('downloadTemplate'); 
   router.push('/select-test-type');
 }
-
 function cancel() {
   selectedOption.value = null; 
   router.push('/');
@@ -64,14 +60,14 @@ function cancel() {
       Ver Resultados y Descargar ($10)
     </button>
     <button 
-      @click="cancel" 
-      class="option-button cancel-button">
-      Cancelar
-    </button>
-    <button 
       @click="downloadForImprovement" 
       class="option-button">
       Descargar archivo para mejorar ($10)
+    </button>
+    <button 
+      @click="cancel" 
+      class="option-button cancel-button">
+      Cancelar
     </button>
   </div>
   <div class="container">
