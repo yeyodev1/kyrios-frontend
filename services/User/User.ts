@@ -30,6 +30,10 @@ class APIUsers extends APIBase {
   async getUserTestAccessLevel(userId: string): Promise<AxiosResponse<any>> {
     return this.get(`isotest/testAccessLevel/${userId}`)
   }
+
+  async getLastTest(userId: string): Promise<AxiosResponse<any>>{
+    return this.get(`isotest/lastTest/${userId}`);
+  }
   
 }
 
