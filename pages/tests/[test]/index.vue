@@ -63,7 +63,7 @@ function finishTest() {
       class="container-test">
       <h2 class="container-test-title">{{ selectedTest.name }}</h2>
       <p class="container-test-description">{{ selectedTest.description }}</p>
-      <FormIndication />
+      <FormIndication :process="currentQuestion?.process" :clause="currentQuestion?.clause" />
       <ProgressBar
         :currentQuestionIndex="currentQuestionIndex"
         :totalQuestions="selectedTest.questions.length"/>
