@@ -96,7 +96,7 @@ export const useUserStore = defineStore('UserStore', {
         console.log('id del usuario', userId)
         const response = await userService.getUserTestAccessLevel(userId);
         console.log('response', response)
-        return response.data.testAccessLevel;
+        return response.testAccessLevel;
       } catch (error: any) {
         this.errorMessage = error.message;
         throw error;
@@ -104,10 +104,16 @@ export const useUserStore = defineStore('UserStore', {
         this.isLoading = false;
       }
     },
-  },
 
-  getters: {
-    userId: (state) => state.user?._id,
-  }
+    async getLastTest(userId: string): Promise<any> {
+      try {
+        const response = await userService.getLastTest(userId);
+        console.log('response of test', response)
+        return response
+      } catch (error) {
+        console.error('error obteniendo el ultimo test')
+      }
+    }
+  },
 });
 export default useUserStore;
