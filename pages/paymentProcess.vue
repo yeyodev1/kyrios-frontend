@@ -14,6 +14,8 @@ const isLoading = ref(true);
 const resultText = ref('');
 const message = ref('');
 const path = ref('/')
+const file = ref('')
+const session = ref({});
 
 const transaccion = computed(() => parseInt(route.query.id as string));
 const client = computed(() => route.query.clientTransactionId as string);
@@ -45,16 +47,16 @@ onMounted(async () => {
       console.log('error en el pago y estado de la transaccion es cancelado')
     }
 
-    const session = await userStore.getSession();
+    session.value = await userStore.getSession();
     console.log(session);
-    resultText.value = 'Obten tus resultados aquí';
+    
     if (session.testAccessLevel === 'viewTest' || session.testAccessLevel === 'downloadAndViewTest') {
       message.value = 'Presiona para ver tus resultados';
       path.value = '/tests/test/testFinished/testOptions/testgrade'
     } else {
       message.value = 'Descarga tu archivo';
-      const pdfUrl = 'http://setracoahuila.gob.mx/descargar/Contrato%20tiempo%20indeterminado.pdf';
-      window.open(pdfUrl, '_blank');
+      file.value = 'http://setracoahuila.gob.mx/descargar/Contrato%20tiempo%20indeterminado.pdf';
+      window.open(file.value, '_blank');
     }
   } catch (error) {
     console.error(error);
@@ -77,10 +79,19 @@ onMounted(async () => {
         {{ resultText }}
       </p>
       <RouterLink 
+        v-if="session.testAccessLevel === 'viewTest' || session.testAccessLevel === 'downloadAndViewTest'"
         :to="path"
         class="button">
         {{message}}
       </RouterLink>
+      <a
+        v-else
+        :href="file"
+        target="_blank"
+        download
+        class="button">
+        Descargar tu archivo
+      </a>
     </div>
   </div>
 </template>
