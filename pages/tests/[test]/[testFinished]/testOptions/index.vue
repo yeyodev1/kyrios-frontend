@@ -66,7 +66,7 @@ function cancel() {
   <div class="container">
     <p class="container-indication">Después de haber escogido cancela aquí abajo</p>
     <PaymentButton
-      v-if="price > 0"
+      v-if="price"
       :price="price" />
   </div>
 </template>
@@ -86,6 +86,7 @@ function cancel() {
   justify-content: center;
   align-items: center;
   gap: 12px;
+  margin-bottom: 24px;
   &-indication {
     font-size: $body-font-size;
   }
