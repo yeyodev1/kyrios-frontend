@@ -54,11 +54,12 @@ export const useUserStore = defineStore('UserStore', {
       }
     },
 
-    async getSession(): Promise<void> {
+    async getSession(): Promise<any> {
       this.isLoading = false;
       try {
         const response = await userService.getSession();
         this.user = response.data;
+        return response.data;
       } catch (error: any) {
         console.error(error)
       } finally {
