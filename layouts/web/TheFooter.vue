@@ -54,6 +54,7 @@ const socialIcons = [
           </p>
         </template>
       </CrushFooter>
+      <YeyoTrademark/>
     </div>
   </div>
 </template>
