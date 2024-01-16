@@ -13,6 +13,7 @@ const router = useRouter();
 const isLoading = ref(true);
 const resultText = ref('');
 const message = ref('');
+const path = ref('/')
 
 const transaccion = computed(() => parseInt(route.query.id as string));
 const client = computed(() => route.query.clientTransactionId as string);
@@ -43,32 +44,23 @@ onMounted(async () => {
       resultText.value = 'Tu pago fue cancelado. Por favor escoge otro método de pago u otra tarjeta';
       console.log('error en el pago y estado de la transaccion es cancelado')
     }
+
+    const session = await userStore.getSession();
+    console.log(session);
+    resultText.value = 'Obten tus resultados aquí';
+    if (session.testAccessLevel === 'viewTest' || session.testAccessLevel === 'downloadAndViewTest') {
+      message.value = 'Presiona para ver tus resultados';
+      path.value = '/tests/test/testFinished/testOptions/testgrade'
+    } else {
+      message.value = 'Descarga tu archivo';
+      const pdfUrl = 'http://setracoahuila.gob.mx/descargar/Contrato%20tiempo%20indeterminado.pdf';
+      window.open(pdfUrl, '_blank');
+    }
   } catch (error) {
     console.error(error);
-    resultText.value = 'ooppp Algo ocurrio con el pago, contacta con Terranet Soporte';
+    resultText.value = 'ooppp Algo ocurrio con el pago, contacta con Kyrios Soporte';
   }
 });
-
-watch(() => userStore.user, async (newUser, oldUser) => {
-  if (newUser) {
-    await nextTick();
-    try {
-      const testAccessLevel = await userStore.getUserTestAccessLevel(newUser._id!);
-      console.log('test access', testAccessLevel)
-
-      if (['viewResults', 'viewAndDownloadResults'].includes(testAccessLevel!)) {
-        message.value = 'mira tus resultados aquí';
-        router.push('/tests/test/testFinished/testOptions/testgrade');
-      } else if (testAccessLevel! === 'downloadTemplate') {
-        message.value = 'descarga aquí'
-        window.location.href = 'https://servicities.com/blog/wp-content/uploads/2015/03/CONTRATO-DE-DESAROLLO-DE-P%C3%81GINA-WEB.pdf';
-      }
-    } catch (error) {
-      console.error('Error obteniendo el nivel de acceso de prueba del usuario:', error);
-    }
-  }
-}, { immediate: true });
-
 </script>
 
 <template>
@@ -85,7 +77,7 @@ watch(() => userStore.user, async (newUser, oldUser) => {
         {{ resultText }}
       </p>
       <RouterLink 
-        to="/tests/test/testFinished/testOptions/testgrade"
+        :to="path"
         class="button">
         {{message}}
       </RouterLink>
