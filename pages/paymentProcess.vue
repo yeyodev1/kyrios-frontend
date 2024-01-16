@@ -8,14 +8,12 @@ const userStore = useUserStore();
 
 const route = useRoute()
 
-const router = useRouter();
-
 const isLoading = ref(true);
 const resultText = ref('');
 const message = ref('');
 const path = ref('/')
 const file = ref('')
-const session = ref({});
+const session = ref({} as any);
 
 const transaccion = computed(() => parseInt(route.query.id as string));
 const client = computed(() => route.query.clientTransactionId as string);
@@ -50,7 +48,7 @@ onMounted(async () => {
     session.value = await userStore.getSession();
     console.log(session);
     
-    if (session.testAccessLevel === 'viewTest' || session.testAccessLevel === 'downloadAndViewTest') {
+    if (session.value.testAccessLevel === 'viewTest' || session.value.testAccessLevel === 'downloadAndViewTest') {
       message.value = 'Presiona para ver tus resultados';
       path.value = '/tests/test/testFinished/testOptions/testgrade'
     } else {
