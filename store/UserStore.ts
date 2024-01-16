@@ -13,7 +13,7 @@ interface Roostate {
   user: User | null,
   errorMessage: string | null,
   isLoading: boolean,
-  passwordSent: boolean | null
+  passwordSent: boolean | null,
 }
 
 export const useUserStore = defineStore('UserStore', {
@@ -83,20 +83,22 @@ export const useUserStore = defineStore('UserStore', {
     async setUserTestAccessLevel(testAccessLevel: string): Promise<void> {
       this.isLoading = true;
       try {
-        const response = await userService.setUserTestAccessLevel(this.user?._id, testAccessLevel);
-        this.user.testAccessLevel = response.data.testAccessLevel;
+        const response = await userService.setUserTestAccessLevel(this.user?._id!, testAccessLevel);
+        if (this.user) {
+          this.user.testAccessLevel = response.data.testAccessLevel;
+        }
       } catch (error: any) {
         this.isLoading = false;
       }
     },
     
-    async getUserTestAccessLevel(userId: string): Promise<string> {
+    async getUserTestAccessLevel(userId: string): Promise<any> {
       this.isLoading = true;
       try {
         console.log('id del usuario', userId)
         const response = await userService.getUserTestAccessLevel(userId);
         console.log('response', response)
-        return response.testAccessLevel;
+        ''
       } catch (error: any) {
         this.errorMessage = error.message;
         throw error;
