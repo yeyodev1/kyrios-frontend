@@ -5,4 +5,5 @@ export type User = {
   birthdate: string | Date,
   _id?: string,  
   token?: string,
+  testAccessLevel?: string
 }
