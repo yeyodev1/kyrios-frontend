@@ -4,14 +4,25 @@ import useTestStore from '@/store/TestStore';
 const testStore = useTestStore();
 
 const responseOptions = testStore.responseOptions;
+
+const props = defineProps({
+  process: {
+    type: String,
+    required: true,
+  },
+  clause: {
+    type: String,
+    required: true,
+  },
+});
 </script>
 
 <template>
   <div class="container">
     <div class="container-content">
       <div class="container-content-header">
-        <h3 class="container-content-header-process">Proceso: <span class="container-content-header-process-word">TIC</span></h3>
-        <p class="container-content-header-control">Control: <span  class="container-content-header-process-word">8.34 Protección de los sistemas de información durante las pruebas de auditoría</span></p>
+        <h3 v-if="process" class="container-content-header-process">Proceso: <span class="container-content-header-process-word">{{ process }}</span></h3>
+        <p v-if="clause" class="container-content-header-control">Control: <span  class="container-content-header-process-word">{{clause}}</span></p>
       </div>
       <p class="container-content-description">
         Las pruebas de auditoría y otras actividades de aseguramiento que impliquen la evaluación de los sistemas operativos se planificarán y acordarán entre el evaluador y la dirección apropiada.
