@@ -24,7 +24,7 @@ const props = defineProps({
       <h2 class="title">{{ title }}</h2>
       <p class="subtitle">{{ subtitle }}</p>
       <p class="content">{{ content }}</p>
-      <RouterLink :to="link" class="action-button">  
+      <RouterLink v-if="buttonText" :to="link" class="action-button">  
         {{ buttonText }}
       </RouterLink>
     </div>
