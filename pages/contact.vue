@@ -12,7 +12,7 @@ const form = reactive({
 const rules = {
   validateName: [
     {
-      validate: (value: string) => value.length >= 10,
+      validate: (value: string) => value.trim().includes(' '),
       message: 'Por favor, coloca tu nombre completo',
     },
   ],
