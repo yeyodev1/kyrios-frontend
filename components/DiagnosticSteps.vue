@@ -28,7 +28,7 @@ const props = defineProps({
         <p class="step-description">{{ step.description }}</p>
       </div>
     </div>
-    <button class="diagnostic-button">{{ buttonText }}</button>
+    <NuxtLink class="diagnostic-button" to="/tests">{{ buttonText }}</NuxtLink>
   </div>
 </template>
 
@@ -90,6 +90,7 @@ const props = defineProps({
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
+    text-decoration: none;
 
     &:hover {
       background-color: darken($blue, 10%);
