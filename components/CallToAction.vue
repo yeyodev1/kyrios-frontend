@@ -9,7 +9,8 @@ const props = defineProps({
   buttonText: String,
   link: {
     type: String,
-    required: true
+    required: false,
+    default: '/'
   },
   inverted: Boolean
 })
