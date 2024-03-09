@@ -12,6 +12,14 @@ const props = defineProps({
   role: {
     type: String,
     required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  phone: {
+    type: String,
+    required: true
   }
 })
 </script>
@@ -24,6 +32,11 @@ const props = defineProps({
       class="card-image">
     <h3 class="card-name">Nombre: <span class="card-name-span">{{ name }}</span></h3>
     <p class="card-rol">Rol: <span class="card-rol-span">{{ role }}</span></p>
+    <div class="card-contact">
+      <p class="card-contact-title">Contacto:</p>
+      <a href="mailto:{{ email }}" class="card-contact-email">{{ email }}</a>
+      <a href="tel:{{ phone }}" class="card-contact-phone">{{ phone }}</a>
+    </div>
   </div>
 </template>
 
@@ -50,6 +63,20 @@ const props = defineProps({
       font-size: 1rem;
       &-span {
         font-weight: bold;
+      }
+    }
+    &-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      &-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      & a {
+        text-decoration: none;
       }
     }
   }
