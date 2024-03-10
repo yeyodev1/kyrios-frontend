@@ -61,6 +61,7 @@ const props = defineProps({
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    padding: 24px;
     &-image {
       border-radius: 50%;
       width: 100px;
