@@ -19,6 +19,11 @@ const diagnosticSteps = [
     number: '3',
     title: 'Diagnosticar',
     description: 'Realiza el test completando las preguntas.'
+  },
+  {
+    number: '3',
+    title: 'Diagnosticar',
+    description: 'Realiza el test completando las preguntas.'
   }
 ];
 </script>
