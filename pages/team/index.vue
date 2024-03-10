@@ -341,6 +341,18 @@ const audits2 = [
     references: "ING. AURA LÓPEZ - ING. GUSTAVO ORNA"
   },
 ] 
+
+function downloadFile () {
+const downloadPDF = () => {
+  const link = document.createElement('a');
+  link.href = '../../assets/dataCompany/PRESENTACIÓN KYRIOS CONSULTORES YAMB SAS 18-12-2023.pdf';
+  link.download = 'PRESENTACIÓN KYRIOS CONSULTORES YAMB SAS 18-12-2023.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+downloadPDF();
+}
 </script>
 
 <template>
@@ -353,6 +365,7 @@ const audits2 = [
       <BoardOfWorks title="EMPRESAS AUDITADAS / ASESORADAS ISO 37001:2016" :audits="audits"/>
       <BoardOfWorks2 title="EMPRESAS ASESORADAS Y TRABAJOS REALIZADOS" :audits="audits2"/>
     </div>
+    <button @click="downloadFile" class="button">Si necesita mas información descarga la información, presionándome 😉</button>
   </div>
 </template>
 
@@ -383,6 +396,15 @@ const audits2 = [
     display: flex;
     flex-direction: column;
      overflow-x: auto;
+  }
+  .button {
+    background-color: $blue;
+    color: $white;
+    font-size: 1rem;
+
+    border-radius: 8px;
+    border: none;
+    padding: 16px;
   }
 }
 </style>
