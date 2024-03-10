@@ -11,6 +11,10 @@ const isUserLoggedIn = computed(() => userStore.user !== null);
 
 const allMenuItems = [
   {
+    link: '/team', 
+    name: 'equipo'
+  },
+  {
     link: '/',
     name: 'inicio'
   },
@@ -34,6 +38,7 @@ const allMenuItems = [
     link: '/userlogin',
     name: 'Empezar diagnóstico'
   },
+  
 ]
 
 const menuItems = computed(() => {
