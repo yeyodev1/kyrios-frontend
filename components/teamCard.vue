@@ -20,6 +20,10 @@ const props = defineProps({
   phone: {
     type: String,
     required: true
+  },
+  professionalDetails: {
+    type: Array,
+    required: true
   }
 })
 </script>
@@ -36,6 +40,17 @@ const props = defineProps({
       <p class="card-contact-title">Contacto:</p>
       <a href="mailto:{{ email }}" class="card-contact-email">{{ email }}</a>
       <a href="tel:{{ phone }}" class="card-contact-phone">{{ phone }}</a>
+    </div> 
+
+    <div class="card-profession">
+      <div v-for="(detail, index) in professionalDetails" :key="index">
+        <h4>{{ detail.category }}</h4>
+        <ul>
+          <li v-for="(item, itemIndex) in detail.details" :key="`detail-${index}-${itemIndex}`">
+            {{ item.title }} <span v-if="item.date"> ({{ item.date }}) </span> <span v-if="item.institution"> - {{ item.institution }}</span>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
