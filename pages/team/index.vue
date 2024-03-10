@@ -220,6 +220,89 @@ const team = [
     ]
   }, 
 ] 
+
+const audits = [
+  {
+    company: "CIRADSA",
+      date: "OCTUBRE",
+      auditoriaAsesoria: "INTERNA DE IMPLEMENTACIÓN",
+      role: "CONSULTOR",
+      days: "30 días",
+      status: "Certificado por SGS del Ecuador"
+  },
+  {
+    company: "SERCOP",
+        date: "JULIO 2019 - JULIO 2020",
+        auditoriaAsesoria: "EXTERNA DE CERTIFICACIÓN",
+        role: "Auditor",
+        days: "10 días",
+        status: "Certificado por SGS del Ecuador"
+      },
+  {
+    company: "BANCO DEL PACÍFICO",
+        date: "OCTUBRE – NOVIEMBRE 2010",
+        auditoriaAsesoria: "INTERNA DE IMPLEMENTACIÓN",
+        role: "CONSULTOR",
+        days: "270 días",
+        status: "Certificado por SGS del Ecuador"
+  },
+  {
+    company: "PLUSVALORES",
+        date: "ENERO 2020",
+        auditoriaAsesoria: "EXTERNA DE CERTIFICACIÓN",
+        role: "AUDITOR",
+        days: "6",
+        status: "Certificado por SGS del Ecuador"
+  },
+  {
+    company: "BANCO DE DESARROLLO DEL ECUADOR",
+        date: "Febrero 2020",
+        auditoriaAsesoria: "INTERNA DE IMPLEMENTACIÓN",
+        role: "Consultor",
+        days: "160 días",
+        status: "Certificado por SGS del Ecuador"
+  },
+  {
+    company: "EMPRESA PÚBLICA MUNICIPAL DE AGUA POTABLE Y SANEAMIENTO EPMaps - ETAPA",
+        date: "Agosto 2021 hasta Abril 2022",
+        auditoriaAsesoria: "Auditoría Interna de Implementación",
+        role: "Consultor",
+        days: "190 días",
+        status: "Certificados por ICONTEC"
+  },
+  {
+    company: "TELECOMUNICACIONES - CUECA",
+        date: "Julio 2022",
+        auditoriaAsesoria: "Auditoría Interna de Implementación",
+        role: "Consultor",
+        days: "15 días",
+        status: "Aprobación de certificación"
+  },
+  {
+    company: "ETAPA – AGUA POTABLE, SANEAMIENTO Y TELECOMUNICACIONES - CUENCA",
+        date: "NOVIEMBRE 2022 HASTA MAYO 2022",
+        auditoriaAsesoria: "IMPLEMENTACIÓN",
+        role: "Consultor",
+        days: "340 días",
+        status: "en proceso de certificación"
+  },
+  {
+    company: "BANCO DE MACHALA",
+        date: "Enero 2023",
+        auditoriaAsesoria: "Auditoría Interna de Implementación",
+        role: "Consultor",
+        days: "240 días",
+        status: "En proceso de certificación"
+  },
+  {
+    company: "VEOLIA MEXICO",
+        date: "Enero 2023",
+        auditoriaAsesoria: "IMPLEMENTACIÓN",
+        role: "Consultor",
+        days: "240 días",
+        status: "En proceso de certificación"
+  }
+]
 </script>
 
 <template>
@@ -228,6 +311,7 @@ const team = [
     <div class="container-team-cards">
       <teamCard v-for="member in team" :key="member.id" :imageUrl="member.imageUrl" :name="member.name" :role="member.role" :email="member.email" :phone="member.phone" :professionalDetails="member.professionalDetails" />
     </div>
+    <BoardOfWorks  :audits="audits"/>
   </div>
 </template>
 
@@ -247,6 +331,7 @@ const team = [
     max-width: 600px;
     display: flex;
     gap: 2rem;
+    flex-direction: column;
   }
 }
 </style>
