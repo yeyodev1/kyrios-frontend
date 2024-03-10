@@ -218,91 +218,129 @@ const team = [
         ]
       },
     ]
-  }, 
-] 
+  },
+]
 
 const audits = [
   {
     company: "CIRADSA",
-      date: "OCTUBRE",
-      auditoriaAsesoria: "INTERNA DE IMPLEMENTACIÓN",
-      role: "CONSULTOR",
-      days: "30 días",
-      status: "Certificado por SGS del Ecuador"
+    date: "OCTUBRE",
+    auditoriaAsesoria: "INTERNA DE IMPLEMENTACIÓN",
+    role: "CONSULTOR",
+    days: "30 días",
+    status: "Certificado por SGS del Ecuador"
   },
   {
     company: "SERCOP",
-        date: "JULIO 2019 - JULIO 2020",
-        auditoriaAsesoria: "EXTERNA DE CERTIFICACIÓN",
-        role: "Auditor",
-        days: "10 días",
-        status: "Certificado por SGS del Ecuador"
-      },
+    date: "JULIO 2019 - JULIO 2020",
+    auditoriaAsesoria: "EXTERNA DE CERTIFICACIÓN",
+    role: "Auditor",
+    days: "10 días",
+    status: "Certificado por SGS del Ecuador"
+  },
   {
     company: "BANCO DEL PACÍFICO",
-        date: "OCTUBRE – NOVIEMBRE 2010",
-        auditoriaAsesoria: "INTERNA DE IMPLEMENTACIÓN",
-        role: "CONSULTOR",
-        days: "270 días",
-        status: "Certificado por SGS del Ecuador"
+    date: "OCTUBRE – NOVIEMBRE 2010",
+    auditoriaAsesoria: "INTERNA DE IMPLEMENTACIÓN",
+    role: "CONSULTOR",
+    days: "270 días",
+    status: "Certificado por SGS del Ecuador"
   },
   {
     company: "PLUSVALORES",
-        date: "ENERO 2020",
-        auditoriaAsesoria: "EXTERNA DE CERTIFICACIÓN",
-        role: "AUDITOR",
-        days: "6",
-        status: "Certificado por SGS del Ecuador"
+    date: "ENERO 2020",
+    auditoriaAsesoria: "EXTERNA DE CERTIFICACIÓN",
+    role: "AUDITOR",
+    days: "6",
+    status: "Certificado por SGS del Ecuador"
   },
   {
     company: "BANCO DE DESARROLLO DEL ECUADOR",
-        date: "Febrero 2020",
-        auditoriaAsesoria: "INTERNA DE IMPLEMENTACIÓN",
-        role: "Consultor",
-        days: "160 días",
-        status: "Certificado por SGS del Ecuador"
+    date: "Febrero 2020",
+    auditoriaAsesoria: "INTERNA DE IMPLEMENTACIÓN",
+    role: "Consultor",
+    days: "160 días",
+    status: "Certificado por SGS del Ecuador"
   },
   {
     company: "EMPRESA PÚBLICA MUNICIPAL DE AGUA POTABLE Y SANEAMIENTO EPMaps - ETAPA",
-        date: "Agosto 2021 hasta Abril 2022",
-        auditoriaAsesoria: "Auditoría Interna de Implementación",
-        role: "Consultor",
-        days: "190 días",
-        status: "Certificados por ICONTEC"
+    date: "Agosto 2021 hasta Abril 2022",
+    auditoriaAsesoria: "Auditoría Interna de Implementación",
+    role: "Consultor",
+    days: "190 días",
+    status: "Certificados por ICONTEC"
   },
   {
     company: "TELECOMUNICACIONES - CUECA",
-        date: "Julio 2022",
-        auditoriaAsesoria: "Auditoría Interna de Implementación",
-        role: "Consultor",
-        days: "15 días",
-        status: "Aprobación de certificación"
+    date: "Julio 2022",
+    auditoriaAsesoria: "Auditoría Interna de Implementación",
+    role: "Consultor",
+    days: "15 días",
+    status: "Aprobación de certificación"
   },
   {
     company: "ETAPA – AGUA POTABLE, SANEAMIENTO Y TELECOMUNICACIONES - CUENCA",
-        date: "NOVIEMBRE 2022 HASTA MAYO 2022",
-        auditoriaAsesoria: "IMPLEMENTACIÓN",
-        role: "Consultor",
-        days: "340 días",
-        status: "en proceso de certificación"
+    date: "NOVIEMBRE 2022 HASTA MAYO 2022",
+    auditoriaAsesoria: "IMPLEMENTACIÓN",
+    role: "Consultor",
+    days: "340 días",
+    status: "en proceso de certificación"
   },
   {
     company: "BANCO DE MACHALA",
-        date: "Enero 2023",
-        auditoriaAsesoria: "Auditoría Interna de Implementación",
-        role: "Consultor",
-        days: "240 días",
-        status: "En proceso de certificación"
+    date: "Enero 2023",
+    auditoriaAsesoria: "Auditoría Interna de Implementación",
+    role: "Consultor",
+    days: "240 días",
+    status: "En proceso de certificación"
   },
   {
     company: "VEOLIA MEXICO",
-        date: "Enero 2023",
-        auditoriaAsesoria: "IMPLEMENTACIÓN",
-        role: "Consultor",
-        days: "240 días",
-        status: "En proceso de certificación"
+    date: "Enero 2023",
+    auditoriaAsesoria: "IMPLEMENTACIÓN",
+    role: "Consultor",
+    days: "240 días",
+    status: "En proceso de certificación"
   }
 ]
+
+const audits2 = [
+  {
+    company: "BANCO AMAZONAS S.A.",
+    work: "REINGENIERÍA DE PROCESOS DE TODO EL BANCO ASESORÍA EN GESTIÓN DE RIESGOS Y SEGURIDAD DE LA INFORMACIÓN ISO 27001",
+    time: "DICIEMBRE DEL 2003 A DICIEMBRE 2004 SEPTIEMBRE 2009-2010",
+    people: "180",
+    references: "ING. JESSICA YASELGA P. - 099421149"
+  },
+  {
+    company: "FIDUCIARIA DEL PACIFICO",
+    work: "MEJORA DE PROCESOS Y BALANCED SCORE CARD",
+    time: "DICIEMBRE DEL 2006 JUNIO 2011",
+    people: "40",
+    references: "ING. PAMELA SANCHEZ - 093004424"
+  },
+  {
+    company: "COMPAÑÍA DE SEGUROS ECUATORIANO SUIZA",
+    work: "IMPLEMENTACIÓN ISO 9001:2008",
+    time: "ENERO 2010 - JULIO 2010",
+    people: "250",
+    references: "DIEGO CRIOLLO JEFE FINANCIERO, SEGUROS ECUATORIANO SUIZA"
+  },
+  {
+    company: "BANCO DE DESARROLLO DEL ECUADOR B.P.",
+    work: "ASESORÍA Y CAPACITACIÓN ISO 37001:2016 RSC ISO 26000 - ISO 55001",
+    time: "DESDE FEBRERO 2020",
+    people: "560",
+    references: "ING. MARÍA FERNANADA SAMPEDRO"
+  },
+  {
+    company: "BANCO BOLIVARIANO C.A. PRODUCTOS Y SERVICIOS FINANCIEROS",
+    work: "ASESORÍA SISTEMA DE GESTIÓN DE LA CALIDAD ISO 9001:2015 SERVICIO ATMS Y 24MOVIL 24ONLINE MEJORA CONTINUA ASESORÍA ISO 37001",
+    time: "DESDE FEBRERO 2020",
+    people: "780",
+    references: "ING. AURA LÓPEZ - ING. GUSTAVO ORNA"
+  },
+] 
 </script>
 
 <template>
@@ -311,27 +349,40 @@ const audits = [
     <div class="container-team-cards">
       <teamCard v-for="member in team" :key="member.id" :imageUrl="member.imageUrl" :name="member.name" :role="member.role" :email="member.email" :phone="member.phone" :professionalDetails="member.professionalDetails" />
     </div>
-    <BoardOfWorks  :audits="audits"/>
+    <div class="container-data">
+      <BoardOfWorks title="EMPRESAS AUDITADAS / ASESORADAS ISO 37001:2016" :audits="audits"/>
+      <BoardOfWorks2 title="EMPRESAS ASESORADAS Y TRABAJOS REALIZADOS" :audits="audits2"/>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .container {
-  padding: 2rem;
+  padding: 24px;
+  max-width: 1024px;
+  margin: 0 auto;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 2rem;
+
   &-title {
     font-size: 2rem;
   }
+
   &-team-cards {
     max-width: 600px;
     display: flex;
     gap: 2rem;
     flex-direction: column;
+  }
+  &-data {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+     overflow-x: auto;
   }
 }
 </style>

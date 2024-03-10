@@ -2,6 +2,7 @@
 import { defineProps } from 'vue'
 
 const props = defineProps({
+  title: String,
   audits: {
     type: Array,
     required: true,
@@ -10,9 +11,9 @@ const props = defineProps({
 })
 </script>
 
-<template>
+<!-- <template>
   <div class="audit-container">
-    <h1 class="audit-title">Auditorías y Asesorías Realizadas</h1>
+    <h1 class="audit-title">{{ title }}</h1>
     <h2 class="audit-subtitle">Resumen de Actividades</h2>
     <table class="audit-table">
       <thead>
@@ -37,7 +38,39 @@ const props = defineProps({
       </tbody>
     </table>
   </div>
+</template> -->
+
+<template>
+  <div class="audit-container">
+    <h1 class="audit-title">{{ title }}</h1>
+    <h2 class="audit-subtitle">Resumen de Actividades</h2>
+    <div class="table-responsive">
+      <table class="audit-table">
+        <thead>
+          <tr>
+            <th>Empresa</th>
+          <th>Fechas</th>
+          <th>Auditoría / Asesoría</th>
+          <th>Rol</th>
+          <th>Días</th>
+          <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="item in audits" :key="item.id">
+          <td>{{ item.company }}</td>
+          <td>{{ item.date }}</td>
+          <td>{{ item.auditoriaAsesoria }}</td>
+          <td>{{ item.role }}</td>
+          <td>{{ item.days }}</td>
+          <td>{{ item.status }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </template>
+
 
 <style scoped>
 .audit-container {
@@ -60,6 +93,10 @@ const props = defineProps({
   margin-bottom: 20px;
 }
 
+.table-responsive {
+  overflow-x: auto;
+}
+
 .audit-table {
   width: 100%;
   border-collapse: collapse;
@@ -76,5 +113,8 @@ const props = defineProps({
   background-color: #f2f2f2;
 }
 </style>
+
+
+
 
 
