@@ -12,11 +12,7 @@ const isUserLoggedIn = computed(() => userStore.user !== null);
 const allMenuItems = [
   {
     link: '/team', 
-    name: 'equipo'
-  },
-  {
-    link: '/',
-    name: 'inicio'
+    name: 'Equipo'
   },
   {
     link: '/services',

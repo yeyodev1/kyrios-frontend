@@ -6,6 +6,15 @@ import socialIso from '../assets/socialIso2600.jpeg'
 import image from '../assets/genericImage.jpeg'
 import image2 from '../assets/genericImage2.jpeg'
 import image3 from '../assets/genericImage3.jpeg'
+import image4 from '../assets/genericImage4.jpeg'
+import image5 from '../assets/genericImage5.jpeg'
+import image6 from '../assets/genericImage6.jpeg'
+import image7 from '../assets/genericImage7.jpeg'
+import image8 from '../assets/genericImage8.jpeg'
+import image9 from '../assets/genericImage9.jpeg'
+import image10 from '../assets/genericImage10.jpeg'
+import image11 from '../assets/genericImage11.jpeg'
+import image12 from '../assets/genericImage12.jpeg'
 </script>
 
 <template>
@@ -63,46 +72,46 @@ import image3 from '../assets/genericImage3.jpeg'
       title="Ley de protección de datos personales"  
       subtitle=""
       content="Abordamos la ley de protección de datos personales con un enfoque integral para asegurar el manejo adecuado y seguro de la información personal, cumpliendo con regulaciones vigentes. Este marco busca proteger la privacidad de los individuos y garantizar la confidencialidad, integridad y disponibilidad de los datos personales."
-      imageUrl="https://i.pinimg.com/236x/de/fc/f9/defcf9f27f764817f946415e87c19e67.jpg"
+      :imageUrl=image4
       :inverted="true"
       />
     <CallToAction
       title="Administración de Bodegas"  
       subtitle=""
       content="Nuestro enfoque en la administración de bodegas se centra en optimizar la eficiencia y organización del almacenamiento, manejo de inventarios y logística. Implementamos prácticas que aseguran una gestión efectiva, reduciendo costos operativos y mejorando el servicio al cliente mediante sistemas y procesos que maximizan el espacio y agilizan las operaciones."
-      imageUrl="https://i.pinimg.com/236x/de/fc/f9/defcf9f27f764817f946415e87c19e67.jpg"
+      :imageUrl=image5
       />
     <CallToAction
       title="Gerencia estratégica de Costos ABC"  
       subtitle=""
       content="La gerencia estratégica de costos ABC (Costeo Basado en Actividades) se enfoca en identificar y asignar los costos de manera más precisa a los productos y servicios, basándose en el consumo real de recursos. Este enfoque permite una mejor comprensión de dónde y cómo se generan los costos, facilitando la toma de decisiones estratégicas para optimizar recursos y mejorar la rentabilidad."
-      imageUrl="https://i.pinimg.com/236x/de/fc/f9/defcf9f27f764817f946415e87c19e67.jpg"
+      :imageUrl=image6
       :inverted="true"
       />
     <CallToAction
       title="Análisis y mejora de procesos"  
       subtitle=""
       content=""
-      imageUrl="https://i.pinimg.com/236x/de/fc/f9/defcf9f27f764817f946415e87c19e67.jpg"
+      :imageUrl=image7
       />
       <CallToAction
         title="LEAN Production"  
         subtitle=""
         content="Este enfoque busca optimizar el flujo de trabajo, reducir tiempos de ciclo y minimizar los costos operativos, promoviendo una cultura de mejora continua y eficiencia en la manufactura."
-        imageUrl="https://i.pinimg.com/236x/de/fc/f9/defcf9f27f764817f946415e87c19e67.jpg"
+        :imageUrl=image8
         :inverted="true"
         />
       <CallToAction
         title="Mejora de Servicio al Cliente"  
         subtitle=""
         content=""
-        imageUrl="https://i.pinimg.com/236x/de/fc/f9/defcf9f27f764817f946415e87c19e67.jpg"
+        :imageUrl=image9
         />
       <CallToAction
         title="Gestión de Proyectos"  
         subtitle=""
         content="La gestión de proyectos implica la planificación, ejecución y monitoreo de proyectos para alcanzar objetivos específicos dentro de un plazo determinado, asegurando el uso eficiente de recursos. Este servicio se enfoca en aplicar metodologías y herramientas que permiten controlar el alcance, tiempo, costo y calidad, facilitando la entrega exitosa de proyectos que cumplen con las expectativas de los stakeholders."
-        imageUrl="https://i.pinimg.com/236x/de/fc/f9/defcf9f27f764817f946415e87c19e67.jpg"
+        :imageUrl=image10
         :inverted="true"
         />
       <CallToAction
@@ -110,13 +119,13 @@ import image3 from '../assets/genericImage3.jpeg'
         subtitle=""
         content="
 ITIL se centra en las mejores prácticas para la gestión de servicios de TI, proveyendo un marco para entregar servicios de tecnología de la información eficientes y alineados con las necesidades del negocio. Este enfoque mejora la calidad del servicio de TI, gestionando procesos, funciones y roles de manera efectiva."
-        imageUrl="https://i.pinimg.com/236x/de/fc/f9/defcf9f27f764817f946415e87c19e67.jpg"
+        :imageUrl=image11
         />
       <CallToAction
         title="Formador de Formadores"  
         subtitle=""
         content=""
-        imageUrl="https://i.pinimg.com/236x/de/fc/f9/defcf9f27f764817f946415e87c19e67.jpg"
+        :imageUrl=image12
         :inverted="true"
         />
       <Contact/>
