@@ -1,3 +1,13 @@
+<script setup>
+import auditoria from '../assets/auditoria.jpeg'
+import implementacion from '../assets/implementacion.jpeg'
+import capacitacion from '../assets/capacitacion.jpeg'
+import socialIso from '../assets/socialIso2600.jpeg'
+import image from '../assets/genericImage.jpeg'
+import image2 from '../assets/genericImage2.jpeg'
+import image3 from '../assets/genericImage3.jpeg'
+</script>
+
 <template>
   <h3 class="title">
     Nuestros servicios
@@ -8,46 +18,46 @@
 27032, 22301, 20000-1, 26000, 28000, 39001, 37001, 50001, 55001, 37301, 39001 entre otras."  
       subtitle=""
       content=" Nos especializamos en promover la mejora continua y asegurar el cumplimiento de normativas en distintas industrias, garantizando eficiencia operativa y protección de datos."
-      imageUrl="https://i.pinimg.com/236x/de/fc/f9/defcf9f27f764817f946415e87c19e67.jpg"
+      :imageUrl= capacitacion
       />
     <CallToAction
       title="Capacitación, Asesoría y Auditoría en ISO 17020, ISO 17021, ISO 17024, ISO 17025, ISO 17065"  
       subtitle=""
       content="Estos servicios están diseñados para mejorar la competencia de los organismos de inspección, certificación y laboratorios, asegurando la calidad y confiabilidad en sus operaciones y resultados."
-      imageUrl="https://i.pinimg.com/236x/de/fc/f9/defcf9f27f764817f946415e87c19e67.jpg"
+      :imageUrl= implementacion
       :inverted="true"
       />
     <CallToAction
       title="Implementación y Auditoría de Comercio Ético de los Afiliados a Sedex (SMETA)"  
       subtitle=""
       content="Brindamos servicios de implementación y auditoría del Comercio Ético de los Afiliados a Sedex (SMETA), enfocándonos en promover prácticas comerciales responsables y éticas. A través de estos servicios, ayudamos a las organizaciones a alinear sus operaciones con los principios de responsabilidad social y ambiental, garantizando transparencia y mejora continua en sus cadenas de suministro."
-      imageUrl="https://i.pinimg.com/236x/de/fc/f9/defcf9f27f764817f946415e87c19e67.jpg"
+      :imageUrl=auditoria
       />
     <CallToAction
       title="Responsabilidad Social ISO 26000 – Reporte de Sostenibilidad GRI"  
       subtitle=""
       content="Ofrecemos asesoría y apoyo en la implementación de la Responsabilidad Social según ISO 26000, así como en la elaboración de Reportes de Sostenibilidad GRI. Nos centramos en integrar prácticas de sostenibilidad y responsabilidad social en las estrategias corporativas, asegurando que las organizaciones no solo cumplan con los estándares internacionales, sino que también mejoren su impacto social y ambiental de manera significativa y medible."
-      imageUrl="https://i.pinimg.com/236x/de/fc/f9/defcf9f27f764817f946415e87c19e67.jpg"
+      :imageUrl=socialIso
       :inverted="true"
       />
     <CallToAction
       title="Capacitación y Asesoría FSSC 22000, HACCP, BMP, SSOP entre otras."  
       subtitle=""
       content="Especializados en seguridad alimentaria, abarcamos estándares y sistemas como FSSC 22000, HACCP, Buenas Prácticas de Manufactura (BMP) y Procedimientos Estándar de Operación de Sanitización (SSOP). Nuestro enfoque se centra en fortalecer la gestión de la inocuidad alimentaria, asegurando el cumplimiento de regulaciones y la mejora continua de procesos de producción y manejo de alimentos."
-      imageUrl="https://i.pinimg.com/236x/de/fc/f9/defcf9f27f764817f946415e87c19e67.jpg"
+      :imageUrl=image
       />
     <CallToAction
       title="Gestión de Riesgos ISO 31000"  
       subtitle=""
       content="Enfocados en la gestión integral de riesgos, abordamos la norma ISO 31000 para proporcionar un marco sistemático y procesos para identificar, evaluar y gestionar los riesgos de manera efectiva. Este enfoque permite a las organizaciones mejorar la toma de decisiones, aumentar la probabilidad de alcanzar sus objetivos y minimizar las pérdidas mediante la implementación de estrategias de gestión de riesgos coherentes y eficaces."
-      imageUrl="https://i.pinimg.com/236x/de/fc/f9/defcf9f27f764817f946415e87c19e67.jpg"
+      :imageUrl=image2
       :inverted="true"
       />
     <CallToAction
       title="Economía Circular y Compras sostenibles ISO 20400"  
       subtitle=""
       content="Centrándonos en la sostenibilidad y eficiencia de recursos, abordamos la ISO 20400 para promover la economía circular y las compras sostenibles. Este enfoque orienta a las organizaciones hacia la adopción de prácticas de compra que consideran aspectos ambientales, sociales y económicos, fomentando un ciclo de vida de productos y servicios que minimiza el impacto negativo en el medio ambiente y la sociedad, al tiempo que maximiza la eficiencia de los recursos utilizados."
-      imageUrl="https://i.pinimg.com/236x/de/fc/f9/defcf9f27f764817f946415e87c19e67.jpg"
+      :imageUrl=image3
       />
     <CallToAction
       title="Ley de protección de datos personales"  
