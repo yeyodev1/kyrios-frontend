@@ -8,6 +8,9 @@ const config = defineNuxtConfig({
     public: {
       payphoneAppId: process.env.PAYPHONE_APP_ID,
       payphoneToken: process.env.PAYPHONE_TOKEN, 
+      serviceId: process.env.SERVICE_ID,
+      templateId: process.env.TEMPLATE_ID,
+      publicKey: process.env.PUBLIC_KEY,  
     }
   },
 	alias: {
