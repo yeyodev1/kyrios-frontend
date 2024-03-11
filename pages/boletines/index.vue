@@ -45,7 +45,7 @@ onMounted(async() => {
     text-align: center;
     padding: 24px;
     @media (min-width: 1024px) {
-      font-size: 3rem;
+      font-size: 2rem;
     }
   }
   &-tickets {
