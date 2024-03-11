@@ -401,6 +401,7 @@ downloadPDF();
     background-color: $blue;
     color: $white;
     font-size: 1rem;
+    cursor: pointer;
 
     border-radius: 8px;
     border: none;

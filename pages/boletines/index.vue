@@ -36,16 +36,16 @@ onMounted(async() => {
   padding: 24px;
   &-title {
     color: $black;
-    font-size: $h2-font-size;
+    font-size: 48px;
     text-align: center;
     font-weight: 700;
   }
   &-text {
-    font-size: $body-font-size;
+    font-size: 1rem;
     text-align: center;
     padding: 24px;
-    @media (min-width: $tablet-upper-breakpoint) {
-      font-size: $h2-font-size;
+    @media (min-width: 1024px) {
+      font-size: 3rem;
     }
   }
   &-tickets {

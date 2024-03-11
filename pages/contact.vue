@@ -123,10 +123,17 @@ async function sendEmailForm() {
       font-family: $font;
     }
     .button {
-      background-color: $blue;
-      color: $white;
-      border: none;
-      width: 30%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &-button {
+        background-color: $blue;
+        color: $white;
+        border: none;
+        width: 30%;
+        z-index: 0;
+      }
     }
   }
 }

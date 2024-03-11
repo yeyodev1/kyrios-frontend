@@ -84,6 +84,7 @@ async function sendEmailForm() {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    z-index: 0;
     :deep(.crush-text-field .crush-text-field-label-text) {
       padding: 10px;
       border-radius: 5px;
@@ -98,6 +99,7 @@ async function sendEmailForm() {
       color: $black;
       font-family: $font;
     }
+    
 
     .submit-button {
       padding: 10px 20px;
@@ -111,6 +113,9 @@ async function sendEmailForm() {
       &:hover {
         background-color: darken($blue, 10%);
       }
+    }
+    .button {
+      background-color: red;
     }
   }
 }
