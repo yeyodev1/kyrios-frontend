@@ -344,6 +344,7 @@ const audits2 = [
 ] 
 
 function downloadFile () {
+  console.log(pdf);
   const link = document.createElement('a');
   link.href = pdf;
   link.setAttribute('download', 'kyrios.pdf');

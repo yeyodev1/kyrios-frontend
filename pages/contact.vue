@@ -29,23 +29,25 @@ async function sendEmailForm() {
       </p>
     </div>
     <form class="contact-form" id="form">
-      <CrushTextField
+      <div class="contact-form-content">
+        <CrushTextField
         label="Nombre y Apellido"
         placeholder="¿Con quién tenemos el gusto?"
         :key="inputKey"
         :required="true"
         :validRules="rules.validateName"
         v-model="form.name"
-      />
-      <CrushTextField
-        label="Correo electrónico"
-        placeholder="email@ejemplo.com"
-        :required="true"
-        :key="inputKey"
-        :valid-rules="rules.validateEmail"
-        type="email"
-        v-model="form.email"
-      />
+        />
+        <CrushTextField
+          label="Correo electrónico"
+          placeholder="email@ejemplo.com"
+          :required="true"
+          :key="inputKey"
+          :valid-rules="rules.validateEmail"
+          type="email"
+          v-model="form.email"
+        />
+      </div>
       <CrushButton
         variant="primary"
         text="Enviar"
@@ -103,6 +105,7 @@ async function sendEmailForm() {
     flex-wrap: wrap;
     :deep(.crush-text-field) {
       margin-bottom: 8px;
+      width: 22%;
     }
 
     :deep(.crush-button) {
@@ -122,8 +125,14 @@ async function sendEmailForm() {
       color: $black;
       font-family: $font;
     }
-    .button {
+    &-content{
+      display: flex;
+      gap: 40px;
       width: 100%;
+      justify-content: center;
+    }
+    .button {
+      width: 47%;
       display: flex;
       justify-content: center;
       align-items: center;
