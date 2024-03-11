@@ -44,7 +44,7 @@ onMounted(async() => {
     font-size: $body-font-size;
     text-align: center;
     padding: 24px;
-    @media (min-width: $tablet-upper-breakpoint) {
+    @media (min-width: 1024px) {
       font-size: $h2-font-size;
     }
   }
