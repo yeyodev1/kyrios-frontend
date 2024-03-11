@@ -26,7 +26,7 @@ const config = defineNuxtConfig({
             @import '@fortawesome/fontawesome-free/scss/solid.scss';
             @import '@fortawesome/fontawesome-free/scss/regular.scss';
             @import '@fortawesome/fontawesome-free/scss/brands.scss';
-            @import '@nabux-crush/crush-styles/nabuxInternalVariables';
+            @import '@nabux-crush/crush-styles/_nabuxInternalVariables';
             @import '@/styles/_styles.scss';
           `
         }
