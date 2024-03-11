@@ -115,7 +115,7 @@ async function sendEmailForm() {
       }
     }
     .button {
-      background-color: red;
+      background-color: $blue;
     }
   }
 }
