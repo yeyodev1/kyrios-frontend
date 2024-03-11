@@ -1,5 +1,6 @@
 <script setup>
 import yulyImage from '@/assets/yuly.png'
+import pdf from '@/assets/dataCompany/presentacionKyrios.pdf'
 
 const team = [
   {
@@ -343,15 +344,13 @@ const audits2 = [
 ] 
 
 function downloadFile () {
-const downloadPDF = () => {
   const link = document.createElement('a');
-  link.href = '../../assets/dataCompany/PRESENTACIÓN KYRIOS CONSULTORES YAMB SAS 18-12-2023.pdf';
-  link.download = 'PRESENTACIÓN KYRIOS CONSULTORES YAMB SAS 18-12-2023.pdf';
+  link.href = pdf;
+  link.setAttribute('download', 'kyrios.pdf');
+  document.body.appendChild(link);
   document.body.appendChild(link);
   link.click();
-  document.body.removeChild(link);
-}
-downloadPDF();
+  document.body.removeChild(link)
 }
 </script>
 
