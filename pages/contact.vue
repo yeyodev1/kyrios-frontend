@@ -54,12 +54,14 @@ const submitForm = () => {
         type="email"
         v-model="form.email"
       />
-      <CrushButton
-        variant="primary"
-        text="Enviar"
-        type="submit"
-        class="button"
-      />
+      <div class="button">
+        <CrushButton
+          variant="primary"
+          text="Enviar"
+          type="submit"
+          class="button-button"
+        />
+      </div>
     </form>
   </div>
 </template>
@@ -130,10 +132,17 @@ const submitForm = () => {
       font-family: $font;
     }
     .button {
-      background-color: $blue;
-      color: $white;
-      border: none;
-      width: 30%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &-button {
+        background-color: $blue;
+        color: $white;
+        border: none;
+        width: 30%;
+        z-index: 0;
+      }
     }
   }
 }

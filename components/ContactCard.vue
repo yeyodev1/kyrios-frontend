@@ -51,12 +51,14 @@ const submitForm = () => {
         type="email"
         v-model="form.email"
       />
-      <CrushButton
-        variant="primary"
-        text="Enviar"
-        type="submit"
-        class="submit-button"
-      />
+      <div class="button">
+        <CrushButton
+          variant="primary"
+          text="Enviarrrr"
+          type="submit"
+          class="submit-button"
+        />
+      </div>
     </form>
   </div>
 </template>
@@ -88,6 +90,7 @@ const submitForm = () => {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    z-index: 0;
     :deep(.crush-text-field .crush-text-field-label-text) {
       padding: 10px;
       border-radius: 5px;
@@ -102,6 +105,7 @@ const submitForm = () => {
       color: $black;
       font-family: $font;
     }
+    
 
     .submit-button {
       padding: 10px 20px;
@@ -115,6 +119,9 @@ const submitForm = () => {
       &:hover {
         background-color: darken($blue, 10%);
       }
+    }
+    .button {
+      background-color: red;
     }
   }
 }

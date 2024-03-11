@@ -59,14 +59,14 @@ const menuItems = computed(() => {
     <CrushHeader
       brandName="kyrios"
       :logoSrc="KyriosLogo">
-      <template 
-        #menu-buttons>
+      <template #menu-buttons="{ toggleMenu }">
         <RouterLink 
           v-for="(item, index) in menuItems" 
           :key="index" 
           :to="item.link" 
           :style="{ color: 'black', textDecoration: 'none' }"
-          class="container-buttons">
+          class="header-buttons-button"
+          @click="toggleMenu">
           {{item.name}}
         </RouterLink>
       </template>
