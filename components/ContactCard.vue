@@ -1,64 +1,58 @@
 <script setup lang="ts">
 import CrushTextField from '@nabux-crush/crush-text-field';
 import CrushButton from '@nabux-crush/crush-button';
+import { useRegistrationForm } from '~/composables/useForm';
 
+const { 
+  form, 
+  rules, 
+  inputKey, 
+  formIsValid, 
+  sendEmail 
+} = useRegistrationForm();
 
-const form = reactive({
-  name: '',
-  email: '',
-})
-
-const rules = {
-  validateName: [
-    {
-      validate: (value: string) => value.length >= 10,
-      message: 'Por favor, coloca tu nombre completo'
-    }
-  ],
-  validateEmail: [
-    {
-      validate: (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
-      message: 'Por favor, ingresa un correo válido'
-    }
-  ]
-}
-
-const submitForm = () => {
-  // Lógica de envío del formulario
-  console.log('Nombre:', form.name);
-  console.log('Email:', form.email);
-  // Aquí enviarías los datos a tu backend o servicio correspondiente
+async function sendEmailForm() {
+ await sendEmail();
 }
 </script>
 
 <template>
   <div class="contact-container">
     <div class="contact-info">
-      <h2>¿Nos ponemos en contacto?</h2>
-      <p>¡Nos encantaría estar en contacto contigo! Si deseas recibir actualizaciones, noticias o información sobre nuestros servicios, por favor, proporciona tu nombre y dirección de correo electrónico.</p>
+      <h2 class="contact-title">
+        ¿Nos ponemos en contacto?
+      </h2>
+      <p class="contact-description">
+        ¡Nos encantaría estar en contacto contigo! Si deseas recibir actualizaciones, 
+        noticias o información sobre nuestros servicios, por favor, proporciona tu nombre 
+        y dirección de correo electrónico.
+      </p>
     </div>
-    <form class="contact-form" @submit.prevent="submitForm">
+    <form class="contact-form" id="form">
       <CrushTextField
         label="Nombre y Apellido"
-        placeholder="Juanito Piguave"
-        :valid-rules="rules.validateName"
+        placeholder="¿Con quién tenemos el gusto?"
+        :key="inputKey"
+        :required="true"
+        :validRules="rules.validateName"
         v-model="form.name"
       />
       <CrushTextField
         label="Correo electrónico"
         placeholder="email@ejemplo.com"
+        :required="true"
+        :key="inputKey"
         :valid-rules="rules.validateEmail"
         type="email"
         v-model="form.email"
       />
-      <div class="button">
-        <CrushButton
-          variant="primary"
-          text="Enviarrrr"
-          type="submit"
-          class="submit-button"
-        />
-      </div>
+      <CrushButton
+        variant="primary"
+        text="Enviar"
+        :disabled="!formIsValid"
+        class="button"
+        @click.prevent="sendEmailForm"
+      />
     </form>
   </div>
 </template>
