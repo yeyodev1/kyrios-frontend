@@ -48,8 +48,12 @@ onUnmounted(() => {
         :class="{ active: currentImageIndex === index }"
       ></div>
     </div>
-    <button class="carousel-control left" @click="prevImage">&#60;</button>
-    <button class="carousel-control right" @click="nextImage">&#62;</button>
+    <button class="carousel-control left" @click="prevImage">
+      <i class="fa-solid fa-chevron-left" />
+    </button>
+    <button class="carousel-control right" @click="nextImage">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
     <div class="carousel-indicators">
       <span
         v-for="(image, index) in images"
@@ -66,11 +70,9 @@ onUnmounted(() => {
 .carousel-container {
   position: relative;
   width: 100%;
-  height: 300px;
-
   .carousel-slide {
     width: 100%;
-    height: 100%;
+    height: 60vh;
     background-size: cover;
     background-position: center;
     .image {
@@ -89,23 +91,24 @@ onUnmounted(() => {
   }
 
   .carousel-control {
+    backdrop-filter: blur(5px);
     position: absolute;
+    border-radius: 4px;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    background-color: transparent;
+    color: $white;
     border: none;
     cursor: pointer;
-
+    font-size: 1.5rem;
     &.left {
-      left: 0;
+      left: 8px;
     }
 
     &.right {
-      right: 0;
+      right: 8px;
     }
   }
-
   .carousel-indicators {
     position: absolute;
     bottom: 10px;
