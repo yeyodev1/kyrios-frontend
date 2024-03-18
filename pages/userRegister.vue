@@ -133,14 +133,14 @@ async function handleRegister(): Promise<void> {
 </script>
 
 <template>
-  <div class="register-wrapper crush-container">
+  <div class="register-wrapper ">
     <span
       v-if="isMinor"
       class="date-message">
       Debes tener al menos 16 años
     </span>
     <p class="register-wrapper-title">
-      Registrate
+      Regístrate
     </p>
     <span 
       v-if="userStore.errorMessage"
@@ -226,7 +226,6 @@ async function handleRegister(): Promise<void> {
   align-items: center;
   min-height: 100vh;
   padding: 24px;
-  max-width: $desktop-lower-breakpoint;
   background-color: $green;
   &-warning {
     color: $red;
@@ -278,7 +277,6 @@ async function handleRegister(): Promise<void> {
       border-color: $grey;
     }
     :deep(.crush-primary) {
-      background-color: $grey;
       z-index: 0;
     }
   }

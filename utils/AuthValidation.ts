@@ -1,8 +1,8 @@
-// function validateEmail(email: string): boolean {
-//   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+function validateEmail(email: string): boolean {
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-//   return emailPattern.test(email);
-// }
+  return emailPattern.test(email);
+}
 
 function validateSymbol(email: string): boolean {
   const symbolPattern = /[@^$%&|<>#]/;
@@ -28,7 +28,7 @@ function calculateAge(dateOfBirth: string): number {
 }
 
 export {
-  // validateEmail,
+  validateEmail,
   validateSymbol,
   calculateAge
 }
