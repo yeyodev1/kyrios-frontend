@@ -28,6 +28,7 @@ onMounted(async () => {
     const userId = session.id;
     const lastTest = await userStore.getLastTest(userId);
     const electionUser = await userStore.getUserTestAccessLevel(userId);
+    console.log('election user: ', electionUser)
     if (electionUser === 'downloadAndViewTest') {
       showDownloadButton.value = true;
     }

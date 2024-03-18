@@ -66,7 +66,7 @@ function updateDate(): void {
       color: $black;
       top: 6px;
       right: 8px;
-      z-index: 5;
+      z-index: 1;
       font-size: 20px;
     }
   }

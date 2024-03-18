@@ -365,7 +365,7 @@ function downloadFile () {
       <BoardOfWorks title="EMPRESAS AUDITADAS / ASESORADAS ISO 37001:2016" :audits="audits"/>
       <BoardOfWorks2 title="EMPRESAS ASESORADAS Y TRABAJOS REALIZADOS" :audits="audits2"/>
     </div>
-    <button @click="downloadFile" class="button">Si necesita mas información descarga la información, presionándome 😉</button>
+    <button @click="downloadFile" class="button">Solicita más información aquí</button>
   </div>
 </template>
 

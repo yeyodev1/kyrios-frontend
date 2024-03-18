@@ -28,6 +28,7 @@ const props = defineProps({
   padding: 20px;
   border-radius: 8px;
   overflow: hidden;
+  max-width: 2048px;
   .content {
     max-width: $desktop-upper-breakpoint;
     margin: 0 auto;

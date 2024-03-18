@@ -12,6 +12,8 @@ export default class BoletinesService{
       version: 'published',
       starts_with: 'boletines/'
     });
-    return response.data.stories 
+    const answer = response.data.stories
+    console.log('answer', answer)
+    return answer 
   }
 }
