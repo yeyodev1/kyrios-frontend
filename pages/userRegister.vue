@@ -226,7 +226,6 @@ async function handleRegister(): Promise<void> {
   align-items: center;
   min-height: 100vh;
   padding: 24px;
-  background-color: $green;
   &-warning {
     color: $red;
   }
@@ -238,11 +237,10 @@ async function handleRegister(): Promise<void> {
     font-size: $body-font-size;
     text-align: center;
     @media (min-width: $tablet-lower-breakpoint) {
-      font-size: $h3-font-size
+      font-size: 3rem;
     }
   }
   &-card {
-    border: 1px solid $green;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -250,10 +248,7 @@ async function handleRegister(): Promise<void> {
     max-width: 520px;
     border-radius: 8px;
     padding: 32px;
-    background: $white;
-    @media(max-width: $tablet-lower-breakpoint) {
-      border: none;
-    }
+    border: none;
     :deep(.crush-text-field .crush-text-field-label-text) {
       color: $black;
     }
@@ -278,6 +273,8 @@ async function handleRegister(): Promise<void> {
     }
     :deep(.crush-primary) {
       z-index: 0;
+      background-color: $red;
+      border: none;
     }
   }
   &-span {

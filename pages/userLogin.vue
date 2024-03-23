@@ -133,13 +133,13 @@ function resetValue(): void {
   align-items: center;
   min-height: 100vh;
   padding: 24px;
-  background-color: $green;
   &-title {
     color: $black;
     font-size: $body-font-size;
     text-align: center;
+    margin-bottom: 20px;
     @media (min-width: $tablet-lower-breakpoint) {
-      font-size: $h3-font-size;
+      font-size: 2.2rem;
     }
   }
   &-warning {
@@ -182,13 +182,14 @@ function resetValue(): void {
       color: $black;
     }
     :deep(.crush-text-field .input-container.active) {
-      border-color: $blue;
+      border-color: $red;
     }
     :deep(.crush-primary) {
-      background-color: $blue;
+      background-color: $red;
+      border: none;
     }
     :deep(.crush-primary:hover) {
-      background-color: darken($blue, 10%);
+      background-color: darken($red, 10%);
     }
   }
   &-span {
