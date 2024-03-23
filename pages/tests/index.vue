@@ -51,7 +51,7 @@ function isSelected(isoType) {
   &-title {
     text-align: center;
     margin-bottom: 16px;
-    color: $blue;
+    color: $black;
   }
   &-subtitle {
     margin-bottom: 32px;
@@ -67,16 +67,15 @@ function isSelected(isoType) {
     .test-card {
       width: 100%;
       padding: 16px;
-      border: 1px solid #ccc;
+      border: 2px solid $red;
       border-radius: 8px;
       cursor: pointer;
-      background-color: $green;
       padding: 24px;
       &-selected {
-        background-color: darken($green, 20%);
+        background-color: darken($red, 1%);
       }
       &:hover:not(.test-card-selected) {
-        background-color: darken($green, 10%);
+        background-color: darken($red, .5%);
       }
     }
   }

@@ -28,5 +28,3 @@ logs
 .vscode/
 .vscode/*.*
 .vscode/settings.json
-
-.pem
