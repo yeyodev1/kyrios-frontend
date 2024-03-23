@@ -13,6 +13,11 @@ const config = defineNuxtConfig({
       publicKey: process.env.PUBLIC_KEY,  
     }
   },
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth',
+    }
+  },
 	alias: {
 		"@": fileURLToPath(new URL("./", import.meta.url)),
     "@nabux-crush/crush-header": require.resolve('@nabux-crush/crush-header'),

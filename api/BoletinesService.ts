@@ -5,6 +5,7 @@ export default class BoletinesService{
     const response = await Storyblok.get(`cdn/stories/${id}`, {
       version: 'published',
     })
+    console.log('response', response.data.story)
     return response.data.story
   }
   async getAllBoletines() {
