@@ -47,6 +47,12 @@ const isDesktop = window.innerWidth >= 1024;
   display: flex;
   flex-direction: column;
   margin-top: 40px;
+  @media (min-width: 768px) and (max-width: 1024px){
+    min-height: 80dvh;
+    max-width: 90vw;
+    margin: 0 auto;
+    justify-content: center;
+  }
   @media (min-width: 1024px) {
     min-height: 90dvh;
     max-width: 90vw;
@@ -78,6 +84,9 @@ const isDesktop = window.innerWidth >= 1024;
   color: $black;
   font-size: 1.5rem;
   margin-bottom: 16px;
+  @media (min-width: 768px) and (max-width: 1024px){
+    font-size: 2rem;
+  }
   @media (min-width: 1024px){
     font-size: 3rem;
   }
