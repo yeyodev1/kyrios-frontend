@@ -30,9 +30,9 @@ const props = defineProps({
     <div class="card-details">
       <h2 class="card-title">{{ title }}</h2>
       <p class="card-date">{{ date }}</p>
-      <div class="card-button">
-        <RouterLink :to="link" class="button">Ver detalle</RouterLink>
-      </div>
+      <GlobalButton
+        :to="link"
+        content="Ver detalle" />    
     </div>
   </div>
 </template>
@@ -49,7 +49,7 @@ const props = defineProps({
   background-size: cover;
   background-position: center;
   position: relative;
-  height: 150px; /* Adjust based on your image */
+  height: 150px;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -76,25 +76,6 @@ const props = defineProps({
   .card-date {
     color: $black;
     font-size: 16px;
-  }
-
-  .card-button {
-    margin-top: 15px;
-
-    .button {
-      background-color: $blue; 
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      text-decoration: none;
-
-      &:hover {
-        background-color: darken($blue, 10%);
-      }
-    }
   }
 }
 </style>

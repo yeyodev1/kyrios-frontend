@@ -1,19 +1,12 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
-import empresarios from '@/assets/hero/empresarios.jpg';
-import oficina from '@/assets/hero/oficina.jpg';
-import reunion from '@/assets/hero/reunion.jpg';
+import CarouselImagesService from '~/api/CarouselImagesService';
 
-const images = ref([
-  empresarios,
-  oficina,
-  reunion,
-]);
+const carouselImagesService = new CarouselImagesService();
+
 const currentImageIndex = ref(0);
-
 let intervalId;
+const images = ref([]);
 
-//functions to change image
 const prevImage = () => {
   currentImageIndex.value = (currentImageIndex.value + images.value.length - 1) % images.value.length;
 };
@@ -27,10 +20,17 @@ const changeImageAutomatically = () => {
   nextImage();
 };
 
-onMounted(() => {
-  intervalId = setInterval(changeImageAutomatically, 3000);
-});
 
+async function getAllImages(){
+  const response = await carouselImagesService.getAllImages();
+  const Rawresponse = response[0].content.images;
+  images.value = Rawresponse.map((image) => image.filename);
+}
+
+onMounted(async() => {
+  intervalId = setInterval(changeImageAutomatically, 3000);
+  await getAllImages();
+});
 
 onUnmounted(() => {
   clearInterval(intervalId);

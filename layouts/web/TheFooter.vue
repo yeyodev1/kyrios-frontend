@@ -40,11 +40,11 @@ const socialIcons = [
           <a
             v-for="(icon, index) in socialIcons" :key="index" :href="icon.link" target="_blank">
             <span
-              :style="{ color: 'white' }"
-              :class="icon.iconClass" />      
+            class="icon__span"
+            :class="icon.iconClass" />      
           </a>
         </template>
-        <template #footer-links>
+        <!-- <template #footer-links>
           <p
             v-for="(service, index) in services" 
             :key="index" 
@@ -52,9 +52,8 @@ const socialIcons = [
             class="service">
             {{ service.service }}
           </p>
-        </template>
+        </template> -->
       </CrushFooter>
-      <YeyoTrademark/>
     </div>
   </div>
 </template>
@@ -69,11 +68,20 @@ const socialIcons = [
   justify-content: center;
   align-items: center;
   .width {
-    max-width: $desktop-lower-breakpoint;
+    width: 100%;
   }
   .service {
     color: $white;
     font-size: 14px;
   }
+}
+:deep(.footer){
+  margin-top: 0;
+  gap: 24px 16px;
+}
+.icon__span{
+  color: $white;
+  font-size: 1.4rem;
+  margin: 0 8px;
 }
 </style>

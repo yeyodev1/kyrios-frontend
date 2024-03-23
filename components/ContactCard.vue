@@ -27,11 +27,10 @@ async function sendEmailForm() {
         noticias o información sobre nuestros servicios, por favor, proporciona tu nombre 
         y dirección de correo electrónico.
       </p>
-    </div>
     <form class="contact-form" id="form">
       <CrushTextField
         label="Nombre y Apellido"
-        placeholder="¿Con quién tenemos el gusto?"
+        placeholder="Jhon Doe"
         :key="inputKey"
         :required="true"
         :validRules="rules.validateName"
@@ -55,6 +54,13 @@ async function sendEmailForm() {
       />
     </form>
   </div>
+  <figure class="figure">
+    <img 
+      src="~/assets/genericImage11.jpeg" 
+      alt="imagen-de-asesorias" 
+      class="figure__img">
+  </figure>
+  </div>
 </template>
 
 
@@ -64,10 +70,9 @@ async function sendEmailForm() {
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  padding: 20px;
-  background-color: $green;
+  padding: 0 40px;
   border-radius: 8px;
-  margin: 24px;
+  margin: 160px auto 100px;
   max-width: $desktop-lower-breakpoint;
 
   @media (min-width: 768px) {
@@ -76,7 +81,7 @@ async function sendEmailForm() {
   }
 
   .contact-info {
-    flex-basis: 50%;
+    flex-basis: 45%;
   }
 
   .contact-form {
@@ -99,11 +104,13 @@ async function sendEmailForm() {
       color: $black;
       font-family: $font;
     }
-    
+    :deep(.crush-text-field), :deep(.crush-text-field-label-text){
+      margin-bottom: 0;
+    }
 
     .submit-button {
       padding: 10px 20px;
-      background-color: $blue; 
+      background-color: $red; 
       color: $white;
       border: none;
       border-radius: 5px;
@@ -111,12 +118,28 @@ async function sendEmailForm() {
       transition: background-color 0.3s;
 
       &:hover {
-        background-color: darken($blue, 10%);
+        background-color: darken($red, 10%);
       }
     }
     .button {
-      background-color: $blue;
+      background-color: $red;
+      margin-top: 20px
     }
   }
+}
+.contact-description{
+  max-width: 80ch;
+  margin: 20px 0;
+  font-size: 1rem;
+}
+.figure{
+  flex-basis: 45%;
+  max-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.figure__img{
+  border-radius: 8px;
 }
 </style>

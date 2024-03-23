@@ -1,12 +1,9 @@
 <script setup>
-import { useRoute } from 'vue-router';
-
 import useBoletinesStore from '@/store/BoletinesStore'
 
 const boletinesStore = useBoletinesStore();
 
 const route = useRoute();
-
 
 onMounted(async() => {
   const id = route.params.boletin
@@ -15,22 +12,24 @@ onMounted(async() => {
 </script>
 
 <template>
-  <div class="container" v-if="boletinesStore.boletin">
-    <div class="blog-post">
-    <header class="blog-post-header">
-      <h1>
-        {{ boletinesStore.boletin.content.title }}
-      </h1>
-      <p class="blog-post-date">
-        {{ boletinesStore.boletin.content.date.split(' ')[0]}}
-      </p>
-    </header>
-    <article class="blog-post-content">
-      <p>
-        {{ boletinesStore.boletin.content.content }}
-      </p>
-    </article>
-  </div>
+  <div 
+    v-if="boletinesStore.boletin"
+    class="container">
+      <div class="blog-post">
+        <header class="blog-post-header">
+          <h1>
+            {{ boletinesStore.boletin.content.title }}
+          </h1>
+          <p class="blog-post-date">
+            {{ boletinesStore.boletin.content.date.split(' ')[0]}}
+          </p>
+        </header>
+        <article class="blog-post-content">
+          <p>
+            {{ boletinesStore.boletin.content.content }}
+          </p>
+        </article>
+      </div>
   </div>
 </template>
 

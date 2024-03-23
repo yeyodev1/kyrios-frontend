@@ -16,7 +16,9 @@ onMounted(async() => {
       Boletines
     </p>
     <p class="container-text">
-      Mantente al tanto de la información sobre estándares, regulaciones y mejores prácticas internacionales para alcanzar tus objetivos de certificación y mejora de procesos
+      Mantente al tanto de la información sobre estándares, regulaciones 
+      y mejores prácticas internacionales para alcanzar tus objetivos de 
+      certificación y mejora de procesos
     </p>
     <div class="container-tickets">
       <BoletinCard
@@ -32,21 +34,19 @@ onMounted(async() => {
 
 <style lang="scss" scoped>
 .container {
-  margin: 40px 0;
-  padding: 24px;
+  margin: 100px 0;
   &-title {
-    color: $black;
+    color: $red;
     font-size: 48px;
     text-align: center;
     font-weight: 700;
   }
   &-text {
-    font-size: 1rem;
+    font-size: 1.3rem;
+    max-width: 80%;
+    margin: 0 auto;
     text-align: center;
     padding: 24px;
-    @media (min-width: 1024px) {
-      font-size: 2rem;
-    }
   }
   &-tickets {
     display: flex;

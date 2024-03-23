@@ -23,7 +23,7 @@ const allMenuItems = [
     name: 'Boletines'
   },
   {
-    link: '/contact',
+    link: '/#contact',
     name: 'Contacto'
   },
   {
@@ -78,25 +78,28 @@ const menuItems = computed(() => {
 :deep(.header) {
   background-color: $white !important;
   gap: 12px;
+  @media (min-width: 1024px){
+    padding-left: 80px;
+  }
 }
 :deep(.header-icon) {
   color: $black;
 }
 :deep(.header-figure-logo) {
   width: 140px;
-  object-fit: inherit;
+  object-fit: contain;
 }
 :deep(.toggle-menu-header) {
   padding: 12px;
 }
 :deep(.header-buttons :nth-child(5)) {
   padding: 6px 12px;
-  border: 2px solid $blue;
+  border: 2px solid $black;
   border-radius: 8px;
 }
 :deep(.header-buttons :nth-child(6)) {
   padding: 6px 12px;
-  background-color: $blue;
+  background-color: $red;
   color: $white !important;
   border-radius: 8px;
   text-align: center;
