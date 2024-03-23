@@ -73,15 +73,14 @@ async function sendEmailForm() {
   padding: 0 40px;
   border-radius: 8px;
   margin: 160px auto 100px;
-  max-width: $desktop-lower-breakpoint;
-
+  max-width: 90vw;
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
   }
 
   .contact-info {
-    flex-basis: 45%;
+    flex-basis: 55%;
   }
 
   .contact-form {
