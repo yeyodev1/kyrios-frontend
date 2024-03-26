@@ -76,7 +76,8 @@ async function sendEmailForm() {
   max-width: 90vw;
   @media (min-width: 768px) {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 80px;
   }
 
   .contact-info {
@@ -132,7 +133,6 @@ async function sendEmailForm() {
   font-size: 1rem;
 }
 .figure{
-  flex-basis: 45%;
   max-height: 400px;
   display: flex;
   justify-content: center;

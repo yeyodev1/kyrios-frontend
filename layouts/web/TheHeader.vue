@@ -33,8 +33,7 @@ const allMenuItems = [
   {
     link: '/userlogin',
     name: 'Empezar diagnóstico'
-  },
-  
+  },  
 ]
 
 const menuItems = computed(() => {
@@ -52,6 +51,16 @@ const menuItems = computed(() => {
   }
   return items;
 });
+
+async function handleLogout(Menu: any) {
+  await userStore.logout();
+  Menu();
+}
+
+onMounted(() => {
+  console.log(userStore.user)
+})
+
 </script>
 
 <template>
@@ -63,11 +72,19 @@ const menuItems = computed(() => {
         <RouterLink 
           v-for="(item, index) in menuItems" 
           :key="index" 
-          :to="item.link" 
-          :style="{ color: 'black', textDecoration: 'none' }"
+          :to="item.link"
+          :style="{ color: 'black', textDecoration: 'none', }"
           class="header-buttons-button"
           @click="toggleMenu">
           {{item.name}}
+        </RouterLink>
+        <RouterLink 
+          v-if="isUserLoggedIn"
+          to="/"
+          :style="{ color: 'black', textDecoration: 'none', }"
+          class="header-buttons-button"
+          @click="handleLogout(toggleMenu)">
+          Cerrar Sesion
         </RouterLink>
       </template>
     </CrushHeader>
@@ -78,8 +95,9 @@ const menuItems = computed(() => {
 :deep(.header) {
   background-color: $white !important;
   gap: 12px;
+  border-bottom: 1px solid $black;
   @media (min-width: 1024px){
-    padding-left: 80px;
+    padding-left: 120px;
   }
 }
 :deep(.header-icon) {

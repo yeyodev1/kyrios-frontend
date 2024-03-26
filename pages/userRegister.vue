@@ -275,6 +275,11 @@ async function handleRegister(): Promise<void> {
       z-index: 0;
       background-color: $red;
       border: none;
+      color: $white;
+    }
+    :deep(.crush-button.disabled){
+      background-color: #a50a20bf;
+      color: $white;
     }
   }
   &-span {

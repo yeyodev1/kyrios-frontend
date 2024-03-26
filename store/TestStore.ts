@@ -4,11 +4,10 @@ import { isoTestTypes } from "~/enums/isoTestTypes";
 import APITest from "~/services/Test/Test";
 import useUserStore from "./UserStore";
 
-const userStore = useUserStore();
-
 const testService = new APITest(); 
 
 interface TestQuestion {
+  process?: string;
   clause: string;
   questionText: string;
   answerOptions: string[];
@@ -17,7 +16,7 @@ interface TestQuestion {
 }
 
 interface Test {
-  isoType: isoTestTypes; 
+  isoType: any; 
   company: string;
   date: Date;
   createdBy: string;
@@ -632,9 +631,9 @@ const useTestStore = defineStore("testStore", {
     },
 
     setResponse(isoType: any, questionIndex: any, responseValue: any) {
-      const testIndex = this.tests.findIndex(test => test.isoType === isoType);
+      const testIndex = this.tests.findIndex((test: Test) => test.isoType === isoType);
       if(testIndex !== -1) {
-        this.tests[testIndex].questions[questionIndex].userResponse = responseValue; 
+        (this.tests[testIndex].questions[questionIndex] as any).userResponse = responseValue; 
       }
     },
 
@@ -647,7 +646,7 @@ const useTestStore = defineStore("testStore", {
     
     async submitTestResults(payload: any) {
       try {
-        const response = await testService.createTest({ ...payload, userResponses: this.tests.map(test => test.questions.map(question => question.userResponse)) });
+        const response = await testService.createTest({ ...payload, userResponses: this.tests.map(test => test.questions.map(question => (question as any).userResponse)) });
         console.log('Test enviado con éxito', response.data);
         return response; 
       } catch (error) {
