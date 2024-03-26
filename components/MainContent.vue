@@ -1,7 +1,3 @@
-<script setup>
-const isDesktop = window.innerWidth >= 1024;
-</script>
-
 <template>
   <main class="team__container">
     <div class="team__container-desktop">
@@ -24,15 +20,13 @@ const isDesktop = window.innerWidth >= 1024;
             procesos, entre otros.
           </p>
           <GlobalButton
-            to="/tests"
+            to="/userLogin"
             content="Empezar diagnostico"
           />
         </div>
       </div>
     </div>
-    <figure 
-      v-if="isDesktop"
-      class="team__container__figure">
+    <figure class="team__container__figure">
         <img 
           src="~/assets/hero/empresarios.jpg" 
           alt="Imagen referencia"
@@ -107,6 +101,9 @@ const isDesktop = window.innerWidth >= 1024;
   width: 50%;
   display: flex;
   justify-content: right;
+  @media (max-width: 1023px){
+    display: none;
+  }
   &__image {
     width: 80%;
     height: auto;
