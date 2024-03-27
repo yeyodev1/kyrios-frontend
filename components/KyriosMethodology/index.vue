@@ -22,19 +22,24 @@ const props = defineProps({
 <template>
   <section class="mth__section">
     <div
-      :style="index % 2 === 0 ? 'background-color: #A50A20' : 'background-color: #14344C'" 
+      :class="index % 2 === 0 ? 'red' : 'blue'" 
       class="mth__list">
       <ul class="list__ul">
-        <li v-for="(item, index) in items" :key="index" class="list__ul__li">
-          {{ item }}
+        <li 
+          v-for="(item, index) in items" 
+          :key="index" 
+          class="list__ul__li">
+            {{ item }}
         </li>
       </ul>
     </div>
     <div 
-      :style="index % 2 === 0 ? 'background-color: #14344C' : 'background-color: #A50A20'"
+      :class="index % 2 === 0 ? 'blue' : 'red'"
       class="mth__content">
-      <p v-if="showFase" class="mth__content__title">
-        Fase {{ index }}
+      <p 
+        v-if="showFase" 
+        class="mth__content__title">
+          Fase {{ index }}
       </p>
       <h2 class="mth__content__title">
         {{ title }}
@@ -103,5 +108,15 @@ const props = defineProps({
   @media (min-width: 1024px){
     color: $white;
   }
+}
+.red {
+ @media (min-width: 1024px){
+  background-color: $red;
+ }
+}
+.blue {
+ @media (min-width: 1024px){
+  background-color: $blue;
+ }
 }
 </style>
