@@ -187,9 +187,14 @@ function resetValue(): void {
     :deep(.crush-primary) {
       background-color: $red;
       border: none;
+      color: $white;
     }
     :deep(.crush-primary:hover) {
       background-color: darken($red, 10%);
+    }
+    :deep(.crush-button.disabled){
+      background-color: #a50a20bf;
+      color: $white;
     }
   }
   &-span {
