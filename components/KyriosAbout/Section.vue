@@ -43,6 +43,13 @@ import iso2 from '@/assets/dataCompany/KYRIOS CERTIFICADO IQNetES-0357-2022_2023
   display: flex;
   gap: 40px;
   align-items: center;
+  @media (max-width: 1023px) {
+    flex-direction: column;
+    padding: 60px 30px;
+    height: auto;
+    min-height: 90vh;
+    overflow: hidden;
+  }
   &__content {
     display: flex;
     height: 80%;
@@ -51,6 +58,10 @@ import iso2 from '@/assets/dataCompany/KYRIOS CERTIFICADO IQNetES-0357-2022_2023
     flex-direction: column;
     gap: 40px;
     flex: 1.2 0;
+    @media (max-width: 1023px){
+      padding: 0;
+      width: 80vw;
+    }
   }
   &__file {
     padding: 40px;
@@ -64,10 +75,18 @@ import iso2 from '@/assets/dataCompany/KYRIOS CERTIFICADO IQNetES-0357-2022_2023
     &__buttons{
       display: flex;
       justify-content: center;
+      @media (max-width: 1023px) {
+        flex-direction: column;
+        gap: 20px;
+      }
     }
     &__title {
       font-size: 4rem;
       color: $white;
+      @media (max-width: 1023px) {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
     }
     &__button {
       background-color: $white;
@@ -80,6 +99,11 @@ import iso2 from '@/assets/dataCompany/KYRIOS CERTIFICADO IQNetES-0357-2022_2023
       padding: 16px;
       margin: 0 20px;
       cursor: pointer;
+      @media (max-width: 1023px){
+        font-size: 1rem;
+        width: 80%;
+        margin: auto;
+      }
     }
   }
 }
@@ -91,6 +115,9 @@ import iso2 from '@/assets/dataCompany/KYRIOS CERTIFICADO IQNetES-0357-2022_2023
     font-size: 1.4rem;
     color: $black;
     max-width: 80%;
+    @media (max-width: 1023px) {
+      max-width: 100%;
+    }
   }
 }
 </style>

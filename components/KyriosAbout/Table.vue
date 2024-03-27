@@ -6,7 +6,8 @@
     <h2 class="table__title">
       Clientes por segmento
     </h2>
-    <table>
+    <div class="table__container">
+      <table>
       <tr>
         <th>Segmento</th>
         <th>Número de Clientes</th>
@@ -52,6 +53,7 @@
         <td>13</td>
       </tr>
     </table>
+    </div>
   </section>
 </template>
 
@@ -63,12 +65,20 @@
   gap: 40px;
   align-items: center;
   flex-direction: column;
+  @media (max-width: 1023px) {
+    flex-direction: column;
+    padding: 60px 20px;
+  }
 }
 
 .table__title {
   font-size: 3rem;
   margin-bottom: 16px;
   color: $black;
+}
+.table__container{
+  overflow-x: auto;
+  width: 80vw;
 }
 
 table {
@@ -94,5 +104,19 @@ td {
 }
 td:nth-child(even) {
   text-align: center;
+}
+
+@media (max-width: 1023px) {
+  .table__section {
+    padding: 60px 20px;
+  }
+
+  table {
+    font-size: 1.2rem;
+  }
+
+  td, th {
+    padding: 10px 15px;
+  }
 }
 </style>

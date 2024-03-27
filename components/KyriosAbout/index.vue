@@ -40,14 +40,23 @@
   display: flex;
   gap: 40px;
   align-items: center;
-
+  @media (max-width: 1023px) {
+    flex-direction: column;
+    padding: 60px 20px;
+  }
   &__title {
     font-size: 6rem;
     margin-bottom: 40px;
     color: $black;
+    @media (max-width: 1023px) {
+      font-size: 3rem;
+    }
     &--red {
       color: $red;
       font-size: 6rem;
+      @media (max-width: 1023px) {
+      font-size: 3rem;
+    }
     }
   }
 
@@ -55,7 +64,12 @@
     display: flex;
     flex-direction: column;
     gap: 80px;
+    width: auto;
     max-width: 40%;
+    @media (max-width: 1023px) {
+      width: 80vw;
+      max-width: none;
+    }
   }
 }
 .content__title {
