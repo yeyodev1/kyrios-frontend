@@ -1,3 +1,11 @@
+<script setup>
+import { useUserStore } from '@/store/UserStore';
+
+const userStore = useUserStore();
+
+const isUserLoggedIn = computed(() => userStore.user !== null);
+</script>
+
 <template>
   <main class="team__container">
     <div class="team__container-desktop">
@@ -20,7 +28,7 @@
             procesos, entre otros.
           </p>
           <GlobalButton
-            to="/userLogin"
+            :to="isUserLoggedIn.valueOf ? '/tests' : '/userlogin'"
             content="Empezar diagnostico"
           />
         </div>

@@ -23,6 +23,10 @@ const allMenuItems = [
     name: 'Boletines'
   },
   {
+    link: '/about',
+    name: 'Conocenos'
+  },
+  {
     link: '/#contact',
     name: 'Contacto'
   },
@@ -110,12 +114,12 @@ onMounted(() => {
 :deep(.toggle-menu-header) {
   padding: 12px;
 }
-:deep(.header-buttons :nth-child(5)) {
+:deep(.header-buttons :nth-child(6)) {
   padding: 6px 12px;
   border: 2px solid $black;
   border-radius: 8px;
 }
-:deep(.header-buttons :nth-child(6)) {
+:deep(.header-buttons :nth-child(7)) {
   padding: 6px 12px;
   background-color: $red;
   color: $white !important;
