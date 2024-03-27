@@ -40,7 +40,7 @@
   display: flex;
   gap: 40px;
   align-items: center;
-  @media (max-width: 1023px) {
+  @media (max-width: 1200px) {
     flex-direction: column;
     padding: 60px 20px;
   }
@@ -48,13 +48,13 @@
     font-size: 6rem;
     margin-bottom: 40px;
     color: $black;
-    @media (max-width: 1023px) {
+    @media (max-width: 1200px) {
       font-size: 3rem;
     }
     &--red {
       color: $red;
       font-size: 6rem;
-      @media (max-width: 1023px) {
+      @media (max-width: 1200px) {
       font-size: 3rem;
     }
     }
@@ -66,7 +66,7 @@
     gap: 80px;
     width: auto;
     max-width: 40%;
-    @media (max-width: 1023px) {
+    @media (max-width: 1200px) {
       width: 80vw;
       max-width: none;
     }

@@ -43,7 +43,7 @@ import iso2 from '@/assets/dataCompany/KYRIOS CERTIFICADO IQNetES-0357-2022_2023
   display: flex;
   gap: 40px;
   align-items: center;
-  @media (max-width: 1023px) {
+  @media (max-width: 1200px) {
     flex-direction: column;
     padding: 60px 30px;
     height: auto;
@@ -58,7 +58,7 @@ import iso2 from '@/assets/dataCompany/KYRIOS CERTIFICADO IQNetES-0357-2022_2023
     flex-direction: column;
     gap: 40px;
     flex: 1.2 0;
-    @media (max-width: 1023px){
+    @media (max-width: 1200px){
       padding: 0;
       width: 80vw;
     }
@@ -75,7 +75,7 @@ import iso2 from '@/assets/dataCompany/KYRIOS CERTIFICADO IQNetES-0357-2022_2023
     &__buttons{
       display: flex;
       justify-content: center;
-      @media (max-width: 1023px) {
+      @media (max-width: 1200px) {
         flex-direction: column;
         gap: 20px;
       }
@@ -83,7 +83,7 @@ import iso2 from '@/assets/dataCompany/KYRIOS CERTIFICADO IQNetES-0357-2022_2023
     &__title {
       font-size: 4rem;
       color: $white;
-      @media (max-width: 1023px) {
+      @media (max-width: 1200px) {
         font-size: 2.5rem;
         margin-bottom: 1.5rem;
       }
@@ -99,7 +99,7 @@ import iso2 from '@/assets/dataCompany/KYRIOS CERTIFICADO IQNetES-0357-2022_2023
       padding: 16px;
       margin: 0 20px;
       cursor: pointer;
-      @media (max-width: 1023px){
+      @media (max-width: 1200px){
         font-size: 1rem;
         width: 80%;
         margin: auto;
@@ -115,7 +115,7 @@ import iso2 from '@/assets/dataCompany/KYRIOS CERTIFICADO IQNetES-0357-2022_2023
     font-size: 1.4rem;
     color: $black;
     max-width: 80%;
-    @media (max-width: 1023px) {
+    @media (max-width: 1200px) {
       max-width: 100%;
     }
   }

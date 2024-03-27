@@ -65,7 +65,7 @@
   gap: 40px;
   align-items: center;
   flex-direction: column;
-  @media (max-width: 1023px) {
+  @media (max-width: 1200px) {
     flex-direction: column;
     padding: 60px 20px;
   }
@@ -106,7 +106,7 @@ td:nth-child(even) {
   text-align: center;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1200px) {
   .table__section {
     padding: 60px 20px;
   }
