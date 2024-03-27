@@ -81,6 +81,9 @@ function downloadFile () {
 
   &-title {
     font-size: 2rem;
+    @media (min-width: 768px) {
+      font-size: 5rem;
+    }
   }
 
   &-team-cards {

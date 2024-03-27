@@ -136,8 +136,11 @@ ITIL se centra en las mejores prácticas para la gestión de servicios de TI, pr
 .title {
   padding: 40px;
   text-align: center;
-  font-size: $h2-font-size;
+  font-size: 2rem;
   color: $red;
+  @media (min-width: 1024px) {
+    font-size: 5rem;
+  }
 }
 .container {
   padding: 24px;

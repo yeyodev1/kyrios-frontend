@@ -23,12 +23,12 @@ const allMenuItems = [
     name: 'Boletines'
   },
   {
-    link: '/about',
-    name: 'Conocenos'
+    link: '/methodology',
+    name: 'Metodología'
   },
   {
-    link: '/#contact',
-    name: 'Contacto'
+    link: '/about',
+    name: 'Conocenos'
   },
   {
     link: '/userRegister',
@@ -78,7 +78,7 @@ onMounted(() => {
           :key="index" 
           :to="item.link"
           :style="{ color: 'black', textDecoration: 'none', }"
-          class="header-buttons-button"
+          :class="((item.name === 'Empezar diagnóstico' || item.name === 'Realizar diagnóstico') && 'red') || (item.name === 'Registrarte' && 'black')"
           @click="toggleMenu">
           {{item.name}}
         </RouterLink>
@@ -86,7 +86,7 @@ onMounted(() => {
           v-if="isUserLoggedIn"
           to="/"
           :style="{ color: 'black', textDecoration: 'none', }"
-          class="header-buttons-button"
+          class="black"
           @click="handleLogout(toggleMenu)">
           Cerrar Sesion
         </RouterLink>
@@ -114,12 +114,12 @@ onMounted(() => {
 :deep(.toggle-menu-header) {
   padding: 12px;
 }
-:deep(.header-buttons :nth-child(6)) {
+:deep(.header-buttons .black) {
   padding: 6px 12px;
   border: 2px solid $black;
   border-radius: 8px;
 }
-:deep(.header-buttons :nth-child(7)) {
+:deep(.header-buttons .red) {
   padding: 6px 12px;
   background-color: $red;
   color: $white !important;
