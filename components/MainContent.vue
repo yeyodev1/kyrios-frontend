@@ -28,7 +28,7 @@ const isUserLoggedIn = computed(() => userStore.user !== null);
             procesos, entre otros.
           </p>
           <GlobalButton
-            :to="isUserLoggedIn.valueOf ? '/tests' : '/userlogin'"
+            :to="isUserLoggedIn.value ? '/tests' : '/userlogin'"
             content="Empezar diagnostico"
           />
         </div>
