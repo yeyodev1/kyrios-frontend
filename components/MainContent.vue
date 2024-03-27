@@ -4,6 +4,13 @@ import { useUserStore } from '@/store/UserStore';
 const userStore = useUserStore();
 
 const isUserLoggedIn = computed(() => userStore.user !== null);
+
+function handleButtonRoute(){
+  if(isUserLoggedIn.value){
+    return '/tests';
+  }
+  return '/userlogin';
+}
 </script>
 
 <template>
@@ -28,7 +35,7 @@ const isUserLoggedIn = computed(() => userStore.user !== null);
             procesos, entre otros.
           </p>
           <GlobalButton
-            :to="isUserLoggedIn.value ? '/tests' : '/userlogin'"
+            :to="handleButtonRoute()"
             content="Empezar diagnostico"
           />
         </div>

@@ -40,10 +40,13 @@ onMounted(async() => {
     font-size: 48px;
     text-align: center;
     font-weight: 700;
+    @media (min-width: 768px) {
+      font-size: 5rem;
+    }
   }
   &-text {
     font-size: 1.3rem;
-    max-width: 80%;
+    max-width: 60ch;
     margin: 0 auto;
     text-align: center;
     padding: 24px;
