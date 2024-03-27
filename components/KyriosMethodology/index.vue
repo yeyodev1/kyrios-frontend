@@ -98,6 +98,7 @@ const props = defineProps({
     position: relative;
     right: 10px;
     z-index: 20;
+    padding: 0 20px;
   }
 }
 

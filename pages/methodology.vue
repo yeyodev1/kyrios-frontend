@@ -26,7 +26,7 @@ import { fase1, fase2, fase3, fase4, garantia } from '../utils/ContentMethodolog
 .mth__container {
   padding: 40px 20px;
   font-family: $font;
-
+  text-align: center;
   @media (min-width: 1024px) {
     width: 80vw;
     min-height: 60vh;
@@ -35,7 +35,6 @@ import { fase1, fase2, fase3, fase4, garantia } from '../utils/ContentMethodolog
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
   }
 
   &__title {
@@ -44,7 +43,7 @@ import { fase1, fase2, fase3, fase4, garantia } from '../utils/ContentMethodolog
     font-weight: 700;
     margin-bottom: 40px;
     @media (min-width: 1024px) {
-      font-size: 5rem;
+      font-size: 6rem;
     }
   }
 
