@@ -98,7 +98,7 @@ export const useUserStore = defineStore('UserStore', {
         console.log('id del usuario', userId)
         const response = await userService.getUserTestAccessLevel(userId);
         console.log('response', response)
-        ''
+        return response
       } catch (error: any) {
         this.errorMessage = error.message;
         throw error;
