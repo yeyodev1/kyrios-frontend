@@ -38,7 +38,7 @@ const userRules = {
   ],
   passwordValidation: [
     {
-      validate: (value: string) => value.length > 5,
+      validate: (value: string) => value.length > 1,
       message: 'El password debe tener de 1 dígito' 
     }
   ],
