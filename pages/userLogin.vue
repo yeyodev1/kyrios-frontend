@@ -33,8 +33,8 @@ const userRules = {
   ],
   passwordValidation: [
     {
-      validate: (value: string) => value.length > 7,
-      message: 'El password debe tener al menos 10 caracteres' 
+      validate: (value: string) => value.length > 1,
+      message: 'El password debe tener al menos 2 caracteres' 
     }
   ]
 }
