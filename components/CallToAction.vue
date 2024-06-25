@@ -12,7 +12,8 @@ const props = defineProps({
     required: false,
     default: '/'
   },
-  inverted: Boolean
+  inverted: Boolean,
+  idTitle: String
 })
 </script>
 
@@ -22,7 +23,7 @@ const props = defineProps({
     :class="{ inverted: inverted }" 
     class="component-container">
     <div class="text-content">
-      <h2 class="title">{{ title }}</h2>
+      <h2 class="title" :id="idTitle">{{ title }}</h2>
       <p class="subtitle">{{ subtitle }}</p>
       <p class="content">{{ content }}</p>
       <RouterLink v-if="buttonText" :to="link" class="action-button">  
