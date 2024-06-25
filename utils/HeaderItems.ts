@@ -1,78 +1,38 @@
 const subItemsForServices = [
   {
-    link: '/services#capacitacion',
-    name: 'Capacitación y auditoria',    
-    id: 'capacitacion'
+    link: '/services#normas',
+    name: 'Normas ISO y Sistemas de Gestión',    
+    id: 'normas'
   },
   {
-    link: '/services#implementacion',
-    name: 'Implementación y auditoría',
-    id: 'implementacion'
+    link: '/services#seguridad',
+    name: 'Seguridad Alimentaria',
+    id: 'seguridad'
   },
   {
-    link: '/services#reporte',
-    name: 'Reporte de sostenibilidad',
-    id: 'reporte'
-  },
-  {
-    link: '/services#capacitacion',
-    name: 'Capacitación y asesoría',
-    id: 'capacitacion'
+    link: '/services#auditorias',
+    name: 'Auditorías y Cumplimiento',
+    id: 'auditorias'
   },
   {
     link: '/services#gestion',
-    name: 'Gestión de riesgos',
+    name: 'Gestión de Operaciones y Procesos',
     id: 'gestion'
   },
   {
-    link: '/services#economia',
-    name: 'Economía circular',
-    id: 'economia'
+    link: '/services#proyectos',
+    name: 'Servicio al Cliente y Gestión de Proyectos',
+    id: 'proyectos'
   },
   {
-    link: '/services#proteccion',
-    name: 'Protección de datos',
-    id: 'proteccion'
+    link: '/services#tecnologia',
+    name: 'Tecnología de la Información',
+    id: 'tecnologia'
   },
   {
-    link: '/services#administracion',
-    name: 'Administración de bodegas',
-    id: 'administracion'
-  },
-  {
-    link: '/services#gerencia',
-    name: 'Gerencia estratégica de costos ABC',
-    id: 'gerencia'
-  },
-  {
-    link: '/services#analisis',
-    name: 'Análisis y mejora de procesos',
-    id: 'analisis'
-  },
-  {
-    link: '/services#lean',
-    name: 'LEAN Production',
-    id: 'lean'
-  },
-  {
-    link: '/services#mejora',
-    name: 'Mejora de servicio al cliente',
-    id: 'mejora'
-  },
-  {
-    link: '/services#gestion',
-    name: 'Gestión de proyectos',
-    id: 'gestion'
-  },
-  {
-    link: '/services#itil',
-    name: 'ITIL',
-    id: 'itil'
-  },
-  {
-    link: '/services#formador',
-    name: 'Formador de formadores',
-    id: 'formador'
+    link: '/services#formacion',
+    name: 'Formación',
+    id: 'formacion'
   }
 ]
 
