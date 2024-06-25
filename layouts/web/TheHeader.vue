@@ -132,6 +132,7 @@ async function handleLogout(Menu: any) {
   min-width: 160px;
   transition: .3s grid-template-rows;
   @media (min-width: 768px){
+    display: none;
     background-color: $white;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     position: absolute;
@@ -148,5 +149,8 @@ async function handleLogout(Menu: any) {
 }
 .dropdown:hover .dropdown-content {
   grid-template-rows: 1fr;
+  @media (min-width: 768px){
+    display: block;
+  }
 }
 </style>
