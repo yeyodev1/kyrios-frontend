@@ -1,45 +1,14 @@
 <script setup lang="ts">
 import { useUserStore } from '@/store/UserStore';
 
-import CrushHeader from '@nabux-crush/crush-header';
 import KyriosLogo from '@/assets/kyrios.png'
-
+import { allMenuItems } from '~/utils/HeaderItems';
+import CrushHeader from '@nabux-crush/crush-header';
 
 const userStore = useUserStore();
 
+const isDropDownMenuOpen = ref(false);
 const isUserLoggedIn = computed(() => userStore.user !== null);
-
-const allMenuItems = [
-  {
-    link: '/team', 
-    name: 'Equipo'
-  },
-  {
-    link: '/services',
-    name: 'Servicios'
-  },
-  {
-    link: '/boletines',
-    name: 'Boletines'
-  },
-  {
-    link: '/methodology',
-    name: 'Metodología'
-  },
-  {
-    link: '/about',
-    name: 'Conocenos'
-  },
-  {
-    link: '/userRegister',
-    name: 'Registrarte'
-  },
-  {
-    link: '/userlogin',
-    name: 'Empezar diagnóstico'
-  },  
-]
-
 const menuItems = computed(() => {
   const items = [ ...allMenuItems];
   if(isUserLoggedIn.value) {
@@ -56,40 +25,63 @@ const menuItems = computed(() => {
   return items;
 });
 
+function toggleDropDownMenu():void {
+  isDropDownMenuOpen.value = !isDropDownMenuOpen.value;
+}
 async function handleLogout(Menu: any) {
   await userStore.logout();
   Menu();
 }
-
-onMounted(() => {
-  console.log(userStore.user)
-})
-
 </script>
 
 <template>
   <header class="container">
     <CrushHeader
-      brandName="kyrios"
-      :logoSrc="KyriosLogo">
+      :logoSrc="KyriosLogo"
+      brandName="kyrios" >
       <template #menu-buttons="{ toggleMenu }">
-        <RouterLink 
-          v-for="(item, index) in menuItems" 
-          :key="index" 
-          :to="item.link"
-          :style="{ color: 'black', textDecoration: 'none', }"
-          :class="((item.name === 'Empezar diagnóstico' || item.name === 'Realizar diagnóstico') && 'red') || (item.name === 'Registrarte' && 'black')"
-          @click="toggleMenu">
-          {{item.name}}
-        </RouterLink>
-        <RouterLink 
-          v-if="isUserLoggedIn"
-          to="/"
-          :style="{ color: 'black', textDecoration: 'none', }"
-          class="black"
-          @click="handleLogout(toggleMenu)">
-          Cerrar Sesion
-        </RouterLink>
+          <template 
+            v-for="item in menuItems" 
+            :key="item.link">
+              <template v-if="item.name !== 'Servicios'">
+                <RouterLink 
+                  :to="item.link"
+                  :class="[
+                    'nav-link',
+                    { 'red': item.name === 'Empezar diagnóstico' || item.name === 'Realizar diagnóstico' },
+                    { 'black': item.name === 'Registrarte' }
+                  ]"
+                  @click="toggleMenu" >
+                    {{ item.name }}
+                </RouterLink>
+              </template>
+              
+              <div v-else class="dropdown">
+                <div 
+                  class="nav-link" 
+                  @click="toggleDropDownMenu">
+                    {{ item.name }}
+                </div>
+                <div class="dropdown-content" v-show="isDropDownMenuOpen">
+                  <RouterLink 
+                    v-for="subItem in item.subItems" 
+                    :key="subItem.link"
+                    :to="subItem.link"
+                    class="dropdown-item"
+                    @click="toggleMenu" >
+                      {{ subItem.name }}
+                  </RouterLink>
+                </div>
+              </div>
+          </template>
+          
+          <RouterLink 
+            v-if="isUserLoggedIn"
+            to="/"
+            class="nav-link black"
+            @click="handleLogout(toggleMenu)" >
+              Cerrar Sesión
+          </RouterLink>
       </template>
     </CrushHeader>
   </header>
@@ -126,10 +118,35 @@ onMounted(() => {
   border-radius: 8px;
   text-align: center;
 }
-.container {
-  &-buttons {
-    font-weight: 700;
-    color: $black !important;
+.nav-link {
+  color: $black;
+  text-decoration: none;
+}
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+.dropdown-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  min-width: 160px;
+  transition: .3s grid-template-rows;
+  @media (min-width: 768px){
+    background-color: $white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    position: absolute;
   }
+  a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    &:hover {
+      background-color: $white;
+    }
+  }
+}
+.dropdown:hover .dropdown-content {
+  grid-template-rows: 1fr;
 }
 </style>
