@@ -17,9 +17,9 @@
      PAYPHONE_TOKEN=
      PAYPHONE_APP_ID=
 
-     SERVICE_ID=service_4518sae
-     TEMPLATE_ID=template_6n0g6f4
-     PUBLIC_KEY=kghQZCSA9qfE6c05m
+     SERVICE_ID=
+     TEMPLATE_ID=
+     PUBLIC_KEY=
      ```
 
 3. **Instala las dependencias:**
