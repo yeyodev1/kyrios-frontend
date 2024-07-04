@@ -1,75 +1,33 @@
-# Nuxt 3 Minimal Starter
+# Kyrios Frontend
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Descripción
+  Esta es la plataforma frontend para que los usuarios sepan de que es kyrios, y adquirir sus servicios.
 
-## Setup
+## Instalación
 
-Make sure to install the dependencies:
+1. **Clona el repositorio:**
+   - Abre tu terminal y clona el proyecto con:
+     ```sh
+     git clone git@github.com:yeyodev1/kyrios-frontend.git
+     ```
 
-```bash
-# npm
-npm install
+2. **Crea el archivo `.env`:**
+   - Dentro del directorio del proyecto, crea un archivo `.env` con el siguiente contenido:
+     ```env
+     PAYPHONE_TOKEN=
+     PAYPHONE_APP_ID=
 
-# pnpm
-pnpm install
+     SERVICE_ID=service_4518sae
+     TEMPLATE_ID=template_6n0g6f4
+     PUBLIC_KEY=kghQZCSA9qfE6c05m
+     ```
 
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+3. **Instala las dependencias:**
+   - Ejecuta el siguiente comando para instalar las dependencias:
+     ```sh
+     npm install
+     ```
+   - Luego, puedes correr el proyecto en local con:
+     ```sh
+     npm run dev
+     ```
