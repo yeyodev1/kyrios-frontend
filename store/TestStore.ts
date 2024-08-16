@@ -279,7 +279,7 @@ const useTestStore = defineStore("testStore", {
         questions: [
           {
             clause: '',
-            questionText: 'Su organización determina las cuestiones externas e internas que son pertinentes para su propósito y que afectan su capacidad de lograr los resultados deseados de su SGCN?. NOTA Estas cuestiones pueden estar afectadas por los objetivos generales de la organización, sus productos y servicios y el tipo y nivel de riesgo que puede o no aceptar. <Se tienen análisis de prioridades a recuperar en caso de desastre se han considerado objetivos estrégicos>',
+            questionText: 'Su organización determina las cuestiones externas e internas que son pertinentes para su propósito y que afectan su capacidad de lograr los resultados deseados de su SGCN?. NOTA Estas cuestiones pueden estar afectadas por los objetivos generales de la organización, sus productos y servicios y el tipo y nivel de riesgo que puede o no aceptar. ',
             answerOptions: responseOptions.map(option => option.description),
             correctAnswer: ''
           },
@@ -303,7 +303,7 @@ const useTestStore = defineStore("testStore", {
           },
           {
             clause: '',
-            questionText: 'La organización ha: a)  establecido las partes de la organización a ser incluidas en el SGCN, teniendo en cuenta sus localizaciones, tamaño, naturaleza y complejidad; b) identificado los productos y servicios a ser incluidos en el SGCN, Al definir el alcance, la organización debe documentar y explicar las exclusiones. Las exclusiones deben   ser   explicadas.  Las mismas no   deben   afectar la capacidad y la responsabilidad de   la organización de proveer continuidad del negocio y de las operaciones que cumplan con los requisitos del SGCN, según lo determinado por el análisis de impacto en el negocio o la evaluación de riesgos y los requisitos legales o reglamentarios. <Documentar el alcance de la Continuidad del Negocio enfocada a TI>',
+            questionText: 'La organización ha: a)  establecido las partes de la organización a ser incluidas en el SGCN, teniendo en cuenta sus localizaciones, tamaño, naturaleza y complejidad; b) identificado los productos y servicios a ser incluidos en el SGCN, Al definir el alcance, la organización debe documentar y explicar las exclusiones. Las exclusiones deben   ser   explicadas.  Las mismas no   deben   afectar la capacidad y la responsabilidad de   la organización de proveer continuidad del negocio y de las operaciones que cumplan con los requisitos del SGCN, según lo determinado por el análisis de impacto en el negocio o la evaluación de riesgos y los requisitos legales o reglamentarios.',
             answerOptions: responseOptions.map(option => option.description),
             correctAnswer: ''
           },
@@ -393,7 +393,7 @@ const useTestStore = defineStore("testStore", {
           },
           {
             clause: '',
-            questionText: 'a)  distribución, acceso, recuperación y uso, b) almacenamiento y preservación, incluida la preservación de la legibilidad, c)  control de cambios (por ejemplo, control de versión), d) retención y disposición. La información documentada de origen externo, que la organización determina como necesaria para la planificación y la operación del SGCN, se debe identificar, según sea apropiado, y controlar. NOTA El acceso puede implicar una decisión en relación con el permiso, solamente para consultar la información documentada, o al permiso y a la autoridad para consultar y modificar la información documentada.  <Se requiere tener evicencias de la ejecución de pruebas de Plan de Continuidad>',
+            questionText: 'a)  distribución, acceso, recuperación y uso, b) almacenamiento y preservación, incluida la preservación de la legibilidad, c)  control de cambios (por ejemplo, control de versión), d) retención y disposición. La información documentada de origen externo, que la organización determina como necesaria para la planificación y la operación del SGCN, se debe identificar, según sea apropiado, y controlar. NOTA El acceso puede implicar una decisión en relación con el permiso, solamente para consultar la información documentada, o al permiso y a la autoridad para consultar y modificar la información documentada. ',
             answerOptions: responseOptions.map(option => option.description),
             correctAnswer: ''
           },
@@ -441,13 +441,13 @@ const useTestStore = defineStore("testStore", {
           },
           {
             clause: '',
-            questionText: '¿La organización determina los requisitos de recursos para implementar las soluciones de continuidad de negocio seleccionadas?.  Los tipos de recursos considerados deben incluir, pero no limitarse a: a)  las personas, b) la información y los datos, c)  infraestructura física como los edificios, el ambiente de trabajo y otras infraestructuras y servicios asociados, d) los equipos y los insumos, e)  los sistemas de tecnología de la información y la comunicación (TIC) f)   el transporte y la logística, g)  la financiación, y h) los socios y proveedores. <Se cuenta con recursos para la Continuidad TI, pero requieren formalizarse>',
+            questionText: '¿La organización determina los requisitos de recursos para implementar las soluciones de continuidad de negocio seleccionadas?.  Los tipos de recursos considerados deben incluir, pero no limitarse a: a)  las personas, b) la información y los datos, c)  infraestructura física como los edificios, el ambiente de trabajo y otras infraestructuras y servicios asociados, d) los equipos y los insumos, e)  los sistemas de tecnología de la información y la comunicación (TIC) f)   el transporte y la logística, g)  la financiación, y h) los socios y proveedores.',
             answerOptions: responseOptions.map(option => option.description),
             correctAnswer: ''
           },
           {
             clause: '',
-            questionText: '¿La organización determina los requisitos de recursos para implementar las soluciones de continuidad de negocio seleccionadas?.  Los tipos de recursos considerados deben incluir, pero no limitarse a: a)  las personas, b) la información y los datos, c)  infraestructura física como los edificios, el ambiente de trabajo y otras infraestructuras y servicios asociados, d) los equipos y los insumos, e)  los sistemas de tecnología de la información y la comunicación (TIC) f)   el transporte y la logística, g)  la financiación, y h) los socios y proveedores. <Se cuenta con recursos para la Continuidad TI, pero requieren formalizarse>',
+            questionText: '¿La organización determina los requisitos de recursos para implementar las soluciones de continuidad de negocio seleccionadas?.  Los tipos de recursos considerados deben incluir, pero no limitarse a: a)  las personas, b) la información y los datos, c)  infraestructura física como los edificios, el ambiente de trabajo y otras infraestructuras y servicios asociados, d) los equipos y los insumos, e)  los sistemas de tecnología de la información y la comunicación (TIC) f)   el transporte y la logística, g)  la financiación, y h) los socios y proveedores.',
             answerOptions: responseOptions.map(option => option.description),
             correctAnswer: ''
           },
@@ -501,7 +501,7 @@ const useTestStore = defineStore("testStore", {
           },
           {
             clause: '',
-            questionText: '¿La organización tiene procesos documentados para restaurar y volver a las actividades de negocios de las medidas temporales adoptadas durante y después de un incidente. <Requiere formalizar los procedimientos de recuperación>',
+            questionText: '¿La organización tiene procesos documentados para restaurar y volver a las actividades de negocios de las medidas temporales adoptadas durante y después de un incidente. ',
             answerOptions: responseOptions.map(option => option.description),
             correctAnswer: ''
           },
@@ -569,7 +569,7 @@ const useTestStore = defineStore("testStore", {
         questions: [
           {
             clause: '',
-            questionText: '¿La organización crea, implementa y mantiene un plan de gestión de servicios?. El plan debe tener en cuenta la política de gestión de servicios, los objetivos, riesgos y oportunidades de gestión de servicios, los requisitos de servicio y los requisitos especificados en este documento. <Existe una consecución de Planes de Servicio acorde al catálogo de servicios y los niveles de servicios acordados>',
+            questionText: '¿La organización crea, implementa y mantiene un plan de gestión de servicios?. El plan debe tener en cuenta la política de gestión de servicios, los objetivos, riesgos y oportunidades de gestión de servicios, los requisitos de servicio y los requisitos especificados en este documento.',
             answerOptions: responseOptions.map(option => option.description),
             correctAnswer: ''
           },
@@ -593,7 +593,7 @@ const useTestStore = defineStore("testStore", {
           },
           {
             clause: '',
-            questionText: 'La organización debe presupuestar y contabilizar servicios o grupos de servicios de acuerdo con sus políticas y procesos de gestión financiera. <Formalizar el costeo de los servicios TI>',
+            questionText: 'La organización presupuesta y contabiliza servicios o grupos de servicios de acuerdo con sus políticas y procesos de gestión financiera. ',
             answerOptions: responseOptions.map(option => option.description),
             correctAnswer: ''
           },
